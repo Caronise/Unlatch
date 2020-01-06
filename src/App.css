@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+.top-bar {
+  background-color: #414143;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 1.2% 1% 1.2% 1%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sign-in {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 14%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar-user {
+  border: 1px red solid;
+  width: fit-content;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.welcome {
+  padding: 1.3% 1% 1.3% 4%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 1px red solid;
+  width: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.my-garage {
+  width: 6.5em;
+  margin: .6% .2% .6% .2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar-menu {
+  border: 1px red solid;
+  width: fit-content;
+}
+
+h5 {
+  margin: 3%;
+}
+
+.side-toggle {
+  margin: 1% 2% 4% 2%;
+}
+
+.user-car {
+  border: 1px red solid;
+}
+
+.car-make {
+  margin: 2%;
+  width: 90%;
+}
+
+.car-model {
+  margin: 2%;
+  width: 90%;  
+}
+
+.car-year {
+  margin: 2%;
+  width: 90%;
+}
+
+.search-car {
+  margin: 1.4%;
+}
+
+.repair-options {
+  margin-left: 1%;
 }
