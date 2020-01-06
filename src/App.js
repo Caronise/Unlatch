@@ -17,7 +17,7 @@ function App() {
         <div class='sidebar-user'>
           <div class='welcome'>
             <span>Welcome, <strong>User</strong></span>
-            <button>My Garage</button>
+            <button class='user-cars'>My Garage</button>
           </div>
 
           <div class='sidebar-menu'>
