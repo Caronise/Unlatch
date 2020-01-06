@@ -1,24 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div class='top-bar'>
+        <span>Logo</span>
+        <div class='sign-in'>
+          <button>Sign up</button>
+          <button>Login</button>
+          <button>Logout</button>
+        </div>
+      </div>
+
+      <nav>
+        <div class='sidebar-user'>
+          <div class='welcome'>
+            <span>Welcome, <strong>User</strong></span>
+            <button>My Garage</button>
+          </div>
+
+          <div class='sidebar-menu'>
+            <h5>Dashboard</h5>
+            <button>Slide Toggle + Icon</button>
+            <div class='user-car'>
+              <p>Picture of Users Car</p>
+              <p>Make</p>
+              <p>Model</p>
+              <p>Year</p>
+            </div>
+            <div class='repair-options'>
+              <h5>What would you like to do?</h5>
+              <p>View Records</p>
+              <p>Find Parts</p>
+              <p>Find Videos</p>
+              <p>Find Garage</p>
+            </div>
+          </div>        
+
+        </div>
+      </nav>
+      
+
     </div>
   );
 }
