@@ -4,9 +4,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <div class='top-bar'>
+      <div className='top-bar'>
         <span>Logo</span>
-        <div class='sign-in'>
+        <div className='sign-in'>
           <button>Sign up</button>
           <button>Login</button>
           <button>Logout</button>
@@ -14,22 +14,25 @@ function App() {
       </div>
 
       <nav>
-        <div class='sidebar-user'>
-          <div class='welcome'>
+        <div className='sidebar-user'>
+          <div className='welcome'>
             <span>Welcome, <strong>User</strong></span>
-            <button class='user-cars'>My Garage</button>
+            <button className='my-garage'>My Garage</button>
           </div>
 
-          <div class='sidebar-menu'>
+          <div className='sidebar-menu'>
             <h5>Dashboard</h5>
-            <button>Slide Toggle + Icon</button>
-            <div class='user-car'>
+            <button className='side-toggle'>Slide Toggle + Icon</button>
+            <div className='user-car'>
               <p>Picture of Users Car</p>
-              <p>Make</p>
-              <p>Model</p>
-              <p>Year</p>
+              <form className='make-model-year'>
+                <input className='car-make' type='text' placeholder='Make'/><br/>
+                <input className='car-model' type='text' placeholder='Model'/><br/>
+                <input className='car-year' type='text' placeholder='Year'/><br/>
+                <input className='search-car' type='submit'/>
+              </form>
             </div>
-            <div class='repair-options'>
+            <div className='repair-options'>
               <h5>What would you like to do?</h5>
               <p>View Records</p>
               <p>Find Parts</p>

@@ -14,15 +14,20 @@
   width: 14%;
 }
 
-.welcome {
-  padding: 1.3% 1% 1.3% 1%;
-  display: flex;
-  flex-direction: column;
+.sidebar-user {
   border: 1px red solid;
   width: fit-content;
 }
 
-.user-cars {
+.welcome {
+  padding: 1.3% 1% 1.3% 4%;
+  display: flex;
+  flex-direction: column;
+  border: 1px red solid;
+  width: auto;
+}
+
+.my-garage {
   width: 6.5em;
   margin: .6% .2% .6% .2%;
 }
@@ -30,4 +35,39 @@
 .sidebar-menu {
   border: 1px red solid;
   width: fit-content;
+}
+
+h5 {
+  margin: 3%;
+}
+
+.side-toggle {
+  margin: 1% 2% 4% 2%;
+}
+
+.user-car {
+  border: 1px red solid;
+}
+
+.car-make {
+  margin: 2%;
+  width: 90%;
+}
+
+.car-model {
+  margin: 2%;
+  width: 90%;  
+}
+
+.car-year {
+  margin: 2%;
+  width: 90%;
+}
+
+.search-car {
+  margin: 1.4%;
+}
+
+.repair-options {
+  margin-left: 1%;
 }
