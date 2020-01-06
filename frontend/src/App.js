@@ -34,10 +34,10 @@ function App() {
             </div>
             <div className='repair-options'>
               <h5>What would you like to do?</h5>
-              <p>View Records</p>
-              <p>Find Parts</p>
-              <p>Find Videos</p>
-              <p>Find Garage</p>
+              <p className='odd'>View Records</p>
+              <p className='even'>Find Parts</p>
+              <p className='odd'>Find Videos</p>
+              <p className='even'>Find Garage</p>
             </div>
           </div>        
 

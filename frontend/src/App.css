@@ -71,3 +71,23 @@ h5 {
 .repair-options {
   margin-left: 1%;
 }
+
+.odd {
+  background-color: #EEEEEE;
+  margin: 0;
+  padding: 5%;
+}
+
+.odd:hover {
+  background-color: #ddd;
+}
+
+.even {
+  background-color: #F9F9F9;
+  margin: 0;
+  padding: 5%;
+}
+
+.even:hover {
+  background-color: #ddd;
+}
