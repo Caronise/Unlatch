@@ -8,5 +8,5 @@ CREATE TABLE vehicles (
   make VARCHAR(255) NOT NULL, 
   model VARCHAR(255) NOT NULL, 
   year SMALLINT, 
-  VIN  VARCHAR(17) NOT NULL    
+  VIN  VARCHAR(17)     
 );
