@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -36,8 +37,9 @@ function App() {
               <h5>What would you like to do?</h5>
               <p className='odd'>View Records</p>
               <p className='even'>Find Parts</p>
-              <p className='odd'>Find Videos</p>
-              <p className='even'>Find Garage</p>
+              <p className='odd'>Find Instructions</p>
+              <p className='even'>Find Videos</p>
+              <p className='odd'>Find Garage</p>
             </div>
           </div>        
 
