@@ -37,14 +37,11 @@ module.exports = db => {
 
   /* GET Vehicle ID. */
   router.get('/vehicles/:vehicle_id', (req, res) => {
-
     const { vehicle_id } = req.params;
-
     const query = {
       text: 'SELECT * FROM makes where id = $1',
       values: [vehicle_id]
     };
-
     db
       .query(query)
       .then(result => res.json(result.rows))

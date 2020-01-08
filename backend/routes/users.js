@@ -7,8 +7,7 @@ module.exports = db => {
 
   /* GET Login. */
   router.get('/login', (req, res) => {
-    res.send('This is the login route')
-
+    
   });
 
   /* GET Register. */
