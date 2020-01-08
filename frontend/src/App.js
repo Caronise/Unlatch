@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +16,10 @@ import Landing from './components/Landing';
 import Login from './components/Login';
 import Project from './components/Project';
 import Register from './components/Register';
+
+const axios = require('axios');
+
+const [state, setState] = useState(0);
 
 export default function App() {
   return (
@@ -71,7 +75,9 @@ export default function App() {
             </Route>
 
 
-            <Route path="/garage/:vehicle_id" children={<Vehicle />}>
+            <Route path="/garage/:vehicle_id" render={routeProps => (
+              <Vehicle {...routeProps} /> 
+            )}>
               <p>Garage:vehicle_id Page </p><Vehicle />
             </Route>
 
