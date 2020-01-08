@@ -7,623 +7,621 @@ VALUES ('1', '1', 'A3');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'A4');
+VALUES ('2', '1', 'A4');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'A5');
+VALUES ('3', '1', 'A5');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'A6');
+VALUES ('4', '1', 'A6');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'A7');
+VALUES ('5', '1', 'A7');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'A8');
+VALUES ('6', '1', 'A8');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'Q3');
+VALUES ('7', '1', 'Q3');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'Q6');
+VALUES ('8', '1', 'Q6');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'Q8');
+VALUES ('9', '1', 'Q8');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'S3');
+VALUES ('10', '1', 'S3');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'S4');
+VALUES ('11', '1', 'S4');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'S5');
+VALUES ('12', '1', 'S5');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '1', 'S6');
+VALUES ('13', '1', 'S6');
 
 
 --BMW 
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', '1 Series');
+VALUES ('14', '2', '1 Series');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', '2 Series');
+VALUES ('15', '2', '2 Series');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', '3 Series');
+VALUES ('16', '2', '3 Series');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', '4 Series');
+VALUES ('16', '2', '4 Series');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', '5 Series');
+VALUES ('17', '2', '5 Series');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', '6 Series');
+VALUES ('18', '2', '6 Series');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', '7 Series');
+VALUES ('19', '2', '7 Series');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', '8 Series');
+VALUES ('20', '2', '8 Series');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'X1');
+VALUES ('21', '2', 'X1');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'X2');
+VALUES ('22', '2', 'X2');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'X3');
+VALUES ('23', '2', 'X3');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'X4');
+VALUES ('24', '2', 'X4');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'X5');
+VALUES ('25', '2', 'X5');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'X6');
+VALUES ('26', '2', 'X6');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'M2');
+VALUES ('27', '2', 'M2');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'M3');
+VALUES ('28', '2', 'M3');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'M4');
+VALUES ('29', '2', 'M4');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'M5');
+VALUES ('30', '2', 'M5');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '2', 'M6');
+VALUES ('31', '2', 'M6');
 
 
 --Chevrolet 
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Bolt');
+VALUES ('32', '3', 'Bolt');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Corvette');
+VALUES ('33', '3', 'Corvette');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Colorado');
+VALUES ('34', '3', 'Colorado');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Malibu');
+VALUES ('35', '3', 'Malibu');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Sonic');
+VALUES ('36', '3', 'Sonic');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Volt');
+VALUES ('37', '3', 'Volt');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Camaro');
+VALUES ('38', '3', 'Camaro');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Cruze');
+VALUES ('39', '3', 'Cruze');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Impala');
+VALUES ('40', '3', 'Impala');
+
+INSERT INTO models (id, make_id, model_name)
+VALUES ('41', '3', 'Trax');
+
+INSERT INTO models (id, make_id, model_name)
+VALUES ('42', '3', 'Equinox');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Trax');
+VALUES ('43', '3', 'Tahoe');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Equinox');
+VALUES ('44', '3', 'Silverado');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Tahoe');
-
-
-INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Silverado');
-
-
-INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '3', 'Cavalier');
+VALUES ('45', '3', 'Cavalier');
 
 
 --Dodge
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '4', 'Challenger');
+VALUES ('46', '4', 'Challenger');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '4', 'Charger');
+VALUES ('47', '4', 'Charger');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '4', 'Durango');
+VALUES ('48', '4', 'Durango');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '4', 'Caravan');
+VALUES ('49', '4', 'Caravan');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '4', 'Journey');
+VALUES ('50', '4', 'Journey');
 
 
 --Ford
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Fiesta');
+VALUES ('51', '5', 'Fiesta');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Focus');
+VALUES ('52', '5', 'Focus');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Taurus');
+VALUES ('53', '5', 'Taurus');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Mustang');
+VALUES ('54', '5', 'Mustang');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Explorer');
+VALUES ('55', '5', 'Explorer');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Escort');
+VALUES ('56', '5', 'Escort');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Expedition');
+VALUES ('57', '5', 'Expedition');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Ranger');
+VALUES ('58', '5', 'Ranger');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'F-150');
+VALUES ('59', '5', 'F-150');
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '5', 'Super Duty');
+VALUES ('60', '5', 'Super Duty');
 
 
 --Honda 
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Civic');
+VALUES ('61', '6', 'Civic');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Civic SI');
+VALUES ('62', '6', 'Civic SI');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Civic Type R');
+VALUES ('63', '6', 'Civic Type R');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Accord');
+VALUES ('64', '6', 'Accord');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'CR-V');
+VALUES ('65', '6', 'CR-V');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'S2000');
+VALUES ('66', '6', 'S2000');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Odyssey');
+VALUES ('67', '6', 'Odyssey');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Pilot');
+VALUES ('68', '6', 'Pilot');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'HR-V');
+VALUES ('69', '6', 'HR-V');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Passport');
+VALUES ('70', '6', 'Passport');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Fit');
+VALUES ('71', '6', 'Fit');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Ridgeline');
+VALUES ('72', '6', 'Ridgeline');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '6', 'Del Sol');
+VALUES ('73', '6', 'Del Sol');
 
 --Hyundai 
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '7', 'Elantra');
+VALUES ('74', '7', 'Elantra');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '7', 'Sonata');
+VALUES ('75', '7', 'Sonata');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '7', 'Tucson');
+VALUES ('76', '7', 'Tucson');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '7', 'Santa Fe');
+VALUES ('77', '7', 'Santa Fe');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '7', 'Veloster');
+VALUES ('78', '7', 'Veloster');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '7', 'Palisade');
+VALUES ('79', '7', 'Palisade');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '7', 'Kona');
+VALUES ('80', '7', 'Kona');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '7', 'Tiburon');
+VALUES ('81', '7', 'Tiburon');
 
 
 --Lexus 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'IS');
+VALUES ('82', '8', 'IS');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'ES');
+VALUES ('83', '8', 'ES');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'GS');
+VALUES ('84', '8', 'GS');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'NX');
+VALUES ('85', '8', 'NX');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'RX');
+VALUES ('86', '8', 'RX');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'UX');
+VALUES ('87', '8', 'UX');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'RC');
+VALUES ('88', '8', 'RC');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'GX');
+VALUES ('89', '8', 'GX');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'LC');
+VALUES ('90', '8', 'LC');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '8', 'LS');
+VALUES ('91', '8', 'LS');
 
 
 --Mazda 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '9', '3');
+VALUES ('92', '9', '3');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '9', '6');
+VALUES ('93', '9', '6');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '9', 'MX-5');
+VALUES ('94', '9', 'MX-5');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '9', 'CX-3');
+VALUES ('95', '9', 'CX-3');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '9', 'CX-5');
+VALUES ('96', '9', 'CX-5');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '9', 'CX-9');
+VALUES ('97', '9', 'CX-9');
 
 
 --Mercedes-Benz
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'A Class');
+VALUES ('98', '10', 'A Class');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'B Class');
+VALUES ('99', '10', 'B Class');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'C Class');
+VALUES ('100', '10', 'C Class');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'E Class');
+VALUES ('101', '10', 'E Class');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'G Class');
+VALUES ('102', '10', 'G Class');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'R Class');
+VALUES ('103', '10', 'R Class');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'S Class');
+VALUES ('104', '10', 'S Class');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'CLA');
+VALUES ('105', '10', 'CLA');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'CLS');
+VALUES ('106', '10', 'CLS');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'GLA');
+VALUES ('107', '10', 'GLA');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'GLE');
+VALUES ('108', '10', 'GLE');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'GLC');
+VALUES ('109', '10', 'GLC');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '10', 'GLS');
+VALUES ('110', '10', 'GLS');
 
 
 --Nissan 
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', '300zx');
+VALUES ('111', '11', '300zx');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', '350z');
+VALUES ('112', '11', '350z');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', '370z');
+VALUES ('113', '11', '370z');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Micra');
+VALUES ('114', '11', 'Micra');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Leaf');
+VALUES ('115', '11', 'Leaf');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Qashqai');
+VALUES ('116', '11', 'Qashqai');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Sentra');
+VALUES ('117', '11', 'Sentra');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Altima');
+VALUES ('118', '11', 'Altima');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Pathfinder');
+VALUES ('119', '11', 'Pathfinder');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Murano');
+VALUES ('120', '11', 'Murano');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Maxima');
+VALUES ('121', '11', 'Maxima');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Rogue');
+VALUES ('122', '11', 'Rogue');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Titan');
+VALUES ('123', '11', 'Titan');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Kicks');
+VALUES ('124', '11', 'Kicks');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Titan');
+VALUES ('125', '11', 'Titan');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Frontier');
+VALUES ('126', '11', 'Frontier');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Armada');
+VALUES ('127', '11', 'Armada');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '11', 'Cube');
+VALUES ('128', '11', 'Cube');
 
 --Toyota 
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Corolla');
+VALUES ('129', '12', 'Corolla');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Camry');
+VALUES ('130', '12', 'Camry');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'RAV4');
+VALUES ('131', '12', 'RAV4');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'C-HR');
+VALUES ('132', '12', 'C-HR');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Prius');
+VALUES ('133', '12', 'Prius');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', '86');
+VALUES ('134', '12', '86');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Tacoma');
+VALUES ('135', '12', 'Tacoma');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Highlander');
+VALUES ('136', '12', 'Highlander');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Mirai');
+VALUES ('137', '12', 'Mirai');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', '4Runner');
+VALUES ('138', '12', '4Runner');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Sienna');
+VALUES ('139', '12', 'Sienna');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Tundra');
+VALUES ('140', '12', 'Tundra');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Yaris');
+VALUES ('141', '12', 'Yaris');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Echo');
+VALUES ('142', '12', 'Echo');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'Supra');
+VALUES ('143', '12', 'Supra');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '12', 'MR2');
+VALUES ('144', '12', 'MR2');
 
 
 --Volkswagen 
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Golf');
+VALUES ('145', '13', 'Golf');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Golf GTI');
+VALUES ('146', '13', 'Golf GTI');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Golf R');
+VALUES ('147', '13', 'Golf R');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Jetta');
+VALUES ('148', '13', 'Jetta');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'GLI');
+VALUES ('149', '13', 'GLI');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Passat');
+VALUES ('150', '13', 'Passat');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Arteon');
+VALUES ('151', '13', 'Arteon');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Tiguan');
+VALUES ('152', '13', 'Tiguan');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Beetle');
+VALUES ('153', '13', 'Beetle');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Atlas');
+VALUES ('154', '13', 'Atlas');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'EOS');
+VALUES ('155', '13', 'EOS');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Touareg');
+VALUES ('156', '13', 'Touareg');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Corrado');
+VALUES ('157', '13', 'Corrado');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '13', 'Phaeton');
+VALUES ('158', '13', 'Phaeton');
 
 
 --Volvo 
 
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'C30');
+VALUES ('159', '14', 'C30');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'S40');
+VALUES ('160', '14', 'S40');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'V50');
+VALUES ('161', '14', 'V50');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'S60');
+VALUES ('162', '14', 'S60');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'V70');
+VALUES ('163', '14', 'V70');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'S80');
+VALUES ('164', '14', 'S80');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'S90');
+VALUES ('165', '14', 'S90');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'XC40');
+VALUES ('166', '14', 'XC40');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'XC60');
+VALUES ('167', '14', 'XC60');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'XC70');
+VALUES ('168', '14', 'XC70');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', 'XC90');
+VALUES ('169', '14', 'XC90');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', '740');
+VALUES ('170', '14', '740');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', '240');
+VALUES ('171', '14', '240');
 
 INSERT INTO models (id, make_id, model_name)
-VALUES ('1', '14', '850');
+VALUES ('172', '14', '850');
 
 
 
