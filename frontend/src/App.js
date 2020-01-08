@@ -7,11 +7,12 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
-import Dashboard from './components/Dashboard';
+
+import Home from './components/Home';
 import Footer from './components/Footer';
 import Garage from './components/Garage'; 
 import Header from './components/Header';
-import Home from './components/Home';
+import Landing from './components/Landing';
 import Login from './components/Login';
 import Project from './components/Project';
 import Register from './components/Register';
@@ -24,7 +25,7 @@ export default function App() {
           <Header />
           <ul>
             <li>
-              <Link to="/">Root</Link>
+              <Link to="/">Landing</Link>
             </li>
             <li>
               <Link to="/login">Login</Link>
@@ -54,7 +55,7 @@ export default function App() {
 
           <Switch>
             <Route exact path='/'>
-              <Dashboard />
+              <Landing />
             </Route>
             <Route path="/login">
               <Login />
