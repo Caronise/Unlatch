@@ -7,6 +7,11 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+
+const knexConfig = require('./knexfile');
+const knex = require('knex')(knexConfig['development']);
+require('dotenv').config();
+
 var app = express();
 
 // view engine setup
