@@ -2,8 +2,24 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
 
-module.exports = router;
+module.exports = db => {
+
+  /* GET Login. */
+  router.get('/login', (req, res) => {
+    res.send('This is the login route')
+
+  });
+
+  /* GET Register. */
+  router.get('/register', (req, res) => {
+    res.send('This is the register route')
+  });
+
+  /* GET Logout. */
+  router.get('/logout', (req, res) => {
+    res.send('This is the logout route')
+  });
+
+  return router
+};
