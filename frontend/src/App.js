@@ -7,17 +7,21 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
-import Header from './components/header';
-import Garage from './components/header'; 
-import Dashboard from './components/dashboard'
-import Footer from './components/footer'
+import Dashboard from './components/Dashboard';
+import Footer from './components/Footer';
+import Garage from './components/Garage'; 
+import Header from './components/Header';
+import Home from './components/Home';
+import Login from './components/Login';
+import Project from './components/Project';
+import Register from './components/Register';
 
 export default function App() {
   return (
     <Router>
       <div>
         <nav>
-          <p>Logo</p>
+          <Header />
           <ul>
             <li>
               <Link to="/">Root</Link>
@@ -27,9 +31,6 @@ export default function App() {
             </li>
             <li>
               <Link to="/register">Register</Link>
-            </li>
-            <li>
-              <Link to="/logout">Log out</Link>
             </li>
             <li>
               <Link to="/home">Home</Link>
@@ -53,22 +54,19 @@ export default function App() {
 
           <Switch>
             <Route exact path='/'>
-              <p>WAZZZA</p>
+              <Dashboard />
             </Route>
             <Route path="/login">
-              <p>Login Page</p>
+              <Login />
             </Route>
             <Route path="/register">
-              <p>Register Page</p>
-            </Route>
-            <Route path="/logout">
-              <p>Logout Page</p>
+              <Register />
             </Route>
             <Route path="/home">
-              <p>Home Page</p>
+              <Home />
             </Route>
             <Route exact path="/garage">
-              <p>Garage Page</p>
+              <Garage />
             </Route>
 
 
@@ -78,15 +76,17 @@ export default function App() {
 
 
             <Route exact path="/projects">
-              <p>Projects Page</p>
+              <Project />
             </Route>
             <Route path="/projects/:project_id" children>
-              <p>Projects/:project_id Page</p>
+              <Project />
             </Route>
 
           </Switch>
 
         </main>
+
+        <Footer />
 
       </div>
     </Router>
