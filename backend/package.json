@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/www",
     "local": "./node_modules/.bin/nodemon  -L --ignore public/",
-    "db:reset": "node ./bin/resetdb.js"
+    "db:reset": "node resetdb.js"
   },
   "dependencies": {
     "axios": "^0.19.1",
@@ -18,7 +19,6 @@
     "ejs": "^3.0.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
     "lodash": "^4.17.15",
     "morgan": "~1.9.1",
     "node-sass-middleware": "^0.11.0",
