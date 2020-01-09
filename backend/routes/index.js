@@ -15,9 +15,54 @@ module.exports = db => {
 
   });
 
+  /* POST Login. */
+  router.post('/login', (req, res) => {
+    const { email, password} = req.body;
+    const text = `
+      SELECT * FROM users
+      WHERE email = $1 AND password = $2
+    ;`;
+    const values = [ email, password ];
+
+    db.query(text, values)
+      .then(data => {
+        if (data.rows[0].length === 0) {
+          res.send( { message: "You're not logged in!" });
+        } 
+        // else {
+        //   req.session.user_id = data.rows[0].id;
+        //   res.send( { message: "Succesfully set session" })
+        // }
+      })
+      .catch(error => {
+        console.log(`${error}`)
+      })
+  });
+
   /* GET Register. */
   router.get('/register', (req, res) => {
     res.send('This is the register route')
+  });
+
+  /* POST Register. */
+  router.post('/register', (req, res) => {
+    const { username, email, password } = req.body;
+    const text = `
+      INSERT INTO users (username, email, password)
+      VALUES ($1, $2, $3)
+      RETURNING id
+    ;`;
+    const values = [username, email, password];
+
+    db.query(text, values)
+      .then(data => {
+        const userId = data.rows[0].id;
+        // req.session.user_id = userId
+        res.send( {username} );
+      })
+      .catch(error => {
+        console.log(`${error}`)
+      });
   });
 
   /* GET Logout. */
@@ -39,7 +84,7 @@ module.exports = db => {
   router.get('/vehicles/:vehicle_id', (req, res) => {
     const { vehicle_id } = req.params;
     const query = {
-      text: 'SELECT * FROM makes where id = $1',
+      text: 'SELECT * FROM vehicles where id = $1',
       values: [vehicle_id]
     };
     db
@@ -85,7 +130,15 @@ module.exports = db => {
 
   /* GET Videos. */
   router.get('/vehicles/:vehicle_id/projects/:project_id/videos', (req, res) => {
-    res.send('This is the project video instructions route')
+    const { vehicle_id } = req.params;
+    const query = {
+      text: 'SELECT * FROM vehicles where id = $1',
+      values: [vehicle_id]
+    };
+    db
+      .query(query)
+      .then(result => res.json(result.rows))
+      .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
 
