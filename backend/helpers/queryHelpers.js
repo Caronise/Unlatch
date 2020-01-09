@@ -11,10 +11,10 @@ module.exports = db => {
       .query(query);
   };
 
-  const addUser = (username, email, password) => {
+  const addUser = (id, username, email, password) => {
     const query = {
-      text: `INSERT INTO users(username, email, password) VALUES($1, $2, $3) RETURNING *`,
-      values: [username, email, password]
+      text: `INSERT INTO users(id, username, email, password) VALUES($1, $2, $3, $4) RETURNING *`,
+      values: [id, username, email, password]
     };
     return db
       .query(query);

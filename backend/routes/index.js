@@ -10,75 +10,75 @@ module.exports = db => {
   
   });
 
-  // /* GET Login. */
-  // router.get('/login', (req, res) => {
-  //   res.send('This is the login route')
+  /* GET Login. */
+  router.get('/login', (req, res) => {
+    res.send('This is the login route')
 
-  // });
+  });
 
-  // /* POST Login. */
-  // router.post('/login', (req, res) => {
-  //   const { email, password} = req.body;
-  //   const text = `
-  //     SELECT * FROM users
-  //     WHERE email = $1 AND password = $2
-  //   ;`;
-  //   const values = [ email, password ];
+  /* POST Login. */
+  router.post('/login', (req, res) => {
+    const { email, password} = req.body;
+    const text = `
+      SELECT * FROM users
+      WHERE email = $1 AND password = $2
+    ;`;
+    const values = [ email, password ];
 
-  //   db.query(text, values)
-  //     .then(data => {
-  //       if (data.rows[0].length === 0) {
-  //         res.send( { message: "You're not logged in!" });
-  //       } 
-  //       // else {
-  //       //   req.session.user_id = data.rows[0].id;
-  //       //   res.send( { message: "Succesfully set session" })
-  //       // }
-  //     })
-  //     .catch(error => {
-  //       console.log(`${error}`)
-  //     })
-  // });
+    db.query(text, values)
+      .then(data => {
+        if (data.rows[0].length === 0) {
+          res.send( { message: "You're not logged in!" });
+        } 
+        // else {
+        //   req.session.user_id = data.rows[0].id;
+        //   res.send( { message: "Succesfully set session" })
+        // }
+      })
+      .catch(error => {
+        console.log(`${error}`)
+      })
+  });
 
-  // /* GET Register. */
-  // router.get('/register', (req, res) => {
-  //   res.send('This is the register route')
-  // });
+  /* GET Register. */
+  router.get('/register', (req, res) => {
+    res.send('This is the register route')
+  });
 
-  // /* POST Register. */
-  // router.post('/register', (req, res) => {
-  //   const { username, email, password } = req.body;
-  //   const text = `
-  //     INSERT INTO users (username, email, password)
-  //     VALUES ($1, $2, $3)
-  //     RETURNING id
-  //   ;`;
-  //   const values = [username, email, password];
+  /* POST Register. */
+  router.post('/register', (req, res) => {
+    const { id, username, email, password } = req.body;
+    const text = `
+      INSERT INTO users (id, username, email, password)
+      VALUES ($1, $2, $3, $4)
+      RETURNING id
+    ;`;
+    const values = [id, username, email, password];
 
-  //   db.query(text, values)
-  //     .then(data => {
-  //       const userId = data.rows[0].id;
-  //       // req.session.user_id = userId
-  //       res.send( {username} );
-  //     })
-  //     .catch(error => {
-  //       console.log(`${error}`)
-  //     });
-  // });
+    db.query(text, values)
+      .then(data => {
+        const userId = data.rows[0].id;
+        req.session.id = userId
+        res.send( {username} );
+      })
+      .catch(error => {
+        console.log(`${error}`)
+      });
+  });
 
-  // /* GET Logout. */
-  // router.get('/logout', (req, res) => {
-  //   res.send('This is the logout route')
-  // });
+  /* GET Logout. */
+  router.get('/logout', (req, res) => {
+    res.send('This is the logout route')
+  });
 
-  // router.post('/logout', (req, res) => {
-  //   req.session.id = null;
-  //   res.send({});
-  // });
+  router.post('/logout', (req, res) => {
+    req.session.id = null;
+    res.send({});
+  });
 
-  // router.get('/vehicles', (req, res) => {
-  //   res.send('This is the add vehicle route')
-  // })
+  router.get('/vehicles', (req, res) => {
+    res.send('This is the add vehicle route')
+  })
 
   /* POST Add Vehicle. */
   router.post('/vehicles', (req, res) => {
