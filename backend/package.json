@@ -9,7 +9,6 @@
     "db:reset": "node resetdb.js"
   },
   "dependencies": {
-    "axios": "^0.19.1",
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
     "cookie-parser": "~1.4.4",
