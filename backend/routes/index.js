@@ -100,17 +100,28 @@ module.exports = db => {
 
   /* GET Projects. */
   router.get('/vehicles/:vehicle_id/projects', (req, res) => {
-    res.send('This is the projects route after selecting vehicle')
-  });
-
-  /* GET New Project. */
-  router.get('/vehicles/:vehicle_id/projects/new_project', (req, res) => {
-    res.send('This is the projects route to create new project')
+    const { project_id } = req.params;
+    const query = {
+      text: 'SELECT * FROM premade_projects WHERE id = $1 AND vehicle_id = $2 AND project_name = $3 AND difficulty = $4',
+      values: [project_id]
+    };
+    db
+      .query(query)
+      .then(result => res.json(result.rows))
+      .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
   /* GET New Project ID. */
   router.get('/vehicles/:vehicle_id/projects/:project_id', (req, res) => {
-    res.send('This is the projects route after making new project')
+      const { project_id } = req.params;
+      const query = {
+        text: 'SELECT id FROM premade_projects where id = $1',
+        values: [project_id]
+      };
+      db
+        .query(query)
+        .then(result => res.json(result.rows))
+        .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
   /* GET Notes. */
