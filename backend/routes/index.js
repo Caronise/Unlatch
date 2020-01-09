@@ -70,44 +70,86 @@ module.exports = db => {
     res.send('This is the logout route')
   });
 
-  /* GET Vehicles. */
-  router.get('/vehicles', (req, res) => {
-    res.send('This is the vehicles route')
-  });
+  /* POST Add Vehicle. */
+  router.post('/vehicles', (req, res) => {
+    if (!req.body) {
+      res.status(400).json({ error: 'invalid request: no data in POST body'});
+      return;
+    }
 
-  /* GET Add Vehicle. */
-  router.post('/vehicles/add_vehicle', (req, res) => {
-    res.json('This is the add vehicle route')
+    // extract content from the body of the request (req.body)
+    const { make_id, vehicle_name, year} = req.body;
+  
+
+    getMakes()
+      .then(makes => {
+        // find out the make of the vehicle from extracted data
+        let makeResult = makesCheck(makes, makeEntry);
+
+        // ******* WHAT DO I DO WHEN THE MAKE DOESN'T EXIST ????? **************
+        console.log(makeResult);
+        console.log("GENERIC LABEL: ", makeResult);
+        if (!makeResult) {
+          makeResult = 'No such brand in'
+        }
+
+        // QUERY THAT CHECKS WHAT THE MAKES ID IS WHEN GIVEN THE MAKE NAME
+        const text = `
+        SELECT makes.id
+        FROM makes
+        WHERE makes.make_name LIKE $1
+        `;
+        const values = [makeResult];
+
+        db.query(text, values)
+          .then(data => {
+            // - insert the todo in the database with the category
+            const text = `
+            INSERT INTO vehicles ()
+            `;
+          })
+      });
   });
+    
 
   /* GET Vehicle ID. */
   router.get('/vehicles/:vehicle_id', (req, res) => {
-    const { vehicle_id } = req.params;
-    const query = {
-      text: 'SELECT * FROM vehicles where id = $1',
-      values: [vehicle_id]
-    };
-    db
-      .query(query)
+    const text = `
+    SELECT * FROM vehicles
+    WHERE id = $1
+    ;`;
+    const values = [ req.params ];
+    db.query(text, values)
       .then(result => res.json(result.rows))
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
-  /* GET Delete Vehicle. */
-  router.get('/vehicles/:vehicle_id/delete_vehicle', (req, res) => {
-    res.send('This is the delete vehicle route')
+  /* DELETE Vehicle ID. */
+  router.delete("/vehicles/:vehicle_id", (req, res) => {
+    const text = `
+    DELETE FROM vehicles
+    WHERE vehicles.id = $1
+    ;`;
+    const values = [ req.params.id ];
+    db.query(text, values)
+    .then(data => {
+      res.send( { message: "Vehicle Deleted" });
+    })
+    .catch(error => {
+      console.log(`${error}`);
+    })
   });
 
   /* GET Projects. */
   router.get('/vehicles/:vehicle_id/projects', (req, res) => {
     const { project_id } = req.params;
-    const query = {
-      text: 'SELECT * FROM premade_projects WHERE id = $1 AND vehicle_id = $2 AND project_name = $3 AND difficulty = $4',
-      values: [project_id]
-    };
-    db
-      .query(query)
-      .then(result => res.json(result.rows))
+    const text = `
+      SELECT * FROM premade_projects 
+      WHERE id = $1 AND vehicle_id = $2 AND project_name = $3 AND difficulty = $4
+      ;`;
+    const values = [ project_id ]
+    db.query(text, values)
+      .then(data => res.json(data.rows))
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
@@ -125,27 +167,56 @@ module.exports = db => {
   });
 
   /* GET Notes. */
-  router.get('/vehicles/:vehicle_id/projects/:project_id/notes', (req, res) => {
-    res.send('This is the project notes route')
+  router.get('/projects/:project_id/notes', (req, res) => {
+    const { project_id } = req.params; 
+    const query = { 
+      text: 'SELECT * FROM projects JOIN notes ON notes.project_id = projects.id WHERE project_id = $1;',
+      values: [project_id]
+    };
+    
+     db 
+       .query(query)
+       .then(result => res.json(result.rows))
+       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
+
   /* GET Parts. */
-  router.get('/vehicles/:vehicle_id/projects/:project_id/parts', (req, res) => {
-    res.send('This is the project parts route')
+  router.get('/projects/:project_id/parts', (req, res) => {
+    const { project_id} = req.params; 
+    const query = { 
+      text: 'SELECT * FROM projects JOIN parts ON parts.project_id = projects.id WHERE project_id = $1;', 
+      values: [project_id]
+    };
+
+    db 
+      .query(query)
+      .then(result => res.json(result.rows))
+      .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
   /* GET Instructions. */
-  router.get('/vehicles/:vehicle_id/projects/:project_id/instructions', (req, res) => {
-    res.send('This is the project instructions route')
+  router.get('/projects/:project_id/instructions', (req, res) => {
+    const { project_id} = req.params; 
+    const query = { 
+      text: 'SELECT * FROM projects JOIN instructions ON instructions.project_id = projects.id WHERE project_id = $1;', 
+      values: [project_id]
+    };
+    
+    db 
+    .query(query)
+    .then(result => res.json(result.rows))
+    .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
   /* GET Videos. */
-  router.get('/vehicles/:vehicle_id/projects/:project_id/videos', (req, res) => {
-    const { vehicle_id } = req.params;
+  router.get('/projects/:project_id/videos', (req, res) => {
+    const { project_id } = req.params;
     const query = {
-      text: 'SELECT * FROM vehicles where id = $1',
-      values: [vehicle_id]
+      text: 'SELECT * FROM projects JOIN videos ON videos.project_id = projects.id WHERE project_id = $1;',
+      values: [project_id]
     };
+   
     db
       .query(query)
       .then(result => res.json(result.rows))
@@ -153,5 +224,5 @@ module.exports = db => {
   });
 
 
-  return router
+  return router;
 };
