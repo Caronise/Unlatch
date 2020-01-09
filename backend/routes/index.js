@@ -1,6 +1,5 @@
-const express = require('express');
-const router = express.Router();
-const { getMakes, makesCheck } = require('../helpers/add_vehicle');
+var express = require('express');
+var router = express.Router();
 
 module.exports = db => {
   
@@ -47,18 +46,18 @@ module.exports = db => {
 
   /* POST Register. */
   router.post('/register', (req, res) => {
-    const { id, username, email, password } = req.body;
+    const { username, email, password } = req.body;
     const text = `
-      INSERT INTO users (id, username, email, password)
-      VALUES ($1, $2, $3, $4)
+      INSERT INTO users (username, email, password)
+      VALUES ($1, $2, $3)
       RETURNING id
     ;`;
-    const values = [id, username, email, password];
+    const values = [username, email, password];
 
     db.query(text, values)
       .then(data => {
         const userId = data.rows[0].id;
-        req.session.id = userId
+        // req.session.user_id = userId
         res.send( {username} );
       })
       .catch(error => {
@@ -71,86 +70,39 @@ module.exports = db => {
     res.send('This is the logout route')
   });
 
-  router.post('/logout', (req, res) => {
-    req.session.id = null;
-    res.send({});
-  });
-
+  /* GET Vehicles. */
   router.get('/vehicles', (req, res) => {
-    res.send('This is the add vehicle route')
-  })
-
-  /* POST Add Vehicle. */
-  router.post('/vehicles', (req, res) => {
-    if (!req.body) {
-      res.status(400).json({ error: 'invalid request: no data in POST body'});
-      return;
-    }
-
-    // extract content from the body of the request (req.body)
-    const { make_id, vehicle_name, year} = req.body;
-  
-
-    getMakes()
-      .then(makes => {
-        // find out the make of the vehicle from extracted data
-        let makeResult = makesCheck(makes, makeEntry);
-
-        // ******* WHAT DO I DO WHEN THE MAKE DOESN'T EXIST ????? **************
-        console.log(makeResult);
-        console.log("GENERIC LABEL: ", makeResult);
-        if (!makeResult) {
-          makeResult = 'No such brand in'
-        }
-
-        // QUERY THAT CHECKS WHAT THE MAKES ID IS WHEN GIVEN THE MAKE NAME
-        const text = `
-        SELECT makes.id
-        FROM makes
-        WHERE makes.make_name LIKE $1
-        `;
-        const values = [makeResult];
-
-        db.query(text, values)
-          .then(data => {
-            // - insert the todo in the database with the category
-            const text = `
-            INSERT INTO vehicles (id, user_id, make_id, vehicle_name, year, vin, picture_url)
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
-            RETURNING *
-            `;
-            const values = [1, data.rows[0].id, make_id, vehicle_name, year, vin, picture_url];
-            db.query(text, values)
-              .then(data => {
-              // send back response to the client (response is the new vehicle, with make id)
-              return (data.rows[0]);
-              })
-              .then(newVehicle => {
-                const query = {
-                  text: 'SELECT vehicle_name FROM categories WHERE id = $1',
-                  values: [newVehicle.vehicle_name]
-                }
-                db.query(query)
-                  .then(result=>{
-                  newTodo.category = result.rows[0].vehicle_name;
-                  res.json(newVehicle);
-                })
-              })
-          })
-          .catch(error => {
-            console.log(`${error}`);
-          });
-      });
+    res.send('This is the vehicles route')
   });
-    
+
+  /* GET Add Vehicle. */
+  router.post('/vehicles/add_vehicle', (req, res) => {
+    const { make, model, year } = req.body;
+    const text = `
+    INSERT INTO vehicles (make, model, year)
+    VALUES ($1, $2, $3)
+    RETURNING id
+    ;`;
+    const values = [ make, model, year ];
+
+    db.query(text, values)
+      .then(data => {
+        const vehicle_id = data.rows[0].id;
+        req.session.id = vehicle_id;
+        res.send( { email } );
+      })
+      .catch(error => {
+        console.log(`${error}`);
+    });
+  });
 
   /* GET Vehicle ID. */
   router.get('/vehicles/:vehicle_id', (req, res) => {
     const text = `
     SELECT * FROM vehicles
     WHERE id = $1
-    ;`;
-    const values = [ req.params ];
+    `;
+    const values = [ req.params.vehicle_id ];
     db.query(text, values)
       .then(result => res.json(result.rows))
       .catch(err => console.log(`Error getting data: ${err.message}`))
@@ -161,7 +113,7 @@ module.exports = db => {
     const text = `
     DELETE FROM vehicles
     WHERE vehicles.id = $1
-    ;`;
+    `;
     const values = [ req.params.id ];
     db.query(text, values)
     .then(data => {
@@ -177,8 +129,7 @@ module.exports = db => {
     const { project_id } = req.params;
     const text = `
       SELECT * FROM premade_projects 
-      WHERE id = $1 AND vehicle_id = $2 AND project_name = $3 AND difficulty = $4
-      ;`;
+      WHERE id = $1 AND vehicle_id = $2 AND project_name = $3 AND difficulty = $4`
     const values = [ project_id ]
     db.query(text, values)
       .then(data => res.json(data.rows))
@@ -227,5 +178,5 @@ module.exports = db => {
   });
 
 
-  return router;
+  return router
 };
