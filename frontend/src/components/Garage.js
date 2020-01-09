@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 function Garage() {
-  const [state, setState] = useState(0);
 
   return (
     <div className='welcome'>

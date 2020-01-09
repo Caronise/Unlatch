@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +7,7 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
+import useApplication from './hooks/useApplication';
 
 import Home from './components/Home';
 import Footer from './components/Footer';
@@ -17,11 +18,10 @@ import Login from './components/Login';
 import Project from './components/Project';
 import Register from './components/Register';
 
-const axios = require('axios');
-
-const [state, setState] = useState(0);
-
 export default function App() {
+  // const { state, dispatch } = useApplication();
+  
+  
   return (
     <Router>
       <div>
