@@ -7,6 +7,7 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
+import useApplication from './hooks/useApplication';
 
 import Home from './components/Home';
 import Footer from './components/Footer';
@@ -18,6 +19,9 @@ import Project from './components/Project';
 import Register from './components/Register';
 
 export default function App() {
+  // const { state, dispatch } = useApplication();
+  
+  
   return (
     <Router>
       <div>
@@ -71,7 +75,9 @@ export default function App() {
             </Route>
 
 
-            <Route path="/garage/:vehicle_id" children={<Vehicle />}>
+            <Route path="/garage/:vehicle_id" render={routeProps => (
+              <Vehicle {...routeProps} /> 
+            )}>
               <p>Garage:vehicle_id Page </p><Vehicle />
             </Route>
 
