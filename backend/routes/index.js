@@ -75,25 +75,28 @@ module.exports = db => {
     res.send('This is the vehicles route')
   });
 
-  /* GET Add Vehicle. */
-  router.post('/vehicles/add_vehicle', (req, res) => {
-    const { make, model, year } = req.body;
-    const text = `
-    INSERT INTO vehicles (make, model, year)
-    VALUES ($1, $2, $3)
-    RETURNING id
-    ;`;
-    const values = [ make, model, year ];
+  /* POST Add Vehicle. */
+  router.post('/vehicles', (req, res) => {
+    if (!req.body) {
+      res.status(400).json({ error: 'invalid request: no data in POST body'});
+      return;
+    }
 
+    // extract content from the body of the request (req.body)
+    const { make_id, model_id, year, vin, picture_url} = req.body;
+  
+
+    const text = `
+    INSERT INTO vehicles (user_id, make_id, model_id, year, vin, picture_url)
+    VALUES ($1, $2, $3, $4, $5, $6)
+    RETURNING *
+    `;
+    const values = [1, make_id, model_id, year, vin, picture_url]
+    
     db.query(text, values)
-      .then(data => {
-        const vehicle_id = data.rows[0].id;
-        req.session.id = vehicle_id;
-        res.send( { email } );
+      .then(result => {
+        res.json(result.rows[0])
       })
-      .catch(error => {
-        console.log(`${error}`);
-    });
   });
 
   /* GET Vehicle ID. */
