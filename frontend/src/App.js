@@ -19,7 +19,12 @@ import Project from './components/Project';
 import Register from './components/Register';
 
 export default function App() {
-  // const { state, dispatch } = useApplication();
+
+  // I NEED TO USE A HOOK TO TRACK WHEN THE USER LOGS IN / REGISTERS
+
+  const [ state, dispatch ] = useApplication();
+  
+  // I think it then needs to be passed into the component as a key / value 
   
   
   return (
@@ -59,10 +64,10 @@ export default function App() {
 
           <Switch>
             <Route exact path='/'>
-              <Landing />
+              <Landing state={state}/>
             </Route>
             <Route path="/login">
-              <Login />
+              <Login dispatch={dispatch}/>
             </Route>
             <Route path="/register">
               <Register />
@@ -88,11 +93,9 @@ export default function App() {
             <Route path="/projects/:project_id" children>
               <Project />
             </Route>
-
           </Switch>
 
         </main>
-
         <Footer />
 
       </div>

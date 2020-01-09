@@ -167,27 +167,56 @@ module.exports = db => {
   });
 
   /* GET Notes. */
-  router.get('/vehicles/:vehicle_id/projects/:project_id/notes', (req, res) => {
-    res.send('This is the project notes route')
+  router.get('/projects/:project_id/notes', (req, res) => {
+    const { project_id } = req.params; 
+    const query = { 
+      text: 'SELECT * FROM projects JOIN notes ON notes.project_id = projects.id WHERE project_id = $1;',
+      values: [project_id]
+    };
+    
+     db 
+       .query(query)
+       .then(result => res.json(result.rows))
+       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
+
   /* GET Parts. */
-  router.get('/vehicles/:vehicle_id/projects/:project_id/parts', (req, res) => {
-    res.send('This is the project parts route')
+  router.get('/projects/:project_id/parts', (req, res) => {
+    const { project_id} = req.params; 
+    const query = { 
+      text: 'SELECT * FROM projects JOIN parts ON parts.project_id = projects.id WHERE project_id = $1;', 
+      values: [project_id]
+    };
+
+    db 
+      .query(query)
+      .then(result => res.json(result.rows))
+      .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
   /* GET Instructions. */
-  router.get('/vehicles/:vehicle_id/projects/:project_id/instructions', (req, res) => {
-    res.send('This is the project instructions route')
+  router.get('/projects/:project_id/instructions', (req, res) => {
+    const { project_id} = req.params; 
+    const query = { 
+      text: 'SELECT * FROM projects JOIN instructions ON instructions.project_id = projects.id WHERE project_id = $1;', 
+      values: [project_id]
+    };
+    
+    db 
+    .query(query)
+    .then(result => res.json(result.rows))
+    .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
   /* GET Videos. */
-  router.get('/vehicles/:vehicle_id/projects/:project_id/videos', (req, res) => {
-    const { vehicle_id } = req.params;
+  router.get('/projects/:project_id/videos', (req, res) => {
+    const { project_id } = req.params;
     const query = {
-      text: 'SELECT * FROM vehicles where id = $1',
-      values: [vehicle_id]
+      text: 'SELECT * FROM projects JOIN videos ON videos.project_id = projects.id WHERE project_id = $1;',
+      values: [project_id]
     };
+   
     db
       .query(query)
       .then(result => res.json(result.rows))
