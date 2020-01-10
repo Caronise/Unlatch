@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,7 +7,6 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
-import useApplication from './hooks/useApplication';
 
 import Dashboard from './components/Dashboard';
 import Footer from './components/Footer';
@@ -24,7 +23,8 @@ export default function App() {
 
   // I NEED TO USE A HOOK TO TRACK WHEN THE USER LOGS IN / REGISTERS
 
-  const [ state, dispatch ] = useApplication();
+  const [ user, setUser ] = useState("");
+  const [ vehicles, setVehicles ] = useState({})
   
   // I think it then needs to be passed into the component as a key / value 
   
@@ -66,10 +66,10 @@ export default function App() {
 
           <Switch>
             <Route exact path='/'>
-              <Landing state={state}/>
+              <Landing />
             </Route>
             <Route path="/login">
-              <Login dispatch={dispatch}/>
+              <Login />
             </Route>
             <Route path="/register">
               <Register />
