@@ -15,7 +15,6 @@ function useApplication() {
 
   // This makes axios requests on load to fetch all the data needed for the user to do a project
   useEffect(() => {
-    debugger;
     Promise.all([
       axios.get("/vehicles/3")
       // axios.get("#LINK TO PARTS"),
