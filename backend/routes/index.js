@@ -116,9 +116,9 @@ module.exports = db => {
   router.get('/vehicles/:vehicle_id', (req, res) => {
     const text = `
     SELECT * FROM vehicles
-    WHERE id = $1
+    WHERE vehicles.id = $1
     ;`;
-    const values = [ req.params ];
+    const values = [ req.params.id ];
     db.query(text, values)
       .then(result => res.json(result.rows))
       .catch(err => console.log(`Error getting data: ${err.message}`))
@@ -142,12 +142,13 @@ module.exports = db => {
 
   /* GET Projects. */
   router.get('/vehicles/:vehicle_id/projects', (req, res) => {
-    const { project_id } = req.params;
     const text = `
-      SELECT * FROM premade_projects 
-      WHERE id = $1 AND vehicle_id = $2 AND project_name = $3 AND difficulty = $4
+      SELECT * FROM vehicles
+      JOIN projects
+      ON vehicles.id = projects.vehicle_id 
+      WHERE vehicle_id = $1
       ;`;
-    const values = [ project_id ]
+    const values = [ req.params.vehicle_id ]
     db.query(text, values)
       .then(data => res.json(data.rows))
       .catch(err => console.log(`Error getting data: ${err.message}`))
@@ -157,7 +158,7 @@ module.exports = db => {
   router.get('/vehicles/:vehicle_id/projects/:project_id', (req, res) => {
       const { project_id } = req.params;
       const query = {
-        text: 'SELECT id FROM premade_projects where id = $1',
+        text: 'SELECT id FROM projects where id = $1',
         values: [project_id]
       };
       db

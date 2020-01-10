@@ -8,9 +8,9 @@ export const SET_INITIAL_DATA = "SET_INITIAL_DATA";
 
 function reducer(state, action) {
   switch (action.type) {
-    case SET_PARTS:
+    case SET_USER:
       return {
-        
+      ...state, email: action.data.email
       };
     default:
       return state;
