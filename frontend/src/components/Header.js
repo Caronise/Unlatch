@@ -4,8 +4,9 @@ import React from 'react'
 function Header() {
   return (
     <div className='top-bar'>
-      <img src="images/logo.png" width="250" height="75"></img>
+      <img src="images/logo.png" alt="Logo" width="250" height="75"></img>
       {/* <span>Logo</span> */}
+
       <div className='dropdown-wrapper'>
         <div className="dropdown-header">
           <button>Username's Garage</button>
@@ -16,6 +17,7 @@ function Header() {
           <li className="dropdown-add-list-item">Add Car</li>
         </ul>
       </div>
+      
       <div className='sign-in'>
         <button>Sign up</button>
         <button>Login</button>

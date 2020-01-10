@@ -9,14 +9,16 @@ import {
 import './App.css';
 import useApplication from './hooks/useApplication';
 
-import Home from './components/Home';
+import Dashboard from './components/Dashboard';
 import Footer from './components/Footer';
 import Garage from './components/Garage'; 
+import AddVehicle from './components/AddVehicle';
 import Header from './components/Header';
 import Landing from './components/Landing';
 import Login from './components/Login';
-import Project from './components/Project';
+import Projects from './components/Projects';
 import Register from './components/Register';
+import SelectedProject from './components/SelectedProject';
 
 export default function App() {
 
@@ -43,10 +45,10 @@ export default function App() {
               <Link to="/register">Register</Link>
             </li>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/garage">Garage</Link>
             </li>
             <li>
-              <Link to="/garage">Garage</Link>
+              <Link to="/garage/add_vehicle">Add a vehicle</Link>
             </li>
             <li>
               <Link to="/garage/:vehicle_id">Garage:vehicle_id</Link>
@@ -72,26 +74,27 @@ export default function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/home">
-              <Home />
-            </Route>
             <Route exact path="/garage">
               <Garage />
             </Route>
 
+            <Route path="/garage/add_vehicle">
+              <AddVehicle />
+            </Route>
 
             <Route path="/garage/:vehicle_id" render={routeProps => (
               <Vehicle {...routeProps} /> 
             )}>
               <p>Garage:vehicle_id Page </p><Vehicle />
+              <Dashboard />
             </Route>
 
 
             <Route exact path="/projects">
-              <Project />
+              <Projects />
             </Route>
             <Route path="/projects/:project_id" children>
-              <Project />
+              <SelectedProject />
             </Route>
           </Switch>
 
