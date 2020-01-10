@@ -6,7 +6,7 @@ function Garage() {
   return (
     <div className='welcome'>
       <span>Welcome, <strong>Username</strong></span>
-      <button className='my-garage'>My Garage</button>
+      <button className='my_garage'>My Garage</button>
     </div>
   );
 }

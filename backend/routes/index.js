@@ -162,7 +162,7 @@ module.exports = db => {
   router.get('/vehicles/:vehicle_id/projects/:project_id', (req, res) => {
       const { project_id } = req.params;
       const query = {
-        text: 'SELECT id FROM projects where id = $1',
+        text: 'SELECT * FROM projects where id = $1',
         values: [project_id]
       };
       db

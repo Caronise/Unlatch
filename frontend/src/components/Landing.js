@@ -10,7 +10,7 @@ function Landing(props) {
 
   return (
     <>
-    <h1>WELCOME TO CARRRRR</h1>
+    <h1>WELCOME TO Unlatched</h1>
     <h2>{user.name}</h2>
     <Link to="/login">Login</Link>
     <br/>
