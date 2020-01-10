@@ -5,7 +5,6 @@ function Header() {
   return (
     <div className='top-bar'>
       <img src="images/logo.png" width="250" height="75"></img>
-      {/* <span>Logo</span> */}
       <div className='dropdown-wrapper'>
         <div className="dropdown-header">
           <button>Username's Garage</button>
