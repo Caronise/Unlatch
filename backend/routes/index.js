@@ -154,8 +154,6 @@ module.exports = db => {
     db.query(text, values)
     .then(result => {
       res.json(result.rows)
-      console.log(values);
-      
       })
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
