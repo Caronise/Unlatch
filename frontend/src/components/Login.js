@@ -1,6 +1,9 @@
 import React from 'react'
 
-function Login() {
+function Login(props) {
+
+  debugger;
+
   return (
     <div className="login">
       <p>Email</p>

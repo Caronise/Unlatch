@@ -6,9 +6,11 @@ var logger = require('morgan');
 const { Client } = require('pg');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const cors = require('cors');
 require('dotenv').config();
 
 var app = express();
+
 
 const connectionOptions = {
   host: process.env.DB_HOST,
@@ -26,6 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(cors());
 
 app.use('/', indexRouter(db));
 // app.use('/users', usersRouter(db));

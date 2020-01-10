@@ -6,7 +6,7 @@ import axios from "axios";
 function useApplication() {
 
   const [state, dispatch] = useReducer(reducer, {
-    user: { name: "Username" },
+    user: {email: ""} ,
     parts: [],
     instructions: [],
     videos: [],
@@ -15,6 +15,7 @@ function useApplication() {
 
   // This makes axios requests on load to fetch all the data needed for the user to do a project
   useEffect(() => {
+    debugger;
     Promise.all([
       axios.get("/vehicles/3")
       // axios.get("#LINK TO PARTS"),

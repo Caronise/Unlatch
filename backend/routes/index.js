@@ -120,7 +120,7 @@ module.exports = db => {
     WHERE vehicles.id = $1
     ;`;
     const values = [ req.params.vehicle_id ];
-    console.log(values);
+
     db.query(text, values)
       .then(result => {return res.json(result.rows)})
       .catch(err => console.log(`Error getting data: ${err.message}`))
@@ -144,13 +144,13 @@ module.exports = db => {
 
   /* GET Projects. */
   router.get('/vehicles/:vehicle_id/projects', (req, res) => {
-    const { id, project_id, project_name, difficulty } = req.params.vehicle_id;
     const text = `
-      SELECT * FROM projects 
-      WHERE id = $1 AND vehicle_id = $2 AND project_name = $3 AND difficulty = $4
+      SELECT * FROM vehicles
+      JOIN projects
+      ON vehicles.id = projects.vehicle_id 
+      WHERE vehicle_id = $1
       ;`;
-    const values = [ id, project_id, project_name, difficulty ]
-    
+    const values = [ req.params.vehicle_id ]
     db.query(text, values)
     .then(result => {
       res.json(result.rows)
