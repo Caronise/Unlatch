@@ -114,13 +114,15 @@ module.exports = db => {
 
   /* GET Vehicle ID. */
   router.get('/vehicles/:vehicle_id', (req, res) => {
+    
     const text = `
     SELECT * FROM vehicles
-    WHERE id = $1
+    WHERE vehicles.id = $1
     ;`;
-    const values = [ req.params ];
+    const values = [ req.params.vehicle_id ];
+    console.log(values);
     db.query(text, values)
-      .then(result => res.json(result.rows))
+      .then(result => {return res.json(result.rows)})
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
@@ -130,7 +132,7 @@ module.exports = db => {
     DELETE FROM vehicles
     WHERE vehicles.id = $1
     ;`;
-    const values = [ req.params.id ];
+    const values = [ req.params.vehicle_id ];
     db.query(text, values)
     .then(data => {
       res.send( { message: "Vehicle Deleted" });
@@ -142,14 +144,19 @@ module.exports = db => {
 
   /* GET Projects. */
   router.get('/vehicles/:vehicle_id/projects', (req, res) => {
-    const { project_id } = req.params;
+    const { id, project_id, project_name, difficulty } = req.params.vehicle_id;
     const text = `
-      SELECT * FROM premade_projects 
+      SELECT * FROM projects 
       WHERE id = $1 AND vehicle_id = $2 AND project_name = $3 AND difficulty = $4
       ;`;
-    const values = [ project_id ]
+    const values = [ id, project_id, project_name, difficulty ]
+    
     db.query(text, values)
-      .then(data => res.json(data.rows))
+    .then(result => {
+      res.json(result.rows)
+      console.log(values);
+      
+      })
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
@@ -157,7 +164,7 @@ module.exports = db => {
   router.get('/vehicles/:vehicle_id/projects/:project_id', (req, res) => {
       const { project_id } = req.params;
       const query = {
-        text: 'SELECT id FROM premade_projects where id = $1',
+        text: 'SELECT id FROM projects where id = $1',
         values: [project_id]
       };
       db
