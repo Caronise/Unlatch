@@ -120,6 +120,7 @@ module.exports = db => {
     WHERE vehicles.id = $1
     ;`;
     const values = [ req.params.vehicle_id ];
+
     db.query(text, values)
       .then(result => {return res.json(result.rows)})
       .catch(err => console.log(`Error getting data: ${err.message}`))
