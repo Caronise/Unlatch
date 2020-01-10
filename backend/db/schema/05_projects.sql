@@ -1,4 +1,4 @@
--- Creating the premade projects table 
+-- Creating the projects table 
 
 DROP TABLE IF EXISTS projects CASCADE;
 CREATE TABLE projects ( 
