@@ -6,9 +6,9 @@ var router = express.Router();
 module.exports = db => {
 
   /* GET Login. */
-  router.get('/login', (req, res) => {
+  // router.get('/login', (req, res) => {
     
-  });
+  // });
 
   /* GET Register. */
   router.get('/register', (req, res) => {
