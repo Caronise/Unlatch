@@ -114,13 +114,14 @@ module.exports = db => {
 
   /* GET Vehicle ID. */
   router.get('/vehicles/:vehicle_id', (req, res) => {
+    
     const text = `
     SELECT * FROM vehicles
     WHERE vehicles.id = $1
     ;`;
-    const values = [ req.params.id ];
+    const values = [ req.params.vehicle_id ];
     db.query(text, values)
-      .then(result => res.json(result.rows))
+      .then(result => {return res.json(result.rows)})
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
@@ -130,7 +131,7 @@ module.exports = db => {
     DELETE FROM vehicles
     WHERE vehicles.id = $1
     ;`;
-    const values = [ req.params.id ];
+    const values = [ req.params.vehicle_id ];
     db.query(text, values)
     .then(data => {
       res.send( { message: "Vehicle Deleted" });
@@ -150,7 +151,9 @@ module.exports = db => {
       ;`;
     const values = [ req.params.vehicle_id ]
     db.query(text, values)
-      .then(data => res.json(data.rows))
+    .then(result => {
+      res.json(result.rows)
+      })
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
