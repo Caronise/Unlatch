@@ -66,13 +66,13 @@ export default function App() {
     }
   ]);
   
-  useEffect(() => {
-    Promise.all([
-      axios.get("/users/1/vehicles")
-    ]).then((result) => {
-      setVehicles(result)
-    });
-  }, []);
+  // useEffect(() => {
+  //   Promise.all([
+  //     axios.get("/users/1/vehicles")
+  //   ]).then((result) => {
+  //     setVehicles(result)
+  //   });
+  // }, []);
 
 
   return (
