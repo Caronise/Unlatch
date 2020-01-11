@@ -31,6 +31,7 @@ export default function App() {
     username: "Franky",
     email: "Franky@unlatch.com"
   });
+  
   const [vehicles, setVehicles] = useState([
     {
       id: 0,

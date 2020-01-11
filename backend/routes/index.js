@@ -55,7 +55,7 @@ module.exports = db => {
     db.query(text, values)
       .then(data => {
         const userId = data.rows[0].id;
-        // req.session.user_id = userId
+        req.session.user_id = userId
         res.send( {username} );
       })
       .catch(error => {
@@ -241,7 +241,6 @@ module.exports = db => {
       .then(result => res.json(result.rows))
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
-
 
   return router;
 };
