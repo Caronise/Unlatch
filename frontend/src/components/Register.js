@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-function RegisterPage() {
+function Register() {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -13,7 +13,6 @@ function RegisterPage() {
 
   axios.post('/register', {username, email, password})
     .then((result) => {
-      console.log(result)
       console.log(result.data)
     })
     .catch(err => console.log(err))
@@ -28,7 +27,7 @@ function RegisterPage() {
         <p>Email</p>
         <input id="email" name="email" value={email} onChange={event => setEmail(event.target.value)}/>
         <p>Password</p>
-        <input id="password" name="password" value={password} onChange={event => setPassword(event.target.value)}/>
+        <input id="password" name="password" type="password" value={password} onChange={event => setPassword(event.target.value)}/>
         <br />
         <input type="submit" value="Register"/>
       </form>
@@ -37,4 +36,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default Register;
