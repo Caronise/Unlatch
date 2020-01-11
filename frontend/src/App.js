@@ -50,7 +50,17 @@ export default function App() {
       make_name: "Old_Legend"
     },
   ]);
-  const [currentVehicle, setCurrentVehicle] = useState(null);
+
+  const fakeDbVehicle = {
+    id: 1,
+    make_id: 13,
+    model_id: 1,
+    year: 2013,
+    picture_url: ''
+  }
+
+  const [currentVehicle, setCurrentVehicle] = useState(fakeDbVehicle);
+  
   const [projects, setProjects] = useState([
     {
       id: 1,
