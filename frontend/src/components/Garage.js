@@ -23,4 +23,4 @@ function Garage({ setCurrentVehicle }) {
   )
 }
 
-export default Garage; 
+export default Garage;
