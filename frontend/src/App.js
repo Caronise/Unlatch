@@ -24,7 +24,6 @@ import SelectedProject from './components/SelectedProject';
 import { UserContext, VehiclesContext } from "./helpers/UserContext";
 
 export default function App() {
-
   
   const [user, setUser] = useState({
     id: 1,
@@ -32,7 +31,7 @@ export default function App() {
     email: "Franky@unlatch.com"
   });
   
-  const [vehicles, setVehicles] = useState([
+  const [userVehicles, setUserVehicles] = useState([
     {
       id: 0,
       make_id: "Dodge",
@@ -50,7 +49,9 @@ export default function App() {
       make_name: "Old_Legend"
     },
   ]);
+  
   const [currentVehicle, setCurrentVehicle] = useState(null);
+
   const [projects, setProjects] = useState([
     {
       id: 1,
@@ -65,19 +66,21 @@ export default function App() {
       difficulty: "Medium"
     }
   ]);
+
+  const [currentProject, setCurrentProject] = useState(null);
   
-  useEffect(() => {
-    Promise.all([
-      axios.get("/users/1/vehicles")
-    ]).then((result) => {
-      setVehicles(result)
-    });
-  }, []);
+  // useEffect(() => {
+  //   Promise.all([
+  //     axios.get("/users/1/vehicles")
+  //   ]).then((result) => {
+  //     setUserVehicles(result)
+  //   });
+  // }, []);
 
 
   return (
     <UserContext.Provider value={user} >
-      <VehiclesContext.Provider value={vehicles}>
+      <VehiclesContext.Provider value={userVehicles}>
         <Router>
           <div>
             <nav>
@@ -115,12 +118,15 @@ export default function App() {
                 <Route exact path='/'>
                   <Landing />
                 </Route>
+
                 <Route path="/login">
                   <Login />
                 </Route>
+
                 <Route path="/register">
                   <Register />
                 </Route>
+
                 <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} />} />
 
                 <Route path="/garage/add_vehicle">
@@ -131,11 +137,13 @@ export default function App() {
 
 
                 <Route exact path="/projects">
-                  <Projects user={user} vehicles={vehicles} currentVehicle={currentVehicle} projects={projects} />
+                  <Projects user={user} userVehicles={userVehicles} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />
                 </Route>
+
                 <Route path="/projects/:project_id">
-                  <SelectedProject user={user} vehicles={vehicles} />
+                  <SelectedProject user={user} userVehicles={userVehicles} />
                 </Route>
+
               </Switch>
             </main>
             <Footer />

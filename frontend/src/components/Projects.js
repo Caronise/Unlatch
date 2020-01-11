@@ -2,20 +2,26 @@ import React, { useContext } from 'react'
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
 
 
-function Projects ({ users, vehicles, projects }) { 
+function Projects ({ allVehicles, projects, setCurrentProject }) { 
   const user = useContext(UserContext);
-  const vehiclesC = useContext(VehiclesContext);
+  const vehicles = useContext(VehiclesContext);
 
-  console.log(user.username);
-  console.log(vehiclesC[0].id);
+  const selectProject = (event) => {
+    const chosenProject = projects.find((project) => project.id === Number(event.target.value));
+    setCurrentProject(chosenProject);
+  };
   
   return( 
     <div className='project_options'>
-      <h5>What would you like to do?</h5>
-      <p className='odd'>Project One</p>
-      <p className='even'>Project Two</p>
+      <h5>{user && user.username}, which project would you like to do?</h5>
+      <div>
+        {projects.map(project => <React.Fragment>
+        <button value={project.make_name} onClick={selectProject}>Project {project.id}</button>
+        <br />
+        </React.Fragment>)}
+      </div>
     </div>
-  );  
-}
+  );
+};
 
 export default Projects;
