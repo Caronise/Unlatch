@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
+import newCar from './images/charger.jpg';
+import oldCar from './images/impala.jpg';
 
 import SelectedVehicle from './components/SelectedVehicle';
 import Footer from './components/Footer';
@@ -32,19 +34,19 @@ export default function App() {
   const [vehicles, setVehicles] = useState([
     {
       id: 0,
-      make_id: "ex_make_id",
-      model_id: "ex_model_id",
+      make_id: "Dodge",
+      model_id: "Charger",
       year: 2077,
-      picture_url: "ex_picture_url",
-      make_name: "Wagon"
+      picture_url: newCar,
+      make_name: "Modern_Legend"
     },
     {
       id: 1,
-      make_id: "ex_make_id",
-      model_id: "ex_model_id",
-      year: 2099,
-      picture_url: "ex_picture_url",
-      make_name: "Potato"
+      make_id: "Chevrolet",
+      model_id: "Impala",
+      year: 1967,
+      picture_url: oldCar,
+      make_name: "Old_Legend"
     },
   ]);
   const [currentVehicle, setCurrentVehicle] = useState(null);
