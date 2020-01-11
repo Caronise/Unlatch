@@ -3,7 +3,8 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className='repair-options'>
+    <div className='footer'>
+      <br />
       <button className="logout_btn" action="/logout" method="GET">Logout</button>
     </div>
   );
