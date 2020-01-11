@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+
+
 module.exports = db => {
   
   /* GET Home Page. */
@@ -9,35 +11,29 @@ module.exports = db => {
   
   });
 
-  /* GET Login. */
-  router.get('/login', (req, res) => {
-    res.send('This is the login route')
-
-  });
-
   /* POST Login. */
-  router.post('/login', (req, res) => {
-    const { email, password} = req.body;
-    const text = `
-      SELECT * FROM users
-      WHERE email = $1 AND password = $2
-    ;`;
-    const values = [ email, password ];
+  // router.post('/login', (req, res) => {
+  //   const { email_verify, password_verify } = req.body;
+  //   const text = `
+  //     SELECT * FROM users
+  //     WHERE email = $1 AND password = $2
+  //   ;`;
+  //   const values = [ email_verify, password_verify ];
 
-    db.query(text, values)
-      .then(data => {
-        if (data.rows[0].length === 0) {
-          res.send( { message: "You're not logged in!" });
-        } 
-        // else {
-        //   req.session.user_id = data.rows[0].id;
-        //   res.send( { message: "Succesfully set session" })
-        // }
-      })
-      .catch(error => {
-        console.log(`${error}`)
-      })
-  });
+  //   db.query(text, values)
+  //     .then(data => {
+  //       if (data.rows[0].length === 0) {
+  //         res.send( { message: "You're not logged in!" });
+  //       } 
+  //       else {
+  //         req.session.user_id = data.rows[0].id;
+  //         res.send( { message: "Succesfully set session" })
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.log(`${error}`)
+  //     })
+  // });
 
   /* GET Register. */
   router.get('/register', (req, res) => {

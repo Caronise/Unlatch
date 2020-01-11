@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 // I'm only tracking the username and not the password right?
 
 function Landing() {
-
-
+  
   return (
     <>
     <h1>WELCOME TO Unlatched</h1>

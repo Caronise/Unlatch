@@ -21,7 +21,6 @@
     "http-errors": "~1.6.3",
     "lodash": "^4.17.15",
     "morgan": "~1.9.1",
-    "node-sass-middleware": "^0.11.0",
     "pg": "^7.17.0",
     "pg-native": "^3.0.0"
   },
