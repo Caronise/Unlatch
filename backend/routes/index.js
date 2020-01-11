@@ -22,9 +22,6 @@ module.exports = db => {
 
     db.query(text, values)
     .then(data => {
-        if (data.rowCount === 0) {
-          res.send({message: "Incorrect Credentials"})
-        }
         if (data.rows[0].length === 0) {
           res.send( { message: "You're not logged in!" });
         } 
@@ -34,7 +31,9 @@ module.exports = db => {
         }
       })
       .catch(error => {
-        console.log(`${error}`)
+        if (error) {
+        res.send( { message: "Incorrect Credentials"})
+        }
       })
   });
 
