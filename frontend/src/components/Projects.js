@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
 
 
-function Projects () { 
+function Projects ({ users, vehicles, projects }) { 
   const user = useContext(UserContext);
-  const vehicles = useContext(VehiclesContext);
+  const vehiclesC = useContext(VehiclesContext);
 
   console.log(user.username);
-  console.log(vehicles[0].id);
+  console.log(vehiclesC[0].id);
   
   return( 
     <div className='project_options'>
