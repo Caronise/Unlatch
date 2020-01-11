@@ -50,7 +50,20 @@ export default function App() {
     },
   ]);
   const [currentVehicle, setCurrentVehicle] = useState(null);
-  
+  const [projects, setProjects] = useState([
+    {
+      id: 1,
+      vehicle_id: 1,
+      project_name: "Alpha",
+      difficulty: "Easy"
+    },
+    {
+      id: 2,
+      vechicle_id: 1,
+      project_name: "Omega",
+      difficulty: "Medium"
+    }
+  ]);
   
   useEffect(() => {
     Promise.all([
@@ -117,7 +130,7 @@ export default function App() {
 
 
                 <Route exact path="/projects">
-                  <Projects user={user} vehicles={vehicles} />
+                  <Projects user={user} vehicles={vehicles} currentVehicle={currentVehicle} projects={projects} />
                 </Route>
                 <Route path="/projects/:project_id">
                   <SelectedProject user={user} vehicles={vehicles} />
