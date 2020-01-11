@@ -6,6 +6,8 @@ function Garage({ setCurrentVehicle }) {
   const vehicles = useContext(VehiclesContext);
 
   const handleSelection = (event) => {
+    event.preventDefault();
+    
     const chosenVehicle = vehicles.find((vehicle) => vehicle.id === Number(event.target.value));
     setCurrentVehicle(chosenVehicle);
   };

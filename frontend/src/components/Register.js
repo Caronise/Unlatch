@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+// import bcrypt from 'bcrypt';
 
 
 function Register() {
@@ -11,12 +12,17 @@ function Register() {
   const addAccount = (event) => {
     event.preventDefault()
 
-  axios.post('/register', {username, email, password})
-    .then((result) => {
-      console.log(result.data)
-    })
-    .catch(err => console.log(err))
-  }
+    axios.post('/register', {username, email, password})
+      .then((result) => {
+        if (email) {
+          result.send({ message: "Account already exists" })
+        };
+        if (username) {
+          result.send({ message: "Username already exists"})
+        };
+      })
+      .catch(err => console.log(err))
+  };
 
 
   return (
@@ -34,6 +40,6 @@ function Register() {
       <button className="register_back_btn">Back</button>
     </div>
   );
-}
+};
 
 export default Register;

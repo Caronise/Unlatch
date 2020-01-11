@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import authenticateUser from '../hooks/user'
 import axios from 'axios'
 
 function Login() {
@@ -7,12 +8,12 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const authenticate = (event) => {
-      event.preventDefault()
-    // get user from email in form if password is correct login (user in session) or error incorrect password
-    // const user
+    event.preventDefault()
 
     axios.post('/login', {email, password})
       .then((result) => {
+        // authenticateUser(email, password)
+        
         console.log(result.data)
       })
       .catch(err => console.log(err))
