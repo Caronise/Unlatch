@@ -67,6 +67,22 @@ module.exports = db => {
   router.get('/logout', (req, res) => {
     res.send('This is the logout route')
   });
+  
+  /* GET Vehicles */
+  router.get('/users/:id/vehicles', (req, res) => {
+    const text = `
+    SELECT users.id, make_id, model_id, year, picture_url, makes.make_name FROM users
+    JOIN vehicles
+    ON users.id = vehicles.user_id
+    JOIN makes
+    ON makes.id = vehicles.make_id
+    WHERE users.id = $1
+    ;`;
+    const values = [ req.params.id ];
+    db.query(text, values)
+      .then(result => {return res.json(result.rows)})
+      .catch(err => console.log(`Error getting data: ${err.message}`))
+  });
 
   /* POST Add Vehicle. */
   router.post('/vehicles', (req, res) => {
