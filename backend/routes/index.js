@@ -108,7 +108,54 @@ module.exports = db => {
           })
       });
   });
-    
+
+ /* GET Vehicles */
+ router.get('/users/:id/vehicles', (req, res) => {
+  const text = `
+  SELECT users.id, make_id, model_id, year, picture_url, makes.make_name FROM users
+  JOIN vehicles
+  ON users.id = vehicles.user_id
+  JOIN makes
+  ON makes.id = vehicles.make_id
+  WHERE users.id = $1
+  ;`;
+  const values = [ req.params.id ];
+  db.query(text, values)
+    .then(result => {return res.json(result.rows)})
+    .catch(err => console.log(`Error getting data: ${err.message}`))
+});    
+
+// / GET MAKE 
+
+router.get('/makes/:id', (req, res) => { 
+  const text = 'SELECT *  FROM makes WHERE id =$1;'; 
+  const values = [req.params.id]; 
+  
+  db.query(text, values)
+    .then(result => {return res.json(result.rows)})
+    .catch(err => console.log(`Error getting data: ${err.message}`))
+}); 
+
+router.get('/makes/:id/models', (req,res) => {
+  const text = `SELECT * FROM models where make_id = $1;`;
+  const values = [req.params.id];
+
+  db.query(text, values)
+  .then(result => {return res.json(result.rows)})
+  .catch(err => console.log(`Error getting data: ${err.message}`))  
+})
+
+// GET MODEL 
+
+router.get('/makes/:id/models/:model_id', (req, res) => { 
+  const text = 'SELECT * FROM models WHERE id = $1 AND make_id = $2;'; 
+  const values = [req.params.model_id, req.params.id];
+  
+  
+  db.query(text, values)
+    .then(result => { return res.json(result.rows)})
+    .catch(err => console.log(`Error getting data: ${err.message}`))
+})
 
   /* GET Vehicle ID. */
   router.get('/vehicles/:vehicle_id', (req, res) => {
