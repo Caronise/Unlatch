@@ -17,7 +17,7 @@
 //   const findPassword = function(password) {
 //     for (let user in users) {
 //       const currentUser = users[user];
-//       if (currentUser.password === password) {
+//       if (bcrypt.compareSync(password, currentUser.password)) {
 //         return currentUser
 //       }
 //     }

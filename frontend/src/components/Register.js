@@ -14,11 +14,8 @@ function Register() {
 
     axios.post('/register', {username, email, password})
       .then((result) => {
-        if (email) {
-          result.send({ message: "Account already exists" })
-        };
-        if (username) {
-          result.send({ message: "Username already exists"})
+        if (email && username) {
+          result.json({ message: "Account already exists" })
         };
       })
       .catch(err => console.log(err))
