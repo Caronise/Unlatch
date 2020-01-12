@@ -81,11 +81,7 @@ export default function App() {
   //   Promise.all([
   //     axios.get("/users/1/vehicles")
   //   ]).then((result) => {
-<<<<<<< HEAD
   //     setUserVehicles(result)
-=======
-  //     setVehicles(result)
->>>>>>> master
   //   });
   // }, []);
 
