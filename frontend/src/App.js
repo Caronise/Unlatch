@@ -7,8 +7,6 @@ import {
 } from "react-router-dom";
 // import axios from 'axios';
 import './App.css';
-import newCar from './images/charger.jpg';
-import oldCar from './images/impala.jpg';
 
 import SelectedVehicle from './components/SelectedVehicle';
 import Footer from './components/Footer';
@@ -25,11 +23,7 @@ import { UserContext, VehiclesContext } from "./helpers/UserContext";
 
 export default function App() {
 
-  const [user, setUser] = useState({
-    id: 1,
-    username: "Franky",
-    email: "Franky@unlatch.com"
-  });
+  const [user, setUser] = useState(null);
 
   const [userVehicles, setUserVehicles] = useState([
     {
@@ -45,7 +39,7 @@ export default function App() {
       make_id: "Chevrolet",
       model_id: "Impala",
       year: 1967,
-      picture_url: oldCar,
+      picture_url: "",
       make_name: "Old_Legend"
     },
   ]);
@@ -100,9 +94,9 @@ export default function App() {
               <Switch>
                 <Route exact path='/' render={(props) => <Landing />} />
 
-                <Route path="/login" render={(props) => <Login />} />
+                <Route path="/login" render={(props) => <Login setUser={setUser} />} />
 
-                <Route path="/register" render={(props) => <Register />} />
+                <Route path="/register" render={(props) => <Register setUser={setUser} />} />
 
                 <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} />} />
 
@@ -119,15 +113,6 @@ export default function App() {
 
             <div>
               <ul>
-                <li>
-                  <Link to="/">Landing</Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/register">Register</Link>
-                </li>
                 <li>
                   <Link to="/garage">Garage</Link>
                 </li>

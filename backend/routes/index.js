@@ -28,7 +28,8 @@ module.exports = db => {
     findEmail(email).then(user => {
       if (bcrypt.compareSync(password, user[0].password)) {
         req.session.user_id = user[0].id;
-        res.send( { message: "Succesfully set session login" })
+        // res.send( { message: "Succesfully set session login" });
+        res.json(user[0]);
       }
     })
       .catch(error => {
