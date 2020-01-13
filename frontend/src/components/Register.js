@@ -16,15 +16,14 @@ function Register() {
 
     axios.post('/register', {username, email, password})
       .then((result) => {
-        console.log(result)
-        if (email === result.data.email) {
+        if (!validator.isEmail(email)) {
+          console.log("Must be real email address")
+        };
+        if (email === "database loop check") {
           console.log("Account already exists")
         };
-        if (username === result.data.username) {
+        if (username === "database loop check") {
           console.log("Username already exists")
-        };
-        if (!validator.isEmail(email)) {
-          console.log("Email is not valid")
         };
       })
       .catch(err => console.log(err))
