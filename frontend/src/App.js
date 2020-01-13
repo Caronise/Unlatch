@@ -24,24 +24,24 @@ import SelectedProject from './components/SelectedProject';
 import { UserContext, VehiclesContext } from "./helpers/UserContext";
 
 export default function App() {
-  
+
   const [user, setUser] = useState({
     id: 1,
     username: "Franky",
     email: "Franky@unlatch.com"
   });
-  
+
   const [userVehicles, setUserVehicles] = useState([
     {
-      id: 0,
-      make_id: "Dodge",
-      model_id: "Charger",
+      id: 1,
+      make_id: 4,
+      model_id: 48,
       year: 2077,
-      picture_url: newCar,
+      picture_url: "https://i.gaw.to/content/photos/39/83/398337_Dodge_Charger.jpg?460x287",
       make_name: "Modern_Legend"
     },
     {
-      id: 1,
+      id: 2,
       make_id: "Chevrolet",
       model_id: "Impala",
       year: 1967,
@@ -52,14 +52,15 @@ export default function App() {
 
   const fakeDbVehicle = {
     id: 1,
-    make_id: 13,
-    model_id: 1,
-    year: 2013,
-    picture_url: ''
+    make_id: 4,
+    model_id: 48,
+    year: 2077,
+    picture_url: "https://i.gaw.to/content/photos/39/83/398337_Dodge_Charger.jpg?460x287",
+    make_name: "Modern_Legend"
   }
 
   const [currentVehicle, setCurrentVehicle] = useState(fakeDbVehicle);
-  
+
   const [projects, setProjects] = useState([
     {
       id: 1,
@@ -76,16 +77,12 @@ export default function App() {
   ]);
 
   const [currentProject, setCurrentProject] = useState(null);
-  
+
   // useEffect(() => {
   //   Promise.all([
   //     axios.get("/users/1/vehicles")
   //   ]).then((result) => {
-<<<<<<< HEAD
   //     setUserVehicles(result)
-=======
-  //     setVehicles(result)
->>>>>>> master
   //   });
   // }, []);
 
@@ -127,34 +124,21 @@ export default function App() {
 
             <main>
               <Switch>
-                <Route exact path='/'>
-                  <Landing />
-                </Route>
+                <Route exact path='/' render={(props) => <Landing />} />
 
-                <Route path="/login">
-                  <Login />
-                </Route>
+                <Route path="/login" render={(props) => <Login />} />
 
-                <Route path="/register">
-                  <Register />
-                </Route>
+                <Route path="/register" render={(props) => <Register />} />
 
                 <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} />} />
 
-                <Route path="/garage/add_vehicle">
-                  <AddVehicle />
-                </Route>
+                <Route path="/garage/add_vehicle" render={(props) => <AddVehicle />} />
 
-                <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} currentVehicle={currentVehicle}/> }/>
+                <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} currentVehicle={currentVehicle} />} />
 
-
-                <Route exact path="/projects">
-                  <Projects user={user} userVehicles={userVehicles} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />
-                </Route>
-
-                <Route path="/projects/:project_id">
-                  <SelectedProject user={user} userVehicles={userVehicles} />
-                </Route>
+                <Route exact path="/projects" render={(props) => <Projects {...props} user={user} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />} />
+                  
+                <Route path="/projects/:project_id" render={(props) => <SelectedProject user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
 
               </Switch>
             </main>
