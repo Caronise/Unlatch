@@ -9,17 +9,22 @@ function Garage({ setCurrentVehicle }) {
     event.preventDefault();
     
     const chosenVehicle = vehicles.find((vehicle) => vehicle.id === Number(event.target.value));
+    console.log(vehicles);
+    console.log("Chosen vehicle: ", chosenVehicle);
+
     setCurrentVehicle(chosenVehicle);
   };
 
+  
+
   return (
-    <div className='welcome'>
+    <div className='select_vehicle'>
       <span>Welcome, <strong>{user && user.username}</strong></span>
       <label>Choose a vehicle:</label>
 
       <select name="vehicle_select" id="vehicle_select">
-        <option value="">--Please choose your vehicle--</option>
-        {vehicles.map((vehicle) => <option value={vehicle.make_name} onClick={handleSelection}>{vehicle.make_name}</option>)}
+        <option value="">--Please select your vehicle--</option>
+        {vehicles.map((vehicle) => <option key={vehicle.id} value={vehicle.id} onClick={handleSelection}>{vehicle.make_name}</option>)}
       </select>
     </div>
   )
