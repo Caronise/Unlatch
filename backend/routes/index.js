@@ -273,7 +273,7 @@ module.exports = db => {
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
-  /* GET Notes. */
+  /* GET REPAIR LOGS. */
   router.get('/projects/:project_id/repair_logs', (req, res) => {
     const { project_id } = req.params;
     const query = {
@@ -284,6 +284,26 @@ module.exports = db => {
       WHERE project_id = $1
       ;`,
       values: [project_id]
+    };
+    db.query(query)
+      .then(result => res.json(result.rows))
+      .catch(err => console.log(`Error getting data: ${err.message}`))
+  });
+
+  /* POST REPAIR LOGS */
+  router.post('/projects/:project_id/repair_logs', (req, res) => {
+    const { project_id } = req.params;
+    const { description, mileage, timestamp, cost_of_repair } = req.body;
+
+    const query = {
+
+      text: `
+      INSERT INTO repair_logs (project_id, description, mileage, timestamp, cost_of_repair) 
+      VALUES ($1, $2, $3, $4)
+      RETURNING *
+      ORDER BY project_id DESC
+      ;`,
+      values: [project_id, description, mileage, timestamp, cost_of_repair]
     };
     db.query(query)
       .then(result => res.json(result.rows))
