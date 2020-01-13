@@ -94,6 +94,30 @@ export default function App() {
           <div>
             <nav>
               <Header />
+            </nav>
+
+            <main>
+              <Switch>
+                <Route exact path='/' render={(props) => <Landing />} />
+
+                <Route path="/login" render={(props) => <Login />} />
+
+                <Route path="/register" render={(props) => <Register />} />
+
+                <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} />} />
+
+                <Route path="/garage/add_vehicle" render={(props) => <AddVehicle />} />
+
+                <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} currentVehicle={currentVehicle} />} />
+
+                <Route exact path="/projects" render={(props) => <Projects {...props} user={user} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />} />
+
+                <Route path="/projects/:project_id" render={(props) => <SelectedProject user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
+
+              </Switch>
+            </main>
+
+            <div>
               <ul>
                 <li>
                   <Link to="/">Landing</Link>
@@ -120,28 +144,8 @@ export default function App() {
                   <Link to="/projects/:project_id">Projects/:project_id</Link>
                 </li>
               </ul>
-            </nav>
+            </div>
 
-            <main>
-              <Switch>
-                <Route exact path='/' render={(props) => <Landing />} />
-
-                <Route path="/login" render={(props) => <Login />} />
-
-                <Route path="/register" render={(props) => <Register />} />
-
-                <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} />} />
-
-                <Route path="/garage/add_vehicle" render={(props) => <AddVehicle />} />
-
-                <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} currentVehicle={currentVehicle} />} />
-
-                <Route exact path="/projects" render={(props) => <Projects {...props} user={user} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />} />
-                  
-                <Route path="/projects/:project_id" render={(props) => <SelectedProject user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
-
-              </Switch>
-            </main>
             <Footer />
 
           </div>
