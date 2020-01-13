@@ -1,5 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
+import { Redirect } from 'react-router-dom';
+
 
 function Garage({ setCurrentVehicle }) {
   const user = useContext(UserContext);
@@ -20,6 +22,7 @@ function Garage({ setCurrentVehicle }) {
   return (
     <div className='select_vehicle'>
       <span>Welcome, <strong>{user && user.username}</strong></span>
+      <br />
       <label>Choose a vehicle:</label>
 
       <select name="vehicle_select" id="vehicle_select">

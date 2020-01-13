@@ -15,7 +15,7 @@ const passwordSchema = new passwordValidator();
   .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
 
 
-function Register() {
+  function Register() {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
