@@ -13,8 +13,8 @@ module.exports = db => {
 
   const findEmail = function(email) {
     const text = `
-    SELECT * FROM users
-    WHERE email = $1;
+      SELECT * FROM users
+      WHERE email = $1
     ;`;
     const value = [email];
 
@@ -28,22 +28,17 @@ module.exports = db => {
     const text = `
       SELECT * FROM users
       WHERE email = $1 AND password = $2
-    ;`;
+      ;`;
     const values = [ email, password ];
-
-    db.query(text, values)
-    .then(data => {
-        if (data.rows[0].length === 0) {
-          res.send( { message: "You're not logged in!" });
-        } 
-        else {
-          req.session.user_id = data.rows[0].id;
-          res.send( { message: "Succesfully set session" })
-        }
-      })
+    findEmail(email).then(user => {
+      if (bcrypt.compareSync(password, user[0].password)) {
+        req.session.user_id = user[0].id;
+        res.send( { message: "Succesfully set session login" })
+      }
+    })
       .catch(error => {
         if (error) {
-        res.send( { message: "Incorrect Credentials"})
+          res.send( { message: "Incorrect Credentials"})
         }
       })
   });
@@ -52,11 +47,11 @@ module.exports = db => {
   router.get('/register', (req, res) => {
     const text = `
     SELECT * FROM users
-  ;`;
-  const values = [req.params.id]
-  db.query(text, values)
-    .then(result => {return res.json(result.rows)})
-    .catch(err => console.log(`Error getting data: ${err.message}`))  
+    ;`;
+    const values = [req.params.id]
+    db.query(text, values)
+      .then(result => {return res.json(result.rows)})
+      .catch(err => console.log(`Error getting data: ${err.message}`))  
   });
 
   /* POST Register. */
@@ -67,7 +62,7 @@ module.exports = db => {
       INSERT INTO users (username, email, password)
       VALUES ($1, $2, $3)
       RETURNING *
-    ;`;
+      ;`;
     const values = [username, email, bcrypt.hashSync(password, 10)];
 
     findEmail(email).then(user => {
