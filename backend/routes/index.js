@@ -275,13 +275,13 @@ module.exports = db => {
   });
 
   /* GET Notes. */
-  router.get('/projects/:project_id/notes', (req, res) => {
+  router.get('/projects/:project_id/repair_logs', (req, res) => {
     const { project_id } = req.params;
     const query = {
       text: `
       SELECT * FROM projects 
-      JOIN notes 
-      ON notes.project_id = projects.id 
+      JOIN repair_logs
+      ON repair_logs.project_id = projects.id 
       WHERE project_id = $1
       ;`,
       values: [project_id]
