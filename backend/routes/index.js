@@ -41,7 +41,13 @@ module.exports = db => {
 
   /* GET Register. */
   router.get('/register', (req, res) => {
-    res.send('This is the register route')
+    const text = `
+    SELECT * FROM users
+  ;`;
+  const values = [req.params.id]
+  db.query(text, values)
+    .then(result => {return res.json(result.rows)})
+    .catch(err => console.log(`Error getting data: ${err.message}`))  
   });
 
   const findEmail = function(email) {
@@ -74,7 +80,7 @@ module.exports = db => {
     return false;
   };
 
-  const user = function({userObj}) {
+  const user = function(userObj) {
     if (userObj) {
       return userObj;
     }
@@ -85,8 +91,10 @@ module.exports = db => {
     const userPassword = findPassword(password);
     const userUsername = findUsername(username);
     if ((userEmail || userUsername) && bcrypt.compareSync(password, userPassword.password)) {
+
       return [username, email, password];
     }
+
     return false;
   };
 
@@ -98,9 +106,9 @@ module.exports = db => {
     const text = `
       INSERT INTO users (username, email, password)
       VALUES ($1, $2, $3)
-      RETURNING id
+      RETURNING *
     ;`;
-    const values = authenticateUser(username, email, password);
+    const values = [username, email, password];
     db.query(text, values)
       .then(data => {
         console.log(data)
