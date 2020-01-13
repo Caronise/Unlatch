@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 // import axios from 'axios';
 import './App.css';
 import newCar from './images/charger.jpg';
