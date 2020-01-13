@@ -145,38 +145,18 @@ module.exports = db => {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
     }
+    const { make_id, model_id, year } = req.body;
+    const text = `
+      INSERT INTO vehicles JOIN makes JOIN models JOIN users (user_id, make_id, model_id, year)
+      JOIN 
+      VALUES ($1, $2, $3)
+      RETURNING *
+    ;`;
+      const values = [make_id, model_id, year];
+      db.query(text, values)
+        .then(data => {
 
-    // extract content from the body of the request (req.body)
-    const { make_id, vehicle_name, year} = req.body;
-  
-
-    getMakes()
-      .then(makes => {
-        // find out the make of the vehicle from extracted data
-        let makeResult = makesCheck(makes, makeEntry);
-
-        // ******* WHAT DO I DO WHEN THE MAKE DOESN'T EXIST ????? **************
-        console.log(makeResult);
-        console.log("GENERIC LABEL: ", makeResult);
-        if (!makeResult) {
-          makeResult = 'No such brand in'
-        }
-
-        // QUERY THAT CHECKS WHAT THE MAKES ID IS WHEN GIVEN THE MAKE NAME
-        const text = `
-        SELECT makes.id
-        FROM makes
-        WHERE makes.make_name LIKE $1
-        `;
-        const values = [makeResult];
-
-        db.query(text, values)
-          .then(data => {
-            // - insert the todo in the database with the category
-            const text = `
-            INSERT INTO vehicles ()
-            `;
-          })
+        
       });
   });
 
