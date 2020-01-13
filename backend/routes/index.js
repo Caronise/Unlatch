@@ -25,11 +25,6 @@ module.exports = db => {
   /* POST Login. */
   router.post('/login', (req, res) => {
     const { email, password } = req.body;
-    const text = `
-      SELECT * FROM users
-      WHERE email = $1 AND password = $2
-      ;`;
-    const values = [ email, password ];
     findEmail(email).then(user => {
       if (bcrypt.compareSync(password, user[0].password)) {
         req.session.user_id = user[0].id;
