@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import validator from 'validator'
 // import bcrypt from 'bcrypt';
 
 
@@ -12,10 +13,18 @@ function Register() {
   const addAccount = (event) => {
     event.preventDefault()
 
+
     axios.post('/register', {username, email, password})
       .then((result) => {
-        if (email && username) {
-          result.json({ message: "Account already exists" })
+        console.log(result)
+        if (email === result.data.email) {
+          console.log("Account already exists")
+        };
+        if (username === result.data.username) {
+          console.log("Username already exists")
+        };
+        if (!validator.isEmail(email)) {
+          console.log("Email is not valid")
         };
       })
       .catch(err => console.log(err))
