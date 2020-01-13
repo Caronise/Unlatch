@@ -8,10 +8,12 @@ function Landing() {
   
   return (
     <>
-    <h1>WELCOME TO Unlatched</h1>
-    <Link to="/login">Login</Link>
+    <div className='landing'> 
+    <h1 className="wilkomen">Welcome to Unlatched</h1>
+    <Link to="/login" className='ref-login'>Login</Link>
     <br/>
-    <Link to="/register">Register</Link>
+    <Link to="/register" className='ref-logout'>Register</Link>
+    </div>
     </>
   );
 }

@@ -1,3 +1,5 @@
+/* Root */
+
 
 /* Header */
 .top-bar {
@@ -7,13 +9,15 @@
   justify-content: space-around;
   flex-direction: row;
   padding: 1.2% 1% 1.2% 1%;
+  height: 150px;
 }
 
 /* Unlatch Logo */
 .logo {
   outline: none; 
   justify-content: center;
-  align-items: flex-end
+  align-items: flex-start;
+  margin-right: 750px; 
 }
 
 /* Sign in buttons Login/Logout/Register */
@@ -22,6 +26,7 @@
   justify-content: space-around;
   flex-direction: row;
   width: 15%;
+  margin-top: 50px;
 }
 
 /* Sign up button */
@@ -35,7 +40,7 @@
 }
 
 .sign-up:hover { 
-  background-color: blue;
+  background-color: white;
   outline: none; 
 }
 
@@ -50,7 +55,7 @@
 
 .login:hover { 
   outline: none;
-  background-color: green; 
+  background-color: white; 
 }
 
 /* Logout Button */
@@ -65,7 +70,7 @@
 .logout:hover {
   outline: none; 
   border: none; 
-  background-color: red; 
+  background-color: white; 
 }
 
 .sidebar-user {
@@ -146,3 +151,70 @@ h5 {
   background-color: #ddd;
 }
 
+
+.logout_btn {
+  outline: none; 
+  display: flex;
+  border-color: transparent;
+  text-align: center; 
+  background-color: #ff4040; 
+  border: none; 
+  border-radius: 4px; 
+  height: 50px; 
+  align-items: flex-end;
+}
+
+.project-button { 
+  outline: none; 
+  border-color: transparent;
+  text-align: center;
+  display: flex;  
+  background-color: grey; 
+  border: none; 
+  border-radius: 8px; 
+  height: 75px; 
+}
+
+.footer { 
+  width: 100%; 
+  height: 100px;
+}
+
+/* Landing  */
+
+.landing { 
+  background-image: url("images/alex-suprun-AHnhdjyTNGM-unsplash.jpg");
+  height: 1000px;
+  background-size:     cover;              
+  background-repeat:   no-repeat;
+  background-position: center center;      
+  text-align: center;
+  color: white; 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+}
+
+.wilkomen { 
+  font-size: 75px; 
+  outline: none; 
+  border: transparent;
+}
+
+.ref-login { 
+  color: white; 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  font-size: 25px; 
+}
+
+.ref-login:hover {
+  color: white; 
+}
+
+.ref-logout { 
+  color: white; 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  font-size: 25px; 
+}
+
+.ref-logout:hover { 
+  color: white; 
+}

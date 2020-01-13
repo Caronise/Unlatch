@@ -16,7 +16,7 @@ function Projects ({ allVehicles, projects, setCurrentProject }) {
       <h5>{user && user.username}, which project would you like to do?</h5>
       <div>
         {projects.map(project => <React.Fragment>
-        <button value={project.make_name} onClick={selectProject}>Project {project.id}</button>
+        <button className='project-button'value={project.make_name} onClick={selectProject}>Project {project.id}</button>
         <br />
         </React.Fragment>)}
       </div>
