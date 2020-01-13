@@ -4,7 +4,7 @@ import React from 'react'
 function Header() {
   return (
     <div className='top-bar'>
-      <img src="images/logo.png" alt="Logo" width="250" height="75"></img>
+      <img className='logo'src="images/logo.png" alt="Logo" width="250" height="75"></img>
 
       <div className='dropdown-wrapper'>
         <div className="dropdown-header">
@@ -18,12 +18,12 @@ function Header() {
       </div>
       
       <div className='sign-in'>
-        <button>Sign up</button>
-        <button>Login</button>
-        <button>Logout</button>
+        <button className='sign-up'>Sign up</button>
+        <button className='login'>Login</button>
+        <button className='logout'>Logout</button>
       </div>
     </div>
   );
 }
 
-export default Header; 
+export default Header;  

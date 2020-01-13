@@ -1,17 +1,71 @@
+
+/* Header */
 .top-bar {
   background-color: #414143;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
   padding: 1.2% 1% 1.2% 1%;
 }
 
+/* Unlatch Logo */
+.logo {
+  outline: none; 
+  justify-content: center;
+  align-items: flex-end
+}
+
+/* Sign in buttons Login/Logout/Register */
 .sign-in {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  width: 14%;
+  width: 15%;
+}
+
+/* Sign up button */
+.sign-up { 
+  outline: none; 
+  text-align: center; 
+  background-color: whitesmoke; 
+  border: none; 
+  border-radius: 4px; 
+  height: 50px;
+}
+
+.sign-up:hover { 
+  background-color: blue;
+  outline: none; 
+}
+
+/* Login Button */
+.login { 
+  outline: none;
+  border: none;
+  background-color: whitesmoke;  
+  border-radius: 4px; 
+  height: 50px;
+}
+
+.login:hover { 
+  outline: none;
+  background-color: green; 
+}
+
+/* Logout Button */
+.logout { 
+  outline: none;
+  border: none;
+  background-color: whitesmoke;
+  border-radius: 4px;   
+  height: 50px;
+}
+
+.logout:hover {
+  outline: none; 
+  border: none; 
+  background-color: red; 
 }
 
 .sidebar-user {
@@ -91,3 +145,4 @@ h5 {
 .even:hover {
   background-color: #ddd;
 }
+

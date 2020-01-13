@@ -82,6 +82,7 @@ export default function App() {
   //     axios.get("/users/1/vehicles")
   //   ]).then((result) => {
   //     setUserVehicles(result)
+  //     setVehicles(result)
   //   });
   // }, []);
 
