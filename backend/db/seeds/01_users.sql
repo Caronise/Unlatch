@@ -1,16 +1,16 @@
 -- Adding users to our users table 
 
 INSERT INTO users (username, email, password)
-VALUES ('Franky', 'Franky@unlatch.com', '123');
+VALUES ('Franky', 'Franky@unlatch.com', 'Lh123456');
 INSERT INTO users (username, email, password)
-VALUES ('Russell', 'Russell@unlatch.com', '123');
+VALUES ('Russell', 'Russell@unlatch.com', 'Lh123456');
 INSERT INTO users (username, email, password)
-VALUES ('Lucas', 'Lucas@unlatch.com', '123');
+VALUES ('Lucas', 'Lucas@unlatch.com', 'Lh123456');
 INSERT INTO users (username, email, password)
-VALUES ('Slav', 'Slav@unlatch.com', '123');
+VALUES ('Slav', 'Slav@unlatch.com', 'Lh123456');
 INSERT INTO users (username, email, password)
-VALUES ('Jeff', 'Jeff@unlatch.com', '123');
+VALUES ('Jeff', 'Jeff@unlatch.com', 'Lh123456');
 INSERT INTO users (username, email, password)
-VALUES ('Mike', 'Mike@unlatch.com', '123');
+VALUES ('Mike', 'Mike@unlatch.com', 'Lh123456');
 INSERT INTO users (username, email, password)
-VALUES ('Serge', 'Serge@unlatch.com', '123');
+VALUES ('Serge', 'Serge@unlatch.com', 'Lh123456');

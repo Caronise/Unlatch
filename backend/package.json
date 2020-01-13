@@ -24,8 +24,7 @@
     "morgan": "~1.9.1",
     "pg": "^7.17.0",
     "pg-native": "^3.0.0",
-    "prettier": "^1.19.1",
-    "validator": "^12.1.0"
+    "prettier": "^1.19.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

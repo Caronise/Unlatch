@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const validator = require('validator')
-
 
 
 module.exports = db => {
@@ -12,6 +10,17 @@ module.exports = db => {
     res.send('This is the home page')
   
   });
+
+  const findEmail = function(email) {
+    const text = `
+    SELECT * FROM users
+    WHERE email = $1;
+    ;`;
+    const value = [email];
+
+    return db.query(text, value)
+      .then(data => data.rows)    
+  };
 
   /* POST Login. */
   router.post('/login', (req, res) => {
@@ -50,72 +59,31 @@ module.exports = db => {
     .catch(err => console.log(`Error getting data: ${err.message}`))  
   });
 
-  const findEmail = function(email) {
-    for (let user in users) {
-      const currentUser = users[user];
-      if (currentUser.email === email && validator.isEmail(email)) {
-        return currentUser.email;
-      }
-    }
-    return false;
-  };
-
-  const findPassword = function(password) {
-    for (let user in users) {
-      const currentUser = users[user];
-      if (bcrypt.compareSync(password, currentUser.password)) {
-        return currentUser.password;
-      }
-    }
-    return false;
-  };
-
-  const findUsername = function(username) {
-    for (let user in users) {
-      const currentUser = users[user];
-      if (currentUser.username === username) {
-        return currentUser.username;
-      }
-    }
-    return false;
-  };
-
-  const user = function(userObj) {
-    if (userObj) {
-      return userObj;
-    }
-  };
-
-  const authenticateUser = function(username, email, password) {
-    const userEmail = findEmail(email);
-    const userPassword = findPassword(password);
-    const userUsername = findUsername(username);
-    if ((userEmail || userUsername) && bcrypt.compareSync(password, userPassword.password)) {
-
-      return [username, email, password];
-    }
-
-    return false;
-  };
-
-
-
   /* POST Register. */
   router.post('/register', (req, res) => {
     const { username, email, password } = req.body;
+
     const text = `
       INSERT INTO users (username, email, password)
       VALUES ($1, $2, $3)
       RETURNING *
     ;`;
-    const values = [username, email, password];
-    db.query(text, values)
-      .then(data => {
-        console.log(data)
-        const userId = data.rows[0];
-        req.session.user_id = userId;
-        res.json( {username, email, password: bcrypt.hashSync(password, 10)} );
-      })
+    const values = [username, email, bcrypt.hashSync(password, 10)];
+
+    findEmail(email).then(user => {
+      if (user.length === 0) {
+        db.query(text, values)
+        .then(data => {
+          console.log("Registered")
+          console.log(data.rows)
+          const userId = data.rows[0].id;
+          req.session.user_id = userId;
+          res.json(data.rows[0]);
+        })
+      } else {
+        res.json({ message: 'User Already Exists' })
+      }
+    })
       .catch(error => {
         console.log(`${error}`)
       });
