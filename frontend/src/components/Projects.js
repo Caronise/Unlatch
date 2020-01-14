@@ -21,7 +21,7 @@ function Projects ({ currentVehicle, projects, setCurrentProject }) {
         <Nav variant="tabs" defaultActiveKey="/home">
           {projects.map(project => <React.Fragment>
             <Nav.Item>
-              <Nav.Link href={`/projects/${project.id}`} justify activeKey={project.id} value={project.id} onClick={selectProject}>Project: {project.project_name}</Nav.Link>
+              <Nav.Link href={`/projects/${project.id}`} justify activeKey={project.id} value={project.id} onClick={selectProject}>{project.project_name}</Nav.Link>
             </Nav.Item>
           </React.Fragment>)}
         </Nav>

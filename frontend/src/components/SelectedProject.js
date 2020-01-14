@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
+  Table,
   ListGroup
 } from 'react-bootstrap';
 
@@ -53,26 +54,36 @@ function SelectedProject({ currentProject }) {
 
   return (
     <div className='selected_project'>
-      <ListGroup defaultActiveKey="#link1">
-        <ListGroup.Item action className='project_parts' href="#link1">
-          Link 1
-        </ListGroup.Item>
-        <ListGroup.Item className='project_instructions' action href="#link2" disabled>
-          Link 2
-        </ListGroup.Item>
-        <ListGroup.Item action className='project_video'>
-          This one is a button
-        </ListGroup.Item>
-        <ListGroup.Item action className='project_repair_logs' href="#link1">
-          Link 1
-        </ListGroup.Item>
-      </ListGroup>
       <h2>Project Name: {currentProject} </h2>
-      <div className='project_parts'>
-        <h3>Parts needed: {parts.part_name} | {parts.price} | {parts.part_number}</h3>
-      </div>
+        <Table responsive>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Parts needed</th>
+              <th>Price of Part(s)</th>
+              <th>Serial Number</th>
+              <th>Repair Difficulty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>{parts.part_name}</td>
+              <td>{parts.price}</td>
+              <td>{parts.part_number}</td>
+              <td>Level of Difficulty</td>
+            </tr>
+          </tbody>
+        </Table>
+        <h3>Instructions:</h3>
+        <ListGroup defaultActiveKey={instructions}>
+          {instructions.map(instruction =>
+          <ListGroup.Item eventKey={instructions}>
+             <p key={instruction.id}>Step {instruction.id}: {instruction.steps}</p>
+          </ListGroup.Item>
+             )} Instructions
+        </ListGroup>
       <div className='project_instructions'>
-        <h3>Instructions: {instructions.map(instruction => <p key={instruction.id}>Step {instruction.id}: {instruction.steps}</p>)} </h3>
       </div>
       <div className='project_video'>
         <h3>Video: {video.name} | {video.video_url} </h3>
@@ -83,7 +94,5 @@ function SelectedProject({ currentProject }) {
     </div>
   );
 }
-
-// page still needs work
 
 export default SelectedProject; 
