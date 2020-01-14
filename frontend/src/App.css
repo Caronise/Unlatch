@@ -2,7 +2,6 @@
   margin-left: 2em;
 }
 
-
 .landing {
   display: flex;
   flex-direction: column;
@@ -116,10 +115,12 @@ div.form-group {
   margin: 2.2% 1% 1.7% 7%;
 }
 
-.add_vehicle_back_btn {
+.add_vehicle_back_btn, 
+.head-label {
   margin: 1.7% 1% 1.7% 7%;
 }
 
-.head-label {
-  margin: 1.7% 1% 1.7% 7%;
+#vehicle_select.form-control {
+  width: 90%;
+  margin: auto;
 }

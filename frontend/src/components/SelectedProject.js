@@ -54,7 +54,7 @@ function SelectedProject({ currentProject }) {
 
   return (
     <div className='selected_project'>
-      <h2>Project Name: {currentProject} </h2>
+      <h2>Project Name: {currentProject.part_name} </h2>
         <Table responsive>
           <thead>
             <tr>
