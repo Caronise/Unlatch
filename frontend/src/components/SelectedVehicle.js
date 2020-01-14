@@ -2,28 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-function SelectedVehicle({ currentVehicle }) {
-  const [make, setMake] = useState(null)
-  const [modelName, setModelName] = useState(null)
+function SelectedVehicle({ currentVehicle, setProjects }) {
   const [engine, setEngine] = useState([])
 
-  useEffect(() => {
-    Promise.all ([
-      axios.get(`http://localhost:8000/makes/${currentVehicle.make_id}`, {headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      }}).then( res => setMake(res.data[0].make_name) ),
-      
-      
-      axios.get(`http://localhost:8000/makes/${currentVehicle.make_id}/models/${currentVehicle.model_id}`, {headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      }}).then( res => setModelName(res.data[0].model_name) )
-    ])
-  },[]);
-
   // useEffect( () => {
-  //   const url = `http://api.carmd.com/v3.0/engine?year=${currentVehicle.year}&make=${make}&model=${modelName}`
+  //   const url = `http://api.carmd.com/v3.0/engine?year=${currentVehicle.year}&make=${currentVehicle.make_name}&model=${currentVehicle.model_name}`
   //   axios.get(url, { headers: {
   //     "content-type":"application/json",
   //     "authorization":"Basic ZmIwNjQ5MWYtMDMzYy00NzA5LTgzNDItMTM2NTBmZjdhYWUx",
@@ -34,12 +17,12 @@ function SelectedVehicle({ currentVehicle }) {
 
   return (
     <div className='selected_vehicle'>
-      <h5>You're currently working on: {currentVehicle.make_name}</h5>
+      <h3>You're currently working on: </h3>
       <div className='selected_car'>
         <p>Picture: </p>
         <img src={currentVehicle.picture_url} />
-        <p>Make: {make}</p>
-        <p>Model: {modelName}</p>
+        <p>Make: {currentVehicle.make_name}</p>
+        <p>Model: {currentVehicle.model_name}</p>
         <p>Year: {currentVehicle.year}</p>
         {/* <p>{response}</p> */}
         {/* <p>Info : {engine.map((engineSpec) => <span>{engineSpec} </span>)} </p> */}

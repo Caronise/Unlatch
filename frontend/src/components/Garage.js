@@ -1,37 +1,42 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
-import { 
-  Dropdown 
+import axios from 'axios';
+import {
+  Dropdown
 } from 'react-bootstrap';
 
-function Garage({ setCurrentVehicle }) {
+function Garage({ setCurrentVehicle, setProjects }) {
   const user = useContext(UserContext);
   const vehicles = useContext(VehiclesContext);
 
   const handleSelection = (event) => {
     event.preventDefault();
-    
-    const chosenVehicle = vehicles.find((vehicle) => vehicle.id === Number(event.target.value));
-    console.log(vehicles);
+
+    const chosenVehicle = vehicles.find((vehicle) => vehicle.vehicle_id === Number(event.target.value));
+    console.log("EVENT VALUE: ", event.target.value);
     console.log("Chosen vehicle: ", chosenVehicle);
-
+    
     setCurrentVehicle(chosenVehicle);
-  };
 
-  
+    axios.get(`/vehicles/${chosenVehicle.vehicle_id}/projects`)
+      .then(res => {
+        console.log("Data from projects call: ", res.data)
+        // setProjects(res.data[0])
+      })
+  };
 
   return (
     <div className='select_vehicle'>
       <span id="welcome">Welcome, <strong>{user.username}</strong></span>
-      <br/>
-      <Dropdown name="vehicle-select" id="vehicle-select">
-        <Dropdown.Toggle variant='warning' id='dropdown-basic'>
-        --Please select your vehicle--
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-        {vehicles.map((vehicle) => <Dropdown.Item key={vehicle.id} value={vehicle.id} onClick={handleSelection}>{vehicle.make_name}</Dropdown.Item>)}
-        </Dropdown.Menu>
-      </Dropdown>  
+      <br />
+
+
+      <label>Choose a vehicle:</label>
+      <select name="vehicle_select" id="vehicle_select">
+        <option value="">--Please choose your vehicle--</option>
+        {vehicles.map((vehicle) => <option value={vehicle.vehicle_id} onClick={handleSelection}>{vehicle.make_name} {vehicle.model_name}</option>)}
+      </select>
+
     </div>
   )
 }

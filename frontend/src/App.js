@@ -1,15 +1,12 @@
-import React, { useState /*, useEffect */ } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-
-// import axios from 'axios';
+import axios from 'axios';
 import './App.css';
-import newCar from './images/charger.jpg';
-import oldCar from './images/impala.jpg';
 
 import SelectedVehicle from './components/SelectedVehicle';
 import Footer from './components/Footer';
@@ -21,46 +18,17 @@ import Login from './components/Login';
 import Projects from './components/Projects';
 import Register from './components/Register';
 import SelectedProject from './components/SelectedProject';
+import AddRepairLog from './components/AddRepairLog';
 
 import { UserContext, VehiclesContext } from "./helpers/UserContext";
 
 export default function App() {
 
-  const [user, setUser] = useState({
-    id: 1,
-    username: "Franky",
-    email: "Franky@unlatch.com"
-  });
+  const [user, setUser] = useState(null);
 
-  const [userVehicles, setUserVehicles] = useState([
-    {
-      id: 1,
-      make_id: 4,
-      model_id: 48,
-      year: 2077,
-      picture_url: "https://i.gaw.to/content/photos/39/83/398337_Dodge_Charger.jpg?460x287",
-      make_name: "Modern_Legend"
-    },
-    {
-      id: 2,
-      make_id: "Chevrolet",
-      model_id: "Impala",
-      year: 1967,
-      picture_url: oldCar,
-      make_name: "Old_Legend"
-    },
-  ]);
+  const [userVehicles, setUserVehicles] = useState([]);
 
-  const fakeDbVehicle = {
-    id: 1,
-    make_id: 4,
-    model_id: 48,
-    year: 2077,
-    picture_url: "https://i.gaw.to/content/photos/39/83/398337_Dodge_Charger.jpg?460x287",
-    make_name: "Modern_Legend"
-  }
-
-  const [currentVehicle, setCurrentVehicle] = useState(fakeDbVehicle);
+  const [currentVehicle, setCurrentVehicle] = useState(null);
 
   const [projects, setProjects] = useState([
     {
@@ -79,14 +47,14 @@ export default function App() {
 
   const [currentProject, setCurrentProject] = useState(null);
 
-  // useEffect(() => {
-  //   Promise.all([
-  //     axios.get("/users/1/vehicles")
-  //   ]).then((result) => {
-  //     setUserVehicles(result)
-  //   });
-  // }, []);
+  useEffect(() => {
+      axios.get("/users/1/vehicles")
+        .then((result) => {
+        console.log("The result of the vehicle: ", result.data);
+        setUserVehicles(result.data)
 
+    });
+  }, []);
 
   return (
     <UserContext.Provider value={user} >
@@ -101,9 +69,9 @@ export default function App() {
               <Switch>
                 <Route exact path='/' render={(props) => <Landing />} />
 
-                <Route path="/login" render={(props) => <Login />} />
+                <Route path="/login" render={(props) => <Login setUser={setUser} />} />
 
-                <Route path="/register" render={(props) => <Register />} />
+                <Route path="/register" render={(props) => <Register setUser={setUser} />} />
 
                 <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} />} />
 
@@ -111,24 +79,17 @@ export default function App() {
 
                 <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} currentVehicle={currentVehicle} />} />
 
-                <Route exact path="/projects" render={(props) => <Projects {...props} user={user} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />} />
+                <Route exact path="/projects" render={(props) => <Projects {...props} user={user} currentVehicle={currentVehicle} projects={projects} setProjects={setProjects} setCurrentProject={setCurrentProject} />} />
 
                 <Route path="/projects/:project_id" render={(props) => <SelectedProject user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
+
+                <Route path="/repair_logs" render={(props) => <AddRepairLog user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
 
               </Switch>
             </main>
 
             <div>
               <ul>
-                <li>
-                  <Link to="/">Landing</Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/register">Register</Link>
-                </li>
                 <li>
                   <Link to="/garage">Garage</Link>
                 </li>
@@ -143,6 +104,9 @@ export default function App() {
                 </li>
                 <li>
                   <Link to="/projects/:project_id">Projects/:project_id</Link>
+                </li>
+                <li>
+                  <Link to="/repair_logs">Add repair log</Link>
                 </li>
               </ul>
             </div>
