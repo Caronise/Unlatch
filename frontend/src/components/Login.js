@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 // import authenticateUser from '../hooks/user'
 import axios from 'axios'
+import {
+  Form,
+  Button
+} from 'react-bootstrap'
 
 function Login() {
 
@@ -21,14 +25,18 @@ function Login() {
 
   return (
     <div className="login">
-      <form id="login-form" onSubmit={authenticate}>
-        <p>Email</p>
-        <input id="email" name="email" type="email" placeholder="example@email.com" value={email} onChange={event => setEmail(event.target.value)}/>
-        <p>Password</p>
-        <input id="password" name="password" type="password" placeholder="**********" value={password} onChange={event => setPassword(event.target.value)}/>
-        <input type="submit" value="Submit"/>
-      </form>
-      <button className="login_back_btn">Back</button>
+      <Form id="login-form" onSubmit={authenticate}>
+      <Form.Group controlId="formGroupEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control id='email' name='email' type="email" placeholder="Enter email" value={email} onChange={event => setEmail(event.target.value)} />
+      </Form.Group>
+      <Form.Group controlId="formGroupPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control id="password" name='password' type="password" placeholder="Password" value={password} onChange={event => setPassword(event.target.value)} />
+      </Form.Group>
+        <Button className='login submit-btn'>Login</Button>
+      </Form>
+      <Button className="login-back-btn">Back</Button>
     </div>
   );
 }

@@ -1,29 +1,31 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { UserContext } from '../helpers/UserContext';
+import {
+  Button,
+  Navbar,
+  Image,
+  ButtonGroup
+} from 'react-bootstrap';
+
 
 
 function Header() {
-  return (
-    <div className='top-bar'>
-      <img className='logo'src="images/logo.png" alt="Logo" width="250" height="75"></img>
+  const user = useContext(UserContext);
 
-      <div className='dropdown-wrapper'>
-        <div className="dropdown-header">
-          <button>Username's Garage</button>
-        </div>
-        <ul className="dropdown-list">
-          <li className="dropdown-list-item">One</li>
-          <li className="dropdown-list-item">Two</li>
-          <li className="dropdown-add-list-item">Add Car</li>
-        </ul>
+
+  return (
+    <Navbar className='unlatched-nav nav-bar' bg='dark' variant='dark' style={{justifyContent: `space-between`}}>
+      <Link to="/"> <Image className='logo' src="../images/logo.png" alt="Logo" fluid/> </Link>
+      {user && <>
+      <div className='username_header'>
+        <ButtonGroup>
+          <Button variant="outline-warning" className='user-garage' >{user.username}'s Garage</Button>
+        </ButtonGroup>
       </div>
-      
-      <div className='sign-in'>
-        <button className='sign-up'>Sign up</button>
-        <button className='login'>Login</button>
-        <button className='logout'>Logout</button>
-      </div>
-    </div>
+      </>}
+    </Navbar>
   );
 }
 
-export default Header;  
+export default Header;

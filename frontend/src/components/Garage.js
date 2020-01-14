@@ -1,5 +1,8 @@
 import React, { useContext } from 'react'
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
+import { 
+  Dropdown 
+} from 'react-bootstrap';
 
 function Garage({ setCurrentVehicle }) {
   const user = useContext(UserContext);
@@ -19,13 +22,16 @@ function Garage({ setCurrentVehicle }) {
 
   return (
     <div className='select_vehicle'>
-      <span>Welcome, <strong>{user && user.username}</strong></span>
-      <label>Choose a vehicle:</label>
-
-      <select name="vehicle_select" id="vehicle_select">
-        <option value="">--Please select your vehicle--</option>
-        {vehicles.map((vehicle) => <option key={vehicle.id} value={vehicle.id} onClick={handleSelection}>{vehicle.make_name}</option>)}
-      </select>
+      <span id="welcome">Welcome, <strong>{user.username}</strong></span>
+      <br/>
+      <Dropdown name="vehicle-select" id="vehicle-select">
+        <Dropdown.Toggle variant='warning' id='dropdown-basic'>
+        --Please select your vehicle--
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+        {vehicles.map((vehicle) => <Dropdown.Item key={vehicle.id} value={vehicle.id} onClick={handleSelection}>{vehicle.make_name}</Dropdown.Item>)}
+        </Dropdown.Menu>
+      </Dropdown>  
     </div>
   )
 }
