@@ -1,14 +1,30 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {
   Button
-} from 'react-bootstrap'
+} from 'react-bootstrap';
+import { UserContext } from "../helpers/UserContext";
+import { useHistory } from 'react-router-dom';
 
 
-function Footer() {
+
+
+function Footer(props) {
+  const {setUser} = props
+  let history = useHistory();
+  const user = useContext(UserContext);
+    
+  
+  const logout = function() {
+      setUser(null);
+      history.push("/")
+    };
+
   return (
     <div className='footer'>
       <br />
-      <Button variant="outline-danger" className="logout logout-btn" action="/logout" method="GET">Logout</Button>
+      {user && 
+        <Button variant="outline-danger" onClick={logout} className="logout logout-btn" action="/logout" method="GET">Logout</Button>
+      }
     </div>
   );
 }

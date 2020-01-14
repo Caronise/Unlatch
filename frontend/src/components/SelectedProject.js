@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import {
+  Table,
+  ListGroup
+} from 'react-bootstrap';
 
 function SelectedProject({ currentProject }) {
   const [loaded, setLoaded] = useState(false);
@@ -36,26 +39,49 @@ function SelectedProject({ currentProject }) {
 
   return (
     <>
-    {loaded && 
-    <div className = 'selected_project'>
-      <h2>Project Name: {currentProject.project_name} </h2>
-      <div className='project_parts'>
-        <p>IGNORE THIS</p>
-        <h3>Parts needed: {parts.part_name} | {parts.price} | {parts.part_number}</h3>
-      </div>
-      <div className='project_instructions'>
-        <h3>Instructions: {instructions.map(instruction => <p key={instruction.id}>Step {instruction.id}: {instruction.steps}</p>)} </h3>
-      </div>
-      <div className='project_video'>
-        <h3>Video: {video.name} | {video.video_url} </h3>
-      </div>
-      <div className='project_repair_logs'>
-        <ul>Repair Logs: {repairLogs.map(log => <li key={log.id}> {log.description} @ {log.mileage} | {log.cost_of_repair} on {log.timestamp} </li>)}</ul>
-      </div>
-    </div >
-    }
-    
-    {!loaded && <h1>Loading...</h1>}
+      {loaded &&
+        <div className='selected_project'>
+          <h2>Project Name: {currentProject} </h2>
+          <Table responsive>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Parts needed</th>
+                <th>Price of Part(s)</th>
+                <th>Serial Number</th>
+                <th>Repair Difficulty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>{parts.part_name}</td>
+                <td>{parts.price}</td>
+                <td>{parts.part_number}</td>
+                <td>Level of Difficulty</td>
+              </tr>
+            </tbody>
+          </Table>
+          <h3>Instructions:</h3>
+          <ListGroup defaultActiveKey={instructions}>
+            {instructions.map(instruction =>
+              <ListGroup.Item eventKey={instructions}>
+                <p key={instruction.id}>Step {instruction.id}: {instruction.steps}</p>
+              </ListGroup.Item>
+            )} Instructions
+        </ListGroup>
+          <div className='project_instructions'>
+          </div>
+          <div className='project_video'>
+            <h3>Video: {video.name} | {video.video_url} </h3>
+          </div>
+          <div className='project_repair_logs'>
+            <ul>Repair Logs: {repairLogs.map(log => <li key={log.id}> {log.description} @ {log.mileage} | {log.cost_of_repair} on {log.timestamp} </li>)}</ul>
+          </div>
+        </div >
+      }
+
+      {!loaded && <h1>Loading...</h1>}
     </>
   );
 }

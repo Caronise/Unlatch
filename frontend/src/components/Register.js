@@ -7,7 +7,7 @@ import {
   Button
 } from 'react-bootstrap';
 import { UserContext } from "../helpers/UserContext";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 
 const passwordSchema = new passwordValidator();
@@ -22,7 +22,9 @@ passwordSchema
 
 
 function Register({ setUser }) {
+  let history = useHistory();
   const user = useContext(UserContext);
+  
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -54,6 +56,7 @@ function Register({ setUser }) {
   if (user === null) {
     return (
       <div className='register'>
+        <h2>Please Enter Your Personal Information</h2>
         <Form id="register-form" onSubmit={addAccount}>
           <Form.Group controlId="formGroupUsername">
             <Form.Label>Username</Form.Label>
@@ -67,9 +70,11 @@ function Register({ setUser }) {
             <Form.Label>Password</Form.Label>
             <Form.Control id="password" name='password' type="password" placeholder="Password" value={password} onChange={event => setPassword(event.target.value)} />
           </Form.Group>
-          <Button className='register submit-btn'>Register</Button>
+          <Form.Group className="login-buttons">
+            <Button variant="warning" className="register-back-btn" onClick={() => history.push('/')}>Back</Button>
+            <Button variant="warning" className='register submit-btn'>Register</Button>
+          </Form.Group>
         </Form>
-        <Button className="register-back-btn">Back</Button>
       </div>
     );
   } else {

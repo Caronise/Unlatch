@@ -5,9 +5,10 @@ import {
   Button
 } from 'react-bootstrap'
 import { UserContext } from "../helpers/UserContext";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 function Login({ setUser }) {
+  let history = useHistory();
   const user = useContext(UserContext);
 
   const [email, setEmail] = useState("");
@@ -27,6 +28,7 @@ function Login({ setUser }) {
   if (user === null) {
     return (
       <div className="login">
+        <h2>Please Enter Your Credentials</h2>
         <Form id="login-form">
         <Form.Group>
           <Form.Label>Email address:</Form.Label>
@@ -36,9 +38,11 @@ function Login({ setUser }) {
           <Form.Label>Password:</Form.Label>
           <Form.Control id="password" name='password' type="password" placeholder="Password" value={password} onChange={event => setPassword(event.target.value)} />
         </Form.Group>
-          <Button className='login submit-btn' onClick={authenticate}>Login</Button>
+        <Form.Group className="login-buttons">
+          <Button variant="warning" className="login-back-btn" onClick={() => history.push('/')}>Back</Button>
+          <Button variant="warning" className='login submit-btn' onClick={authenticate}>Login</Button>
+          </Form.Group>
         </Form>
-        <Button className="login-back-btn">Back</Button>
       </div>
     );
   } else {

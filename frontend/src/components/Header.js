@@ -15,7 +15,7 @@ function Header() {
 
 
   return (
-    <Navbar className='unlatched-nav nav-bar' bg='dark' variant='dark' style={{justifyContent: `space-between`}}>
+    <Navbar className='unlatch-nav nav-bar' bg='dark' variant='dark' style={{justifyContent: `space-between`}}>
       <Link to="/"> <Image className='logo' src="../images/logo.png" alt="Logo" fluid/> </Link>
       {user && <>
       <div className='username_header'>
