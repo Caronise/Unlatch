@@ -1,7 +1,13 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { UserContext } from '../helpers/UserContext';
+import {
+  Button,
+  Navbar,
+  Image,
+  ButtonGroup
+} from 'react-bootstrap';
 
-import { UserContext } from "../helpers/UserContext";
 
 
 function Header() {
@@ -9,15 +15,17 @@ function Header() {
 
 
   return (
-    <div className='top-bar'>
-      <Link to="/"> <img className='logo'src="images/logo.png" alt="Logo" width="250" height="75"/> </Link>
+    <Navbar className='unlatched-nav nav-bar' bg='dark' variant='dark' style={{justifyContent: `space-between`}}>
+      <Link to="/"> <Image className='logo' src="../images/logo.png" alt="Logo" fluid/> </Link>
       {user && <>
       <div className='username_header'>
-          <button>{user.username}'s Garage</button>
+        <ButtonGroup>
+          <Button variant="outline-warning" className='user-garage' >{user.username}'s Garage</Button>
+        </ButtonGroup>
       </div>
       </>}
-    </div>
+    </Navbar>
   );
 }
 
-export default Header;  
+export default Header;

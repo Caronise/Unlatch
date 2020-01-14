@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import validator from 'validator';
 import passwordValidator from 'password-validator';
+import {
+  Form,
+  Button
+} from 'react-bootstrap'
 
 
 const passwordSchema = new passwordValidator();
@@ -47,17 +51,22 @@ const passwordSchema = new passwordValidator();
 
   return (
     <div className='register'>
-      <form id="register-form" onSubmit={addAccount}>
-        <p>Username</p>
-        <input id="username" name="username" value={username} onChange={event => setUsername(event.target.value)}/>
-        <p>Email</p>
-        <input id="email" name="email" value={email} onChange={event => setEmail(event.target.value)}/>
-        <p>Password</p>
-        <input id="password" name="password" type="password" value={password} onChange={event => setPassword(event.target.value)}/>
-        <br />
-        <input type="submit" value="Register"/>
-      </form>
-      <button className="register_back_btn">Back</button>
+        <Form id="register-form" onSubmit={addAccount}>
+        <Form.Group controlId="formGroupUsername">
+          <Form.Label>Username</Form.Label>
+          <Form.Control id='username' name='username' placeholder="Username" value={username} onChange={event => setUsername(event.target.value)} />
+        </Form.Group>
+        <Form.Group controlId="formGroupEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control id='email' name='email' type="email" placeholder="Enter email" value={email} onChange={event => setEmail(event.target.value)} />
+        </Form.Group>
+        <Form.Group controlId="formGroupPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control id="password" name='password' type="password" placeholder="Password" value={password} onChange={event => setPassword(event.target.value)} />
+        </Form.Group>
+          <Button className='register submit-btn'>Register</Button>
+        </Form>
+      <Button className="register-back-btn">Back</Button>
     </div>
   );
 };
