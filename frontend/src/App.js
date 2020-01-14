@@ -24,26 +24,13 @@ import { UserContext, VehiclesContext } from "./helpers/UserContext";
 
 export default function App() {
 
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
 
   const [userVehicles, setUserVehicles] = useState([]);
 
   const [currentVehicle, setCurrentVehicle] = useState(null);
 
-  const [projects, setProjects] = useState([
-    {
-      id: 1,
-      vehicle_id: 1,
-      project_name: "Alpha",
-      difficulty: "Easy"
-    },
-    {
-      id: 2,
-      vechicle_id: 1,
-      project_name: "Omega",
-      difficulty: "Medium"
-    }
-  ]);
+  const [projects, setProjects] = useState([]);
 
   const [currentProject, setCurrentProject] = useState(null);
 
@@ -52,7 +39,6 @@ export default function App() {
         .then((result) => {
         console.log("The result of the vehicle: ", result.data);
         setUserVehicles(result.data)
-
     });
   }, []);
 
@@ -73,17 +59,17 @@ export default function App() {
 
                 <Route path="/register" render={(props) => <Register setUser={setUser} />} />
 
-                <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} />} />
+                <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} setProjects={setProjects}/>} />
 
                 <Route path="/garage/add_vehicle" render={(props) => <AddVehicle />} />
 
                 <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} currentVehicle={currentVehicle} />} />
 
-                <Route exact path="/projects" render={(props) => <Projects {...props} user={user} currentVehicle={currentVehicle} projects={projects} setProjects={setProjects} setCurrentProject={setCurrentProject} />} />
+                <Route exact path="/projects" render={(props) => <Projects {...props} projects={projects} setCurrentProject={setCurrentProject} />} />
 
-                <Route path="/projects/:project_id" render={(props) => <SelectedProject user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
+                <Route path="/projects/:project_id" render={(props) => <SelectedProject currentVehicle={currentVehicle} currentProject={currentProject} />} />
 
-                <Route path="/repair_logs" render={(props) => <AddRepairLog user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
+                <Route path="/repair_logs" render={(props) => <AddRepairLog currentVehicle={currentVehicle} currentProject={currentProject} />} />
 
               </Switch>
             </main>

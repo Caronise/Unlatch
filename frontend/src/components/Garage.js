@@ -13,15 +13,15 @@ function Garage({ setCurrentVehicle, setProjects }) {
     event.preventDefault();
 
     const chosenVehicle = vehicles.find((vehicle) => vehicle.vehicle_id === Number(event.target.value));
-    console.log("EVENT VALUE: ", event.target.value);
     console.log("Chosen vehicle: ", chosenVehicle);
+    console.log("EVENT VALUE: ", event.target.value);
     
     setCurrentVehicle(chosenVehicle);
 
     axios.get(`/vehicles/${chosenVehicle.vehicle_id}/projects`)
       .then(res => {
         console.log("Data from projects call: ", res.data)
-        // setProjects(res.data[0])
+        setProjects(res.data)
       })
   };
 
