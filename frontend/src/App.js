@@ -89,7 +89,7 @@ export default function App() {
             </main>
 
             <div>
-              <ul>
+              {/* <ul>
                 <li>
                   <Link to="/garage">Garage</Link>
                 </li>
@@ -108,10 +108,10 @@ export default function App() {
                 <li>
                   <Link to="/repair_logs">Add repair log</Link>
                 </li>
-              </ul>
+              </ul> */}
             </div>
 
-            <Footer />
+            <Footer setUser={setUser} />
 
           </div>
         </Router>

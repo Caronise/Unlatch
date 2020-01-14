@@ -27,6 +27,7 @@ function Login({ setUser }) {
   if (user === null) {
     return (
       <div className="login">
+        <h2>Please Enter Your Credentials</h2>
         <Form id="login-form">
         <Form.Group>
           <Form.Label>Email address:</Form.Label>
@@ -36,9 +37,11 @@ function Login({ setUser }) {
           <Form.Label>Password:</Form.Label>
           <Form.Control id="password" name='password' type="password" placeholder="Password" value={password} onChange={event => setPassword(event.target.value)} />
         </Form.Group>
+        <Form.Group className="login-buttons">
           <Button className='login submit-btn' onClick={authenticate}>Login</Button>
+          <Button className="login-back-btn">Back</Button>
+          </Form.Group>
         </Form>
-        <Button className="login-back-btn">Back</Button>
       </div>
     );
   } else {
