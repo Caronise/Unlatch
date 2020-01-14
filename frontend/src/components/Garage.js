@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
 import axios from 'axios';
 import {
-  Dropdown
+  Form
 } from 'react-bootstrap';
 
 function Garage({ setCurrentVehicle, setProjects }) {
@@ -32,11 +32,16 @@ function Garage({ setCurrentVehicle, setProjects }) {
 
 
       <label>Choose a vehicle:</label>
-      <select name="vehicle_select" id="vehicle_select">
-        <option value="">--Please choose your vehicle--</option>
-        {vehicles.map((vehicle) => <option value={vehicle.vehicle_id} onClick={handleSelection}>{vehicle.make_name} {vehicle.model_name}</option>)}
-      </select>
+      <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Label>--Please choose your vehicle--</Form.Label>
+        <Form.Control as="select" name="vehicle_select" id="vehicle_select">
 
+        {vehicles.map((vehicle) => 
+        <option value={vehicle.vehicle_id} onClick={handleSelection}>{vehicle.make_name} {vehicle.model_name}</option>)
+        }
+          
+        </Form.Control>
+      </Form.Group>
     </div>
   )
 }
