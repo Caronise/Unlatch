@@ -5,9 +5,10 @@ import {
   Button
 } from 'react-bootstrap'
 import { UserContext } from "../helpers/UserContext";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 function Login({ setUser }) {
+  let history = useHistory();
   const user = useContext(UserContext);
 
   const [email, setEmail] = useState("");
@@ -38,8 +39,8 @@ function Login({ setUser }) {
           <Form.Control id="password" name='password' type="password" placeholder="Password" value={password} onChange={event => setPassword(event.target.value)} />
         </Form.Group>
         <Form.Group className="login-buttons">
-          <Button className='login submit-btn' onClick={authenticate}>Login</Button>
-          <Button className="login-back-btn">Back</Button>
+          <Button variant="warning" className="login-back-btn" onClick={() => history.push('/')}>Back</Button>
+          <Button variant="warning" className='login submit-btn' onClick={authenticate}>Login</Button>
           </Form.Group>
         </Form>
       </div>
