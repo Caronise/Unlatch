@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 // import authenticateUser from '../hooks/user'
 import axios from 'axios'
 import {
   Form,
   Button
 } from 'react-bootstrap'
+import { UserContext } from "../helpers/UserContext";
 
 
 function Login({ setUser }) {
