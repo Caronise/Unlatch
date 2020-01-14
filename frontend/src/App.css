@@ -2,7 +2,20 @@
   margin-left: 2em;
 }
 
+.landing {
+  background-image: url(./images/home-page.png);
+  background-size: 100%;
+}
+
+.wilkomen {
+  width: 60%;
+}
+
 div.form-group {
+  margin: 0%;
+}
+
+.form-group {
   margin: 0%;
 }
 
@@ -51,4 +64,26 @@ div.form-group {
 
 #dropdown-basic {
   margin: 1% 1% 1% 7%;
+}
+
+#makes {
+  width: 90%;
+  margin: auto;
+}
+
+#models {
+  width: 90%;
+  margin: auto;
+}
+
+.add_vehicle_btn {
+  margin: 2.2% 1% 1.7% 7%;
+}
+
+.add_vehicle_back_btn {
+  margin: 1.7% 1% 1.7% 7%;
+}
+
+.head-label {
+  margin: 1.7% 1% 1.7% 7%;
 }

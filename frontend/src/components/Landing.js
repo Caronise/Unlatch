@@ -12,7 +12,7 @@ function Landing() {
   return (
     <>
     <div className='landing'> 
-    <h1 className="wilkomen">Welcome to Unlatched</h1>
+    <h1 className="wilkomen">Welcome to Unlatch</h1>
     <Image src="../images/home-page.png" alt='homePic' fluid/>
     <br/>
     <Link to="/login" className='ref-login'>Login</Link>
