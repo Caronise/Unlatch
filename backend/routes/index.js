@@ -11,17 +11,18 @@ module.exports = db => {
 
   });
 
-  const findEmail = function(email) {
+  
+  const findEmail = function (email) {
     const text = `
-      SELECT * FROM users
-      WHERE email = $1
+    SELECT * FROM users
+    WHERE email = $1
     ;`;
     const value = [email];
-
+    
     return db.query(text, value)
-      .then(data => data.rows)    
+    .then(data => data.rows)
   };
-
+  
   /* POST Login. */
   router.post('/login', (req, res) => {
     const { email, password } = req.body;
@@ -32,13 +33,13 @@ module.exports = db => {
         res.json(user[0]);
       }
     })
-      .catch(error => {
-        if (error) {
-          res.send( { message: "Incorrect Credentials"})
-        }
-      })
+    .catch(error => {
+      if (error) {
+        res.send({ message: "Incorrect Credentials" })
+      }
+    })
   });
-
+  
   /* GET Register. */
   router.get('/register', (req, res) => {
     const text = `
@@ -46,21 +47,21 @@ module.exports = db => {
     ;`;
     const values = [req.params.id]
     db.query(text, values)
-      .then(result => {return res.json(result.rows)})
-      .catch(err => console.log(`Error getting data: ${err.message}`))  
+    .then(result => { return res.json(result.rows) })
+    .catch(err => console.log(`Error getting data: ${err.message}`))
   });
-
+  
   /* POST Register. */
   router.post('/register', (req, res) => {
     const { username, email, password } = req.body;
-
+    
     const text = `
-      INSERT INTO users (username, email, password)
-      VALUES ($1, $2, $3)
-      RETURNING *
-      ;`;
+    INSERT INTO users (username, email, password)
+    VALUES ($1, $2, $3)
+    RETURNING *
+    ;`;
     const values = [username, email, bcrypt.hashSync(password, 10)];
-
+    
     findEmail(email).then(user => {
       if (user.length === 0) {
         db.query(text, values)
@@ -75,29 +76,39 @@ module.exports = db => {
         res.json({ message: 'User Already Exists' })
       }
     })
-      .catch(error => {
-        console.log(`${error}`)
-      });
+    .catch(error => {
+      console.log(`${error}`)
+    });
   });
-
+  
   /* GET Logout. */
   router.get('/logout', (req, res) => {
     req.session = null;
     res.send('This is the logout route')
   });
-
+  
   // GET Users
   router.get('/users/:id', (req, res) => {
     const text = `
-      SELECT * FROM users WHERE users.id = $1
+    SELECT * FROM users WHERE users.id = $1
     ;`;
     const values = [req.params.id];
     db.query(text, values)
-      .then(result => { return res.json(result.rows) })
-      .catch(err => console.log(`Error getting data: ${err.message}`))
+    .then(result => { return res.json(result.rows) })
+    .catch(err => console.log(`Error getting data: ${err.message}`))
   })
+  
+  /* GET Vehicles. */
+  router.get('/vehicles', function (req, res) {
+    const text = `
+    SELECT * FROM vehicles
+    ;`;
+    
+    db.query(text)
+    .then(result => res.send(result.rows))
 
-
+  });
+  
   /* POST Add Vehicle. */
   router.post('/vehicles', (req, res) => {
     if (!req.body) {
@@ -111,31 +122,27 @@ module.exports = db => {
       VALUES ($1, $2, $3)
       RETURNING *
     ;`;
-      const values = [make_id, model_id, year];
-      db.query(text, values)
-        .then(data => {
+    const values = [make_id, model_id, year];
+    db.query(text, values)
+      .then(data => {
 
-        
+
       });
   });
 
-  /* GET Vehicles */
-  router.get('/users/:id/vehicles', (req, res) => {
+  /* GET Makes */
+  router.get('/users/:id/makes', (req, res) => {
     const text = `
-  SELECT users.id, make_id, model_id, year, picture_url, makes.make_name FROM users
-  JOIN vehicles
-  ON users.id = vehicles.user_id
-  JOIN makes
-  ON makes.id = vehicles.make_id
-  WHERE users.id = $1
-  ;`;
+    SELECT * FROM makes
+    WHERE makes.user_id = $1
+    ;`;
     const values = [req.params.id];
     db.query(text, values)
       .then(result => { return res.json(result.rows) })
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
-  // GET MAKE 
+  // GET Makes ID
   router.get('users/:id/makes/:id', (req, res) => {
     const text = 'SELECT * FROM makes WHERE id =$1;';
     const values = [req.params.id];
@@ -145,6 +152,7 @@ module.exports = db => {
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
+  /* GET Models */
   router.get('users/:id/makes/:id/models', (req, res) => {
     const text = `SELECT * FROM models WHERE make_id = $1;`;
     const values = [req.params.id];
@@ -154,11 +162,10 @@ module.exports = db => {
       .catch(err => console.log(`Error getting data: ${err.message}`))
   })
 
-
+  // GET Models ID
   router.get('users/:id/makes/:id/models/:model_id', (req, res) => {
     const text = 'SELECT * FROM models WHERE id = $1 AND make_id = $2;';
     const values = [req.params.model_id, req.params.id];
-
 
     db.query(text, values)
       .then(result => { return res.json(result.rows) })

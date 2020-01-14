@@ -1,11 +1,11 @@
-import React, { useState /*, useEffect */ } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-// import axios from 'axios';
+import axios from 'axios';
 import './App.css';
 
 import SelectedVehicle from './components/SelectedVehicle';
@@ -18,6 +18,7 @@ import Login from './components/Login';
 import Projects from './components/Projects';
 import Register from './components/Register';
 import SelectedProject from './components/SelectedProject';
+import AddRepairLog from './components/AddRepairLog';
 
 import { UserContext, VehiclesContext } from "./helpers/UserContext";
 
@@ -25,24 +26,7 @@ export default function App() {
 
   const [user, setUser] = useState(null);
 
-  const [userVehicles, setUserVehicles] = useState([
-    {
-      id: 1,
-      make_id: 4,
-      model_id: 48,
-      year: 2077,
-      picture_url: "https://i.gaw.to/content/photos/39/83/398337_Dodge_Charger.jpg?460x287",
-      make_name: "Modern_Legend"
-    },
-    {
-      id: 2,
-      make_id: "Chevrolet",
-      model_id: "Impala",
-      year: 1967,
-      picture_url: "",
-      make_name: "Old_Legend"
-    },
-  ]);
+  const [userVehicles, setUserVehicles] = useState([]);
 
   const fakeDbVehicle = {
     id: 1,
@@ -72,13 +56,13 @@ export default function App() {
 
   const [currentProject, setCurrentProject] = useState(null);
 
-  // useEffect(() => {
-  //   Promise.all([
-  //     axios.get("/users/1/vehicles")
-  //   ]).then((result) => {
-  //     setUserVehicles(result)
-  //   });
-  // }, []);
+  useEffect(() => {
+    Promise.all([
+      axios.get("/users/1/vehicles")
+    ]).then((result) => {
+      setUserVehicles(result)
+    });
+  }, []);
 
 
   return (
@@ -108,6 +92,8 @@ export default function App() {
 
                 <Route path="/projects/:project_id" render={(props) => <SelectedProject user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
 
+                <Route path="/repair_logs" render={(props) => <AddRepairLog user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
+
               </Switch>
             </main>
 
@@ -127,6 +113,9 @@ export default function App() {
                 </li>
                 <li>
                   <Link to="/projects/:project_id">Projects/:project_id</Link>
+                </li>
+                <li>
+                  <Link to="/repair_logs">Add repair log</Link>
                 </li>
               </ul>
             </div>
