@@ -1,30 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { UserContext } from '../helpers/UserContext';
-import {
-  Nav
-} from 'react-bootstrap'
 
-function Projects ({ currentVehicle, projects, setCurrentProject }) { 
+function Projects({ projects, setCurrentProject}) {
   const user = useContext(UserContext);
 
-  const selectProject = (event) => {
+  const handleSelection = (event) => {
     event.preventDefault();
 
     const chosenProject = projects.find((project) => project.id === Number(event.target.value));
+    console.log("Chosen project: ", chosenProject);
+    console.group("EVENT VALUE: ", event.target.value);
+
     setCurrentProject(chosenProject);
   };
-  
-  return( 
+
+  return (
     <div className='select_project'>
       <h5>{user && user.username}, which project would you like to do?</h5>
       <div>
-        <Nav variant="tabs" defaultActiveKey="/home">
-          {projects.map(project => <React.Fragment>
-            <Nav.Item>
-              <Nav.Link href={`/projects/${project.id}`} justify activeKey={project.id} value={project.id} onClick={selectProject}>Project: {project.project_name}</Nav.Link>
-            </Nav.Item>
-          </React.Fragment>)}
-        </Nav>
+
+        <label>Choose a project:</label>
+        <select name="vehicle_select" id="vehicle_select">
+          <option value="">--Please select a project--</option>
+          {projects.map(project => <option value={project.id} onClick={handleSelection}> Project: {project.project_name} </option>)}
+        </select>
+
         <br />
       </div>
     </div>
