@@ -5,7 +5,7 @@ function SelectedProject({ currentProject }) {
   const [parts, setParts] = useState({});
   const [instructions, setInstructions] = useState([]);
   const [video, setVideo] = useState({});
-  const [notes, setNotes] = useState({});
+  const [repairLogs, setRepairLogs] = useState([]);
 
   useEffect(() => {
     Promise.all([
@@ -14,7 +14,9 @@ function SelectedProject({ currentProject }) {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json'
         }
-      }).then(res => setParts(res.data[0])),
+      }).then(res => {
+        setParts(res.data[0]);
+      }),
 
       axios.get(`http://localhost:8000/projects/${currentProject.id}/instructions`, {
         headers: {
@@ -22,7 +24,7 @@ function SelectedProject({ currentProject }) {
           'Content-Type': 'application/json',
         }
       }).then(res => {
-        setInstructions(res.data)
+        setInstructions(res.data);
       }),
 
       axios.get(`http://localhost:8000/projects/${currentProject.id}/videos`, {
@@ -30,14 +32,18 @@ function SelectedProject({ currentProject }) {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
         }
-      }).then(res => setVideo(res.data[0])),
+      }).then(res => {
+        setVideo(res.data[0]);
+      }),
 
-      axios.get(`http://localhost:8000/projects/${currentProject.id}/notes`, {
+      axios.get(`http://localhost:8000/projects/${currentProject.id}/repair_logs`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
         }
-      }).then(res => setNotes(res.data[0]))
+      }).then(res => {
+        setRepairLogs(res.data);
+      })
     ])
   }, []);
 
@@ -54,8 +60,8 @@ function SelectedProject({ currentProject }) {
       <div className='project_video'>
         <h3>Video: {video.name} | {video.video_url} </h3>
       </div>
-      <div className='project_notes'>
-        <h3>Notes: {notes.description} | {notes.mileage} </h3>
+      <div className='project_repair_logs'>
+        <ul>Repair Logs: {repairLogs.map(log =>  <li key={log.id}> {log.description} | {log.mileage} </li>)}</ul>
       </div>
     </div>
   );
