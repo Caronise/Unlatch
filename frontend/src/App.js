@@ -28,16 +28,7 @@ export default function App() {
 
   const [userVehicles, setUserVehicles] = useState([]);
 
-  const fakeDbVehicle = {
-    id: 1,
-    make_id: 4,
-    model_id: 48,
-    year: 2077,
-    picture_url: "https://i.gaw.to/content/photos/39/83/398337_Dodge_Charger.jpg?460x287",
-    make_name: "Modern_Legend"
-  }
-
-  const [currentVehicle, setCurrentVehicle] = useState(fakeDbVehicle);
+  const [currentVehicle, setCurrentVehicle] = useState(null);
 
   const [projects, setProjects] = useState([
     {
@@ -57,13 +48,13 @@ export default function App() {
   const [currentProject, setCurrentProject] = useState(null);
 
   useEffect(() => {
-    Promise.all([
       axios.get("/users/1/vehicles")
-    ]).then((result) => {
-      setUserVehicles(result)
+        .then((result) => {
+        console.log("The result of the vehicle: ", result.data);
+        setUserVehicles(result.data)
+
     });
   }, []);
-
 
   return (
     <UserContext.Provider value={user} >
@@ -88,7 +79,7 @@ export default function App() {
 
                 <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} currentVehicle={currentVehicle} />} />
 
-                <Route exact path="/projects" render={(props) => <Projects {...props} user={user} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />} />
+                <Route exact path="/projects" render={(props) => <Projects {...props} user={user} currentVehicle={currentVehicle} projects={projects} setProjects={setProjects} setCurrentProject={setCurrentProject} />} />
 
                 <Route path="/projects/:project_id" render={(props) => <SelectedProject user={user} currentVehicle={currentVehicle} currentProject={currentProject} />} />
 

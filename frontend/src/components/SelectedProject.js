@@ -61,7 +61,7 @@ function SelectedProject({ currentProject }) {
         <h3>Video: {video.name} | {video.video_url} </h3>
       </div>
       <div className='project_repair_logs'>
-        <ul>Repair Logs: {repairLogs.map(log =>  <li key={log.id}> {log.description} | {log.mileage} </li>)}</ul>
+        <ul>Repair Logs: {repairLogs.map(log =>  <li key={log.id}> {log.description} @ {log.mileage} | {log.cost_of_repair} on {log.timestamp} </li>)}</ul>
       </div>
     </div>
   );
