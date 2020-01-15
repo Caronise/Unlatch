@@ -32,7 +32,7 @@ function Garage({ setCurrentVehicle, setProjects }) {
   return (
     <div className='select_vehicle'>
       <span id="welcome">Welcome, <strong>{user.username}</strong></span>
-      <Form.Group controlId="exampleForm.ControlSelect1">
+      <Form.Group>
         <Form.Label>My Vehicles:</Form.Label>
         <Form.Control onChange={handleSelection} as="select" className="vehicle_select">
           <option>--Please choose your vehicle--</option>

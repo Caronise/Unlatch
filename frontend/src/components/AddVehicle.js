@@ -10,7 +10,7 @@ function AddVehicle() {
     <div className="add_vehicle">
       <h3 className="head-label">Please enter the vehicle information</h3>
       <Form id="add_vehicle_form">
-        <Form.Group controlId="makesForm.ControlSelect1">
+        <Form.Group>
           <Form.Label>Makes</Form.Label>
           <Form.Control id="makes" as="select">
             <option>1</option>
@@ -20,7 +20,7 @@ function AddVehicle() {
             <option>5</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="modelsForm.ControlSelect2">
+        <Form.Group>
           <Form.Label>Models</Form.Label>
           <Form.Control id="models" as="select">
             <option>1</option>
@@ -30,7 +30,7 @@ function AddVehicle() {
             <option>5</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlText1">
+        <Form.Group>
           <Form.Label>Year</Form.Label>
           <Form.Control id="years" className="year-input" type="text" rows="1" placeholder="Vehicle Year" style={{width: "90%", margin: "auto"}}/>
         </Form.Group>
