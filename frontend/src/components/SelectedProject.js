@@ -68,7 +68,7 @@ function SelectedProject({ currentProject }) {
           <ListGroup defaultActiveKey={instructions}>
             {instructions.map(instruction =>
               <ListGroup.Item className="btn-dark" eventKey={instructions}>
-                <a key={instruction.id}>Step {instruction.id}: {instruction.steps}</a>
+                <a key={instruction.id}>{instruction.steps}</a>
               </ListGroup.Item>
             )}
           </ListGroup>
