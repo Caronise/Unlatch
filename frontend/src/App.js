@@ -96,8 +96,12 @@ export default function App() {
                 </li>
               </ul> */}
             </div>
+            <footer>
 
             <Footer setUser={setUser} />
+
+            </footer>
+
 
           </div>
         </Router>

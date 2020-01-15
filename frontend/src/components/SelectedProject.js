@@ -66,7 +66,7 @@ function SelectedProject({ currentProject }) {
               <ListGroup.Item eventKey={instructions}>
                 <p key={instruction.id}>Step {instruction.id}: {instruction.steps}</p>
               </ListGroup.Item>
-            )} Instructions
+            )}
           </ListGroup>
           <div className='project_instructions'>
           </div>
@@ -75,7 +75,8 @@ function SelectedProject({ currentProject }) {
             <iframe width="410" height="315" src={video.video_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
           <div className='project_repair_logs'>
-            <ul>Repair Logs: {repairLogs.map(log => <li key={log.id}> {log.description} @ {log.mileage} | {log.cost_of_repair} on {log.timestamp} </li>)}</ul>
+            <h3>Repair Logs: </h3>
+            <ul>{repairLogs.map(log => <li key={log.id}> {log.description} @ {log.mileage} | {log.cost_of_repair} on {log.timestamp} </li>)}</ul>
           </div>
         </div >
       }
