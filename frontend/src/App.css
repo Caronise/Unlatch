@@ -39,14 +39,6 @@ width:auto;
   color: white;
 }
 
-div.form-group {
-  margin: 0%;
-}
-
-.form-group {
-  margin: 0%;
-}
-
 .form-label {
   margin: 3.5% 5% 1.5% 8%;
 }
@@ -108,6 +100,10 @@ div.form-group {
   margin: auto;
 }
 
+#welcome {
+  text-align: center;
+}
+
 .add_vehicle_btn {
   margin: 2.2% 1% 1.7% 7%;
 }
@@ -120,9 +116,35 @@ div.form-group {
 .vehicle_select.form-control {
   width: 90%;
   margin: auto;
+  font-weight: 700;
+}
+
+.current_vehicle_title {
+  text-align: center;
+}
+
+.which-project {
+  text-align: center;
+  margin: 0;
+}
+
+.my-project-label,
+.my-vehicle-label {
+  font-size: 125%;
 }
 
 
+#project_select_form.form-control {
+  width: 90%;
+  margin: auto;
+  font-weight: 700;
+
+}
+
+.card {
+  margin: auto;
+  margin-bottom: 3%;
+}
 
 .footer{
   position: absolute;

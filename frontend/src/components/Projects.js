@@ -22,12 +22,12 @@ function Projects({ projects, setCurrentProject}) {
 
   return (
     <div className='select_project'>
-      <h5>{user && user.username}, which project would you like to do?</h5>
+      <h4 className="which-project">Which project would you like to do?</h4>
       <div>
         <Form.Group>
-          <Form.Label>My Project:</Form.Label>
-          <Form.Control onChange={handleSelection} as="select" className="project_select_form">
-            <option hidden>--Please select a project--</option>
+          <Form.Label className="my-project-label">My Project:</Form.Label>
+          <Form.Control className="btn-warning" onChange={handleSelection} as="select" id="project_select_form" name="project_select_form">
+            <option>--Please select a project--</option>
             {projects.map(project => 
             <option value={project.id}>{project.project_name}</option>)
             }

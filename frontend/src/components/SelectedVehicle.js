@@ -25,11 +25,10 @@ function SelectedVehicle({ currentVehicle, projects, setCurrentProject }) {
 
   return (
     <div className='selected_vehicle'>
-      <h3 className="current_vehicle_title">You're currently working on:</h3>
+      <h2 className="current_vehicle_title">You're currently working on:</h2>
       <div className='selected_card'>
-        <Card style={{ width: "50%"}}>
-          <Card.Img variant="top"/>
-          {/* src={currentVehicle.picture_url} */}
+        <Card border="dark" bg="dark" text="white" style={{ width: "60%"}}>
+          <Card.Img variant="top" src={currentVehicle.picture_url}/>
           <Card.Body>
             <Card.Title>{currentVehicle.make_name} {currentVehicle.model_name} </Card.Title>
             <Card.Text>

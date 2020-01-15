@@ -31,10 +31,10 @@ function Garage({ setCurrentVehicle, setProjects }) {
 
   return (
     <div className='select_vehicle'>
-      <span id="welcome">Welcome, <strong>{user.username}</strong></span>
+      <h3 id="welcome">Welcome, <strong>{user.username}</strong></h3>
       <Form.Group>
-        <Form.Label>My Vehicles:</Form.Label>
-        <Form.Control onChange={handleSelection} as="select" className="vehicle_select">
+        <Form.Label className="my-vehicle-label">My Vehicles:</Form.Label>
+        <Form.Control onChange={handleSelection} as="select" className="vehicle_select btn-warning">
           <option>--Please choose your vehicle--</option>
           {vehicles.map((vehicle) => 
           <option value={vehicle.vehicle_id}>{vehicle.make_name} {vehicle.model_name}</option>)
