@@ -340,9 +340,8 @@ module.exports = db => {
     const query = {
       text: `
       INSERT INTO repair_logs (project_id, description, mileage, timestamp, cost_of_repair) 
-      VALUES ($1, $2, $3, $4)
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING *
-      ORDER BY project_id DESC
       ;`,
       values: [project_id, description, mileage, timestamp, cost_of_repair]
     };

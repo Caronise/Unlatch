@@ -14,7 +14,7 @@ function Projects({ projects, setCurrentProject}) {
     console.group("EVENT VALUE: ", event.target.value);
 
     setCurrentProject(chosenProject);
-    history.push('/projects/{chosenProject.id}');
+    history.push(`/projects/${chosenProject.id}`);
   };
 
   return (
