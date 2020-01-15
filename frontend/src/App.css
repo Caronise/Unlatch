@@ -138,12 +138,29 @@ width:auto;
   width: 90%;
   margin: auto;
   font-weight: 700;
-
 }
 
 .card {
   margin: auto;
   margin-bottom: 3%;
+}
+
+.project_label {
+  text-align: center;
+  margin: 2.5% 0%;
+}
+
+.selected_project_page {
+  width: 90%;
+  margin: auto;
+}
+
+.instructions_label {
+  margin-left: 2.5%;
+}
+
+.btn-dark.list-group-item {
+  margin: 1% 0%;
 }
 
 .footer{
