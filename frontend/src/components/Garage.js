@@ -5,8 +5,10 @@ import axios from 'axios';
 import {
   Form
 } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 function Garage({ setCurrentVehicle, setProjects }) {
+  let history = useHistory();
   const user = useContext(UserContext);
   const vehicles = useContext(VehiclesContext);
 
@@ -21,8 +23,9 @@ function Garage({ setCurrentVehicle, setProjects }) {
 
     axios.get(`/vehicles/${chosenVehicle.vehicle_id}/projects`)
       .then(res => {
-        console.log("Data from projects call: ", res.data)
-        setProjects(res.data)
+        console.log("Data from projects call: ", res.data);
+        setProjects(res.data);
+        history.push('/garage/{chosenVehicle.vehicle_id}');
       })
   };
 
