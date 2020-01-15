@@ -4,8 +4,9 @@ import { useHistory } from 'react-router-dom';
 import { 
   Form
  } from 'react-bootstrap';
+ import Footer from '../components/Footer'
 
-function Projects({ projects, setCurrentProject}) {
+function Projects({ projects, setCurrentProject, setUser}) {
   let history = useHistory();
   const user = useContext(UserContext);
 
@@ -34,6 +35,7 @@ function Projects({ projects, setCurrentProject}) {
           </Form.Control>
         </Form.Group>
       </div>
+      <Footer setUser={setUser} />
     </div>
   );
 };

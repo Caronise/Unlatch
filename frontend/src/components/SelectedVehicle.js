@@ -4,9 +4,10 @@ import Projects from '../components/Projects';
 import {
   Card
 } from 'react-bootstrap';
+import Footer from '../components/Footer'
 
 
-function SelectedVehicle({ currentVehicle, projects, setCurrentProject }) {
+function SelectedVehicle({ currentVehicle, projects, setCurrentProject, setUser }) {
   const [engine, setEngine] = useState("")
 
   // useEffect( () => {
@@ -40,6 +41,7 @@ function SelectedVehicle({ currentVehicle, projects, setCurrentProject }) {
         </Card>
         <Projects projects={projects} setCurrentProject={setCurrentProject} />
       </div>
+      <Footer setUser={setUser} />
     </div>
   );
 }

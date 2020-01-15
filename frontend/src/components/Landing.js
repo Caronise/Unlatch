@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Image,
   Button
 } from 'react-bootstrap'
 
