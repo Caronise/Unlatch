@@ -21,7 +21,6 @@ function Footer(props) {
 
   return (
     <div className='footer'>
-      <br />
       {user && 
         <Button variant="outline-danger" onClick={logout} className="logout logout-btn" action="/logout" method="GET">Logout</Button>
       }

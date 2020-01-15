@@ -120,7 +120,7 @@ div.form-group {
   margin: 1.7% 1% 1.7% 7%;
 }
 
-#vehicle_select.form-control {
+.vehicle_select.form-control {
   width: 90%;
   margin: auto;
 }

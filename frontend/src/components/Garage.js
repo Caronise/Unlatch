@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import {
   Form
@@ -29,15 +30,16 @@ function Garage({ setCurrentVehicle, setProjects }) {
     <div className='select_vehicle'>
       <span id="welcome">Welcome, <strong>{user.username}</strong></span>
       <Form.Group controlId="exampleForm.ControlSelect1">
-        <Form.Label>--Please choose your vehicle--</Form.Label>
-        <Form.Control as="select" name="vehicle_select" id="vehicle_select">
-        {vehicles.map((vehicle) => 
-        <option value={vehicle.vehicle_id} onClick={handleSelection}>{vehicle.make_name} {vehicle.model_name}</option>)
-        }
+        <Form.Label>My Vehicles:</Form.Label>
+        <Form.Control onChange={handleSelection} as="select" className="vehicle_select">
+          <option>--Please choose your vehicle--</option>
+          {vehicles.map((vehicle) => 
+          <option value={vehicle.vehicle_id}>{vehicle.make_name} {vehicle.model_name}</option>)
+          }
         </Form.Control>
       </Form.Group>
     </div>
   )
-}
+} 
 
 export default Garage;

@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../helpers/UserContext';
+import {
+  Form
+} from 'react-bootstrap';
 
 function Projects({ projects, setCurrentProject}) {
   const user = useContext(UserContext);
@@ -17,16 +20,15 @@ function Projects({ projects, setCurrentProject}) {
   return (
     <div className='select_project'>
       <h5>{user && user.username}, which project would you like to do?</h5>
-      <div>
-
-        <label>Choose a project:</label>
-        <select name="vehicle_select" id="vehicle_select">
-          <option value="">--Please select a project--</option>
-          {projects.map(project => <option value={project.id} onClick={handleSelection}> Project: {project.project_name} </option>)}
-        </select>
-
-        <br />
-      </div>
+      <Form>
+        <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Projects:</Form.Label>
+          <Form.Control onChange="this.form.submit()" as="select" name="vehicle_select" id="vehicle_select">
+            <option>--Please choose a project--</option>
+            {projects.map(project => <option value={project.id} onClick={handleSelection}> Project: {project.project_name} </option>)}
+          </Form.Control>
+        </Form.Group>
+      </Form>
     </div>
   );
 };
