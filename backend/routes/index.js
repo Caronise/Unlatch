@@ -35,7 +35,7 @@ module.exports = db => {
     })
       .catch(error => {
         if (error) {
-          res.send({ message: "Incorrect Credentials" })
+          res.json(null)
         }
       })
   });
@@ -257,8 +257,11 @@ module.exports = db => {
   router.get('/vehicles/:vehicle_id/projects/:project_id', (req, res) => {
     const { project_id } = req.params;
     const query = {
-      text: 'SELECT * FROM projects where id = $1',
-      values: [project_id]
+      text: `
+    SELECT * FROM projects 
+    WHERE id = $1
+    `,
+    values: [project_id]
     };
     db.query(query)
       .then(result => res.json(result.rows))
@@ -320,7 +323,7 @@ module.exports = db => {
     const { project_id } = req.params;
     const query = {
       text: `
-      SELECT * FROM projects 
+      SELECT projects.id as id, description, mileage, timestamp, cost_of_repair FROM projects 
       JOIN repair_logs
       ON repair_logs.project_id = projects.id 
       WHERE project_id = $1
@@ -347,14 +350,42 @@ module.exports = db => {
     };
     db.query(query)
       .then(result => {
-        res.json(result.rows)
+        res.json(result.rows);
+      })
+      .catch(err => console.log(`Error getting data: ${err.message}`))
+  });
+
+  /* GET Repair Log by ID */
+  router.get('/projects/:project_id/repair_logs/:log_id', (req, res) => {
+    const { log_id } = req.params;
+    const query = {
+      text: `
+      SELECT * FROM repair_logs
+      WHERE id = $1
+      ;`,
+      values: [log_id]
+    };
+    db.query(query)
+      .then(result => {
+        return res.json();
       })
       .catch(err => console.log(`Error getting data: ${err.message}`))
   });
 
   /* PUT REPAIR LOGS */
-  router.put('/projects/:project_id/repair_logs', (req, res) => {
+  router.put('/projects/:project_id/repair_logs/:log_id', (req, res) => {
+    // This route isn't functional is considered a stretch in case user wants to edit a note
 
+    const { log_id } = req.params;
+    // const {  } = req.body;
+    const query = {
+      text: `
+      UPDATE projects
+      SET 
+      WHERE id = $1
+      `,
+      values: [log_id]
+    };
     db.query(query)
       .then(result => {
         return res.json(result.rows)
@@ -364,8 +395,15 @@ module.exports = db => {
   });
 
   /* DELETE REPAIR LOGS */
-  router.delete('/projects/:project_id/repair_logs', (req, res) => {
-
+  router.delete('/projects/:project_id/repair_logs/:log_id', (req, res) => {
+    const { log_id } = req.params;
+    const query = {
+      text: `
+      DELETE FROM repair_logs
+      WHERE id = $1
+      `,
+      values: [log_id]
+    }
     db.query(query)
       .then(result => {
         return res.json(result.rows)
