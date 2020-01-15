@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Projects from '../components/Projects';
+import {
+  Card
+} from 'react-bootstrap';
 
 
 function SelectedVehicle({ currentVehicle, projects, setCurrentProject }) {
@@ -18,16 +21,20 @@ function SelectedVehicle({ currentVehicle, projects, setCurrentProject }) {
 
   return (
     <div className='selected_vehicle'>
-      <h3>You're currently working on: </h3>
-      <div className='selected_car'>
-        <p>Picture: </p>
-        <img src={currentVehicle.picture_url} />
-        <p>Make: {currentVehicle.make_name}</p>
-        <p>Model: {currentVehicle.model_name}</p>
-        <p>Year: {currentVehicle.year}</p>
-        {/* <p>{response}</p> */}
-        {/* <p>Info : {engine.map((engineSpec) => <span>{engineSpec} </span>)} </p> */}
-
+      <h3 className="current_vehicle_title">You're currently working on:</h3>
+      <div className='selected_card'>
+        <Card>
+          <Card.Img variant="top"/>
+          {/* src={currentVehicle.picture_url} */}
+          <Card.Body>
+            <Card.Title>{currentVehicle.make_name} {currentVehicle.model_name} </Card.Title>
+            <Card.Text>
+              Year: {currentVehicle.year}
+            </Card.Text>
+          {/* <p>{response}</p> */}
+          {/* <p>Info : {engine.map((engineSpec) => <span>{engineSpec} </span>)} </p> */}
+          </Card.Body>
+        </Card>
         <Projects projects={projects} setCurrentProject={setCurrentProject} />
       </div>
     </div>

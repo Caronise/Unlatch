@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { UserContext } from '../helpers/UserContext';
 import {
   Button,
@@ -12,6 +12,7 @@ import {
 
 function Header() {
   const user = useContext(UserContext);
+  let history = useHistory();
 
 
   return (
@@ -20,7 +21,7 @@ function Header() {
       {user && <>
       <div className='username_header'>
         <ButtonGroup>
-          <Button variant="outline-warning" className='user-garage' >{user.username}'s Garage</Button>
+          <Button variant="outline-warning" className='user-garage' onClick={() => history.push('/garage')} >{user.username}'s Garage</Button>
         </ButtonGroup>
       </div>
       </>}

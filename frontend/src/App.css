@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 91px);
+  min-height: calc(100vh - 71px);
   overflow: hidden;
   position: relative;
 }
@@ -89,9 +89,6 @@ div.form-group {
   width: 25%;
 }
 
-.logout-btn {
-  margin: 1% 1% 1% 75%;
-}
 
 #welcome {
   margin: 3.5% 5% 1.5% 9%;
@@ -123,4 +120,12 @@ div.form-group {
 .vehicle_select.form-control {
   width: 90%;
   margin: auto;
+}
+
+.footer{
+  position: absolute;
+  top:100vh;
+  transform:translateY(-120%);
+  right:5%;
+  text-align:right;
 }
