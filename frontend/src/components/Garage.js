@@ -25,7 +25,7 @@ function Garage({ setCurrentVehicle, setProjects }) {
       .then(res => {
         console.log("Data from projects call: ", res.data);
         setProjects(res.data);
-        history.push('/garage/{chosenVehicle.vehicle_id}');
+        history.push(`/garage/${chosenVehicle.vehicle_id}`);
       })
   };
 

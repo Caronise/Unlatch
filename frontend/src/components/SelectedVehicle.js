@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Projects from '../components/Projects';
 
 
-function SelectedVehicle({ currentVehicle, setProjects }) {
+function SelectedVehicle({ currentVehicle, projects, setCurrentProject }) {
   const [engine, setEngine] = useState([])
 
   // useEffect( () => {
@@ -26,6 +27,8 @@ function SelectedVehicle({ currentVehicle, setProjects }) {
         <p>Year: {currentVehicle.year}</p>
         {/* <p>{response}</p> */}
         {/* <p>Info : {engine.map((engineSpec) => <span>{engineSpec} </span>)} </p> */}
+
+        <Projects projects={projects} setCurrentProject={setCurrentProject} />
       </div>
     </div>
   );
