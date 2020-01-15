@@ -7,32 +7,36 @@ import {
 
 
 function SelectedVehicle({ currentVehicle, projects, setCurrentProject }) {
-  const [engine, setEngine] = useState([])
+  const [engine, setEngine] = useState("")
 
   // useEffect( () => {
   //   const url = `http://api.carmd.com/v3.0/engine?year=${currentVehicle.year}&make=${currentVehicle.make_name}&model=${currentVehicle.model_name}`
   //   axios.get(url, { headers: {
   //     "content-type":"application/json",
-  //     "authorization":"Basic ZmIwNjQ5MWYtMDMzYy00NzA5LTgzNDItMTM2NTBmZjdhYWUx",
-  //     "partner-token":"4fba13f763ec4f15ad40f55ce3b1bf3b"}        
-  //   }).then(res => {setEngine(res.data)}) 
-  // }, [make, modelName])
+  //     "authorization":"Basic ZmVhZDgwOGItZDk3ZC00MzkxLTkwYzktYzgzOWEzOThhYjVl",
+  //     "partner-token":"e8bdb75d808f43319a8dd760b1188aac"}        
+  //   }).then(res => {
+  //     console.log(res.data)
+  //     setEngine(res.data.data[0])
+  //   }) 
+  //   .catch(err => console.log(err))
+  // }, [currentVehicle.make, currentVehicle.modelName])
 
 
   return (
     <div className='selected_vehicle'>
       <h3 className="current_vehicle_title">You're currently working on:</h3>
       <div className='selected_card'>
-        <Card>
+        <Card style={{ width: "50%"}}>
           <Card.Img variant="top"/>
           {/* src={currentVehicle.picture_url} */}
           <Card.Body>
             <Card.Title>{currentVehicle.make_name} {currentVehicle.model_name} </Card.Title>
             <Card.Text>
               Year: {currentVehicle.year}
+              <br/>
+              Info :{/* {engine.split(" ").map((engineSpec) => <span>{engineSpec} </span>)} */}
             </Card.Text>
-          {/* <p>{response}</p> */}
-          {/* <p>Info : {engine.map((engineSpec) => <span>{engineSpec} </span>)} </p> */}
           </Card.Body>
         </Card>
         <Projects projects={projects} setCurrentProject={setCurrentProject} />
