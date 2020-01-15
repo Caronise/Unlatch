@@ -34,7 +34,7 @@ function SelectedVehicle({ currentVehicle, projects, setCurrentProject }) {
             <Card.Text>
               Year: {currentVehicle.year}
               <br/>
-              Info :{/* {engine.split(" ").map((engineSpec) => <span>{engineSpec} </span>)} */}
+              Info: {/* {engine.split(" ").map((engineSpec) => <span>{engineSpec} </span>)} */}
             </Card.Text>
           </Card.Body>
         </Card>

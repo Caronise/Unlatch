@@ -26,7 +26,7 @@ function Projects({ projects, setCurrentProject}) {
       <div>
         <Form.Group>
           <Form.Label className="my-project-label">My Project:</Form.Label>
-          <Form.Control className="btn-warning" onChange={handleSelection} as="select" id="project_select_form" name="project_select_form">
+          <Form.Control className="dropdown btn-warning" onChange={handleSelection} as="select" id="project_select_form" name="project_select_form">
             <option>--Please select a project--</option>
             {projects.map(project => 
             <option value={project.id}>{project.project_name}</option>)
