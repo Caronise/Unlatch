@@ -230,7 +230,7 @@ module.exports = db => {
     const values = [req.params.vehicle_id];
     db.query(text, values)
       .then(data => {
-        res.send({ message: "Vehicle Deleted" });
+        res.json({ message: "Vehicle Deleted" });
       })
       .catch(error => {
         console.log(`${error}`);
