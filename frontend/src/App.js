@@ -75,11 +75,12 @@ export default function App() {
             </main>
 
             <div>
-              {/* <ul>
+              <ul>
                 <li>
-                  <Link to="/garage">Garage</Link>
+                  <Link to="/repair_logs">Add Repair Log</Link>
                 </li>
-                <li>
+
+                {/* <li>
                   <Link to="/garage/add_vehicle">Add a vehicle</Link>
                 </li>
                 <li>
@@ -93,8 +94,9 @@ export default function App() {
                 </li>
                 <li>
                   <Link to="/repair_logs">Add repair log</Link>
-                </li>
-              </ul> */}
+                </li> */}
+
+              </ul>
             </div>
             <footer>
 
