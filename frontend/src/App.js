@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 
 import SelectedVehicle from './components/SelectedVehicle';
-import Footer from './components/Footer';
 import Garage from './components/Garage';
 import AddVehicle from './components/AddVehicle';
 import Header from './components/Header';
@@ -53,23 +51,23 @@ export default function App() {
 
             <main>
               <Switch>
-                <Route exact path='/' render={(props) => <Landing />} />
+                <Route exact path='/' render={(props) => <Landing setUser={setUser} />} />
 
                 <Route path="/login" render={(props) => <Login setUser={setUser} />} />
 
                 <Route path="/register" render={(props) => <Register setUser={setUser} />} />
 
-                <Route exact path="/garage" render={(props) => <Garage {...props} setCurrentVehicle={setCurrentVehicle} setProjects={setProjects}/>} />
+                <Route exact path="/garage" render={(props) => <Garage {...props} setUser={setUser} setCurrentVehicle={setCurrentVehicle} setProjects={setProjects}/>} />
 
-                <Route path="/garage/add_vehicle" render={(props) => <AddVehicle />} />
+                <Route path="/garage/add_vehicle" render={(props) => <AddVehicle {...props} setUser={setUser} />} />
 
-                <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />} />
+                <Route path="/garage/:vehicle_id" render={(props) => <SelectedVehicle {...props} setUser={setUser} currentVehicle={currentVehicle} projects={projects} setCurrentProject={setCurrentProject} />} />
 
-                <Route exact path="/projects" render={(props) => <Projects {...props} projects={projects} setCurrentProject={setCurrentProject} />} />
+                <Route exact path="/projects" render={(props) => <Projects {...props} setUser={setUser} projects={projects} setCurrentProject={setCurrentProject} />} />
 
                 <Route path="/projects/:project_id" render={(props) => <SelectedProject {...props} currentVehicle={currentVehicle} currentProject={currentProject} />} />
 
-                <Route path="/repair_logs" render={(props) => <AddRepairLog currentVehicle={currentVehicle} currentProject={currentProject} />} />
+                <Route path="/repair_logs" render={(props) => <AddRepairLog setUser={setUser} currentVehicle={currentVehicle} currentProject={currentProject} />} />
 
               </Switch>
             </main>
@@ -98,13 +96,6 @@ export default function App() {
 
               </ul>
             </div>
-            <footer>
-
-            <Footer setUser={setUser} />
-
-            </footer>
-
-
           </div>
         </Router>
       </VehiclesContext.Provider>

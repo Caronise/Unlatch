@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../helpers/UserContext';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { 
   Form
  } from 'react-bootstrap';
+ import Footer from '../components/Footer'
 
-function Projects({ projects, setCurrentProject}) {
+function Projects({ projects, setCurrentProject, setUser}) {
   let history = useHistory();
-  const user = useContext(UserContext);
 
   const handleSelection = (event) => {
     event.preventDefault();
@@ -34,6 +33,7 @@ function Projects({ projects, setCurrentProject}) {
           </Form.Control>
         </Form.Group>
       </div>
+      <Footer setUser={setUser} />
     </div>
   );
 };

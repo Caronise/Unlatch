@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
-import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import {
   Form
 } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import Footer from '../components/Footer'
 
-function Garage({ setCurrentVehicle, setProjects }) {
+function Garage({ setCurrentVehicle, setProjects, setUser }) {
   let history = useHistory();
   const user = useContext(UserContext);
   const vehicles = useContext(VehiclesContext);
@@ -41,6 +41,7 @@ function Garage({ setCurrentVehicle, setProjects }) {
           }
         </Form.Control>
       </Form.Group>
+      <Footer setUser={setUser} />
     </div>
   )
 } 
