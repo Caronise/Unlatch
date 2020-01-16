@@ -45,6 +45,8 @@ function SelectedProject({ currentProject }) {
 
   const deleteRepairLog = (logId) => {
 
+    console.log(logId)
+
     axios.delete(`/projects/${currentProject.id}/repair_logs/${logId}`)
       .then((result) => {
         const newLogs = repairLogs.filter(log => log.log_id !== logId);

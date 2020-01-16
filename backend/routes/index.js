@@ -323,7 +323,7 @@ module.exports = db => {
     const { project_id } = req.params;
     const query = {
       text: `
-      SELECT projects.id as id, description, mileage, timestamp, cost_of_repair FROM projects 
+      SELECT projects.id as id, repair_logs.id as log_id, description, mileage, timestamp, cost_of_repair FROM projects 
       JOIN repair_logs
       ON repair_logs.project_id = projects.id 
       WHERE project_id = $1
