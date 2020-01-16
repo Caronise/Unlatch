@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../helpers/UserContext';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { 
   Form
@@ -8,7 +7,6 @@ import {
 
 function Projects({ projects, setCurrentProject, setUser}) {
   let history = useHistory();
-  const user = useContext(UserContext);
 
   const handleSelection = (event) => {
     event.preventDefault();

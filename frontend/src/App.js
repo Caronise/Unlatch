@@ -9,7 +9,6 @@ import axios from 'axios';
 import './App.css';
 
 import SelectedVehicle from './components/SelectedVehicle';
-import Footer from './components/Footer';
 import Garage from './components/Garage';
 import AddVehicle from './components/AddVehicle';
 import Header from './components/Header';
@@ -75,11 +74,12 @@ export default function App() {
             </main>
 
             <div>
-              {/* <ul>
+              <ul>
                 <li>
-                  <Link to="/garage">Garage</Link>
+                  <Link to="/repair_logs">Add Repair Log</Link>
                 </li>
-                <li>
+
+                {/* <li>
                   <Link to="/garage/add_vehicle">Add a vehicle</Link>
                 </li>
                 <li>
@@ -93,8 +93,9 @@ export default function App() {
                 </li>
                 <li>
                   <Link to="/repair_logs">Add repair log</Link>
-                </li>
-              </ul> */}
+                </li> */}
+
+              </ul>
             </div>
           </div>
         </Router>
