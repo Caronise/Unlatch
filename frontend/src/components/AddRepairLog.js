@@ -30,28 +30,31 @@ function AddRepairLog({ currentProject }) {
 
   return (
     <div className="add_repair_log">
-      <h3>Add a repair log</h3>
+      <h3 className="repair_log_title">Add a repair log</h3>
       <Form>
-
-        <Form.Group>
-        <Form.Label>Repair Description:</Form.Label>
-        <Form.Control type="text" id="description" name="description" placeholder="Description" value={description} onChange={event => setDescription(event.target.value)}/>
-        </ Form.Group><Form.Group>
-        <Form.Label>Mileage:</Form.Label>
-        <Form.Control type="text" id="mileage" name="mileage" value={mileage} onChange={event => setMileage(event.target.value)}/>
-        </ Form.Group><Form.Group>
-        <Form.Label>Timestamp:</Form.Label>
-        <Form.Control type="text" id="timestamp" name="timestamp" value={timestamp} onChange={event => setTimestamp(event.target.value)}/>
-        </ Form.Group><Form.Group>
-        <Form.Label>Cost of repair: </Form.Label>
-        <Form.Control type="text" id="cost_of_repair" name="cost_of_repair" value={cost_of_repair} onChange={event => setCost_of_repair(event.target.value)}/>
-        </ Form.Group><Form.Group>
-        <Button variant="warning" className="add_repair_back_btn" onClick={() => history.push(`/projects/${currentProject.id}`)}>
-          Back
-        </Button>
-        <Button type="submit" variant="success" className="add_repair_btn" onClick={submitRepairLog}>
-          Submit
-        </Button>
+        <Form.Group className="add_log_forms">
+          <Form.Label className="add_label">Repair Description:</Form.Label>
+          <Form.Control type="text" id="description" name="description" placeholder="Description" value={description} onChange={event => setDescription(event.target.value)}/>
+        </ Form.Group>
+        <Form.Group className="add_log_forms">
+          <Form.Label className="add_label">Mileage:</Form.Label>
+          <Form.Control placeholder="Mileage" type="text" id="mileage" name="mileage" value={mileage} onChange={event => setMileage(event.target.value)}/>
+        </ Form.Group>
+        <Form.Group className="add_log_forms">
+          <Form.Label className="add_label">Timestamp:</Form.Label>
+          <Form.Control placeholder="Timestamp" type="text" id="timestamp" name="timestamp" value={timestamp} onChange={event => setTimestamp(event.target.value)}/>
+        </ Form.Group>
+        <Form.Group className="add_log_forms">
+          <Form.Label className="add_label">Cost of repair: </Form.Label>
+          <Form.Control placeholder="Cost of Repair" type="text" id="cost_of_repair" name="cost_of_repair" value={cost_of_repair} onChange={event => setCost_of_repair(event.target.value)}/>
+        </ Form.Group>
+        <Form.Group className="add_and_back">
+          <Button variant="warning" className="add_repair_back_btn" onClick={() => history.push(`/projects/${currentProject.id}`)}>
+            Back
+          </Button>
+          <Button type="submit" variant="success" className="add_repair_btn" onClick={submitRepairLog}>
+            Submit
+          </Button>
         </Form.Group>
       </Form>
     </div>

@@ -166,8 +166,33 @@ width:auto;
   border-style: none;
 }
 
+.add_log_forms {
+  width: 90%;
+  margin: auto;
+}
+
 .repair_delete.btn-danger {
   margin: 0% 3% 3%;
+}
+
+.add_log {
+  padding: 5% 5% 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.repair_log_title {
+  text-align: center;
+}
+
+.add_and_back{
+  padding: 5% 5% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add_label{
+ margin-left: 2.5%;
 }
 
 .footer{

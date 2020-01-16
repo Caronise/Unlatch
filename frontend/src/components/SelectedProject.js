@@ -87,9 +87,11 @@ function SelectedProject({ currentProject }) {
             </Card>
               )}
           </div>
+          <div className="add_log">
+            <Button variant="success">Log Repair</Button>
+          </div>
         </div >
       }
-
       {!loaded && <h1>Loading...</h1>}
     </>
   );
