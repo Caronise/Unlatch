@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 
 import SelectedVehicle from './components/SelectedVehicle';
-import Footer from './components/Footer';
 import Garage from './components/Garage';
 import AddVehicle from './components/AddVehicle';
 import Header from './components/Header';

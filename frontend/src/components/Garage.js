@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { UserContext, VehiclesContext } from '../helpers/UserContext';
-import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import {
   Form

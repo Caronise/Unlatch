@@ -34,7 +34,7 @@ function SelectedProject({ currentProject }) {
         setRepairLogs(all[3].data);
         setLoaded(true);
       })
-  }, []);
+  }, [currentProject]);
 
   return (
     <>
@@ -42,10 +42,10 @@ function SelectedProject({ currentProject }) {
       <div className='selected_project_page'>
         <div className='project_video'>
           <h3>{video.name} </h3>
-          <iframe width="100%" src={video.video_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe title="Intructional Video" width="100%" src={video.video_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
           <h2 className="project_label">{currentProject.project_name}</h2>
-          <Table responsive>
+          <Table responsive='sm'>
             <thead>
               <tr>
                 <th>#</th>
@@ -68,15 +68,19 @@ function SelectedProject({ currentProject }) {
           <ListGroup defaultActiveKey={instructions}>
             {instructions.map(instruction =>
               <ListGroup.Item className="btn-dark" eventKey={instructions}>
-                <a key={instruction.id}>{instruction.steps}</a>
+                <span key={instruction.id}>{instruction.steps}</span>
               </ListGroup.Item>
             )}
           </ListGroup>
           <div className='project_repair_logs'>
             <h3 className="repair-log-label">Repair Logs:</h3>
-            <Card border="success">
-              <Card.Body> {repairLogs.map(log => <span key={log.id}> {log.description} @ {log.mileage} | {log.cost_of_repair} on {log.timestamp} <br/> </span>)}</Card.Body>
+              {repairLogs.map(log =>
+            <Card bg="secondary" text="white">
+                <Card.Body>
+                  <span key={log.id}> {log.description} @ {log.mileage} | {log.cost_of_repair} on {log.timestamp} </span>
+                </Card.Body>
             </Card>
+              )}
           </div>
         </div >
       }
