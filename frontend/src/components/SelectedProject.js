@@ -103,7 +103,7 @@ function SelectedProject({ currentProject }) {
               )}
           </div>
           <div className="add_log">
-            <Button variant="success" onClick={() => history.push('/repair_logs') }>Add Repair</Button>
+            <Button variant="success" onClick={() => history.push('/repair_logs') }>Add Repair Log</Button>
           </div>
         </div >
       }
