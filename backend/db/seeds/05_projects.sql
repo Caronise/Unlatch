@@ -26,3 +26,14 @@ VALUES ('3', 'Changing the oil', 'Easy');
 
 INSERT INTO projects (vehicle_id, project_name, difficulty)
 VALUES ('3', 'Changing the brakes', 'Medium');
+
+
+--Dodge 
+INSERT INTO projects (vehicle_id, project_name, difficulty)
+VALUES ('1', 'Changing the spark plugs', 'Easy');
+
+
+--Volkswagen
+INSERT INTO projects (vehicle_id, project_name, difficulty)
+VALUES ('2', 'Water pump replacement', 'Hard');
+

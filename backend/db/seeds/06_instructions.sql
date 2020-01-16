@@ -232,3 +232,60 @@ VALUES ('6', 'Insert the new brake pads in place. Be sure that you install the o
 
 INSERT INTO instructions (project_id, steps)
 VALUES ('6', 'Re-install the caliper lower bolt, securely tighten (If it rotate freely you might need to secure the inner part with a 15mm spanner, in my case it wasn’t needed).');
+
+
+
+--Dodge head gasket 
+INSERT INTO instructions (project_id, steps)
+VALUES ('7', 'Open the Caliber hood and prop it up.');
+ 
+INSERT INTO instructions (project_id, steps)
+VALUES ('7', 'Remove one coil at a time to access the spark plugs. The Dodge Caliber uses a coil-over-plug ignition system instead of a distributor. Each coil is held on by two bolts that can be removed with a ratchet. Turn in a counterclockwise direction and then pull the coil out once the bolts are removed.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('7', 'Remove the spark plug with a ratchet. Attach a long extension and spark plug socket to the ratchet and turn counterclockwise.');
+ 
+INSERT INTO instructions (project_id, steps)
+VALUES ('7', 'Install the new spark plug in the cylinder and tighten using a normal socket (13/16 inch). A normal socket is necessary because a spark plug socket will grab onto the spark plug and get stuck in the cylinder.');
+ 
+INSERT INTO instructions (project_id, steps)
+VALUES ('7', 'Reinstall the coil on the spark plug and tighten the bolts with a ratchet.');
+
+
+--Volkswagen water pump change 
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', ' Jack up the front end of you car and put it on jackstands. Remove the lower radiator hose to drain coolant. Removing your overflow tank cap will help it flow faster. I removed the silicone hose that connects the intercooler to the throttle body pipe for more accessibility.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', 'Remove Intake Manifold, After removal the Water Pump is visible underneath the #3 injector, Remove anything that may be in your way. I was pretty liberal with moving things out of the way because I wanted easy access and better pictures. Just make sure you remember what connector goes where, or mark them if necessary. I also removed the coupler that connects the throttle body pipe to the throttle body.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', 'Remove the clamp and pull off the indicated coolant line. i stuffed a shop towel in my throttle body pipe to prevent coolant from going in it just in case.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', 'Pry off this clip with a flathead screwdriver and pull off the coolant hose. It will take some effort and some coolant may come out, so be ready.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', 'There is a t30 bolt under this hose. Remove it and pull the hose off. More engine blood comes out.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', ' There is a 2nd coolant hose at the bottom of the pump housing. It has the same c-clip that needs to be removed. It may be easier to access from under the car.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', 'There are (2) bolts holding the belt cover to the pump housing and (5) bolts holding the pump housing to the block. (2) of those are by the temp sensor and are shorter, the other (3) are longer. Remember to remove the temp sensor connector before removing the pump assembly.
+Belt cover bolts. One of the bolts is behind the coolant line. At this point the coolant line is removed from the housing so you can move it out of the way.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', '3 longer bolts. The 3rd lower bolt behind the coolant line can be seen better after doing the last step, Temp sensor and 2 shorter bolts, one on top and one below.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', ' Here is where I kind of wing it. The manual states that you need to remove the belt by loosening the balance shaft pulley down below the pump. I believe that was a 12mm bolt. You counter hold it by putting a socket wrench on the crank pulley bolt. That is a 2 person job, I could not figure out which way to turn it ,and my wrench kept slipping off, sooo I just slid the belt off of the water pump. It came off pretty easily. You can also see where the lower belt cover bolt goes in this pic, to the right of the balance shaft pulley.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', 'The housing should come off at this point. There is a connector to the oil cooler that needs to be slid off. It is orange with a black o-ring gasket on either end, and it can move radially. The manual says it should stay in the oil cooler, but when we pulled the pump off, it came off with it. We took it off the pump and put it back in the oil cooler, no problems with it.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', ' Install is the reverse of assembly. Getting the belt on and the oil cooler connector on will take some finesse. Also there are some dowels on top that locate the water pump, but they were covered in rust and would not go in readily. i lined up the pump bolts and tightened them down starting with the middle bolt, then the 2 by the temp sensor, then the other 2. Take your time and it should seal up.');
+
+INSERT INTO instructions (project_id, steps)
+VALUES ('8', 'Reattach all coolant and radiator hoses. Reinstall your intake manifold. Top off your coolant with 50/50 coolant/distilled water. Run the car up to temp, and add coolant as necessary. Check to make sure there are no leaks. Monitor for 24 hours and rejoice when coolant levels stay steady.');

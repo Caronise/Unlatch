@@ -20,3 +20,11 @@ VALUES ('5', '5W30 Synthetic Oil', '34.99', 'ACEA C3');
 
 INSERT INTO parts (project_id, part_name, price, part_number)
 VALUES('6', 'Front Brake Pads', '89.99', 'MKD1044');
+
+--Dodge 
+INSERT INTO parts (project_id, part_name, price, part_number)
+VALUES('7', 'Spark Plugs', '31.96', 'XP5224');
+
+--VW
+INSERT INTO parts (project_id, part_name, price, part_number)
+VALUES('8', 'Water Pump', '229.99', '06H121026BA')
