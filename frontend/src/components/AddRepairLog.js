@@ -39,7 +39,7 @@ function AddRepairLog({ currentProject }) {
         </ Form.Group>
         <Form.Group className="add_log_forms">
           <Form.Label className="add_label">Date of Repair:</Form.Label>
-          <Form.Control placeholder="Date of Repair" type="text" id="timestamp" name="timestamp" value={timestamp} onChange={event => setTimestamp(event.target.value)}/>
+          <Form.Control placeholder="DD/MM/YY" type="text" id="timestamp" name="timestamp" value={timestamp} onChange={event => setTimestamp(event.target.value)}/>
         </ Form.Group>
         <Form.Group className="add_log_forms">
           <Form.Label className="add_label">Cost of repair: </Form.Label>
