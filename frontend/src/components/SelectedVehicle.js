@@ -14,14 +14,14 @@ function SelectedVehicle({ currentVehicle, projects, setCurrentProject, setUser 
     const url = `http://api.carmd.com/v3.0/engine?year=${currentVehicle.year}&make=${currentVehicle.make_name}&model=${currentVehicle.model_name}`
     axios.get(url, { headers: {
       "content-type":"application/json",
-      "authorization":"Basic ZmVhZDgwOGItZDk3ZC00MzkxLTkwYzktYzgzOWEzOThhYjVl",
-      "partner-token":"e8bdb75d808f43319a8dd760b1188aac"}        
+      "authorization":"Basic NDJiYTc5OTYtODMzYS00OGQyLWI1MWYtYTE1ZjRkMGFlMmFh",
+      "partner-token":"619470ec80a04e6aa882d0e8a7f31c4d"}        
     }).then(res => {
       console.log(res.data)
       setEngine(res.data.data[0])
     }) 
     .catch(err => console.log(err))
-  }, [currentVehicle.make, currentVehicle.modelName])
+  }, [currentVehicle.make_name, currentVehicle.model_name])
 
 
   return (
