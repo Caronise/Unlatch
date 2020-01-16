@@ -179,6 +179,7 @@ width:auto;
   padding: 5% 5% 0;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 5%;
 }
 
 .repair_log_title {

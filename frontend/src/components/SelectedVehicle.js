@@ -10,18 +10,18 @@ import Footer from '../components/Footer'
 function SelectedVehicle({ currentVehicle, projects, setCurrentProject, setUser }) {
   const [engine, setEngine] = useState("")
 
-  // useEffect( () => {
-  //   const url = `http://api.carmd.com/v3.0/engine?year=${currentVehicle.year}&make=${currentVehicle.make_name}&model=${currentVehicle.model_name}`
-  //   axios.get(url, { headers: {
-  //     "content-type":"application/json",
-  //     "authorization":"Basic ZmVhZDgwOGItZDk3ZC00MzkxLTkwYzktYzgzOWEzOThhYjVl",
-  //     "partner-token":"e8bdb75d808f43319a8dd760b1188aac"}        
-  //   }).then(res => {
-  //     console.log(res.data)
-  //     setEngine(res.data.data[0])
-  //   }) 
-  //   .catch(err => console.log(err))
-  // }, [currentVehicle.make, currentVehicle.modelName])
+  useEffect( () => {
+    const url = `http://api.carmd.com/v3.0/engine?year=${currentVehicle.year}&make=${currentVehicle.make_name}&model=${currentVehicle.model_name}`
+    axios.get(url, { headers: {
+      "content-type":"application/json",
+      "authorization":"Basic ZmVhZDgwOGItZDk3ZC00MzkxLTkwYzktYzgzOWEzOThhYjVl",
+      "partner-token":"e8bdb75d808f43319a8dd760b1188aac"}        
+    }).then(res => {
+      console.log(res.data)
+      setEngine(res.data.data[0])
+    }) 
+    .catch(err => console.log(err))
+  }, [currentVehicle.make, currentVehicle.modelName])
 
 
   return (
@@ -35,7 +35,7 @@ function SelectedVehicle({ currentVehicle, projects, setCurrentProject, setUser 
             <Card.Text>
               Year: {currentVehicle.year}
               <br/>
-              Info: {/* {engine.split(" ").map((engineSpec) => <span>{engineSpec} </span>)} */}
+              Info: {engine.split(" ").map((engineSpec) => <span>{engineSpec}</span>)}
             </Card.Text>
           </Card.Body>
         </Card>
