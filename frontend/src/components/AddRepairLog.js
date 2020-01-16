@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import {
+  Form,
+  Button
+} from 'react-bootstrap';
 
 
 function AddRepairLog({ currentProject }) {
@@ -27,17 +31,29 @@ function AddRepairLog({ currentProject }) {
   return (
     <div className="add_repair_log">
       <h3>Add a repair log</h3>
-      <p>Repair Description: </p>
-      <textarea id="description" name="description" rows="1" cols="25" value={description} onChange={event => setDescription(event.target.value)}> </textarea>
-      <p>Mileage: </p>
-      <textarea id="mileage" name="mileage" rows="1" cols="25" value={mileage} onChange={event => setMileage(event.target.value)}> </textarea>
-      <p>Timestamp: </p>
-      <textarea id="timestamp" name="timestamp" rows="1" cols="25" value={timestamp} onChange={event => setTimestamp(event.target.value)}> </textarea>
-      <p>Cost of repair: </p>
-      <textarea id="cost_of_repair" name="cost_of_repair" rows="1" cols="25" value={cost_of_repair} onChange={event => setCost_of_repair(event.target.value)}> </textarea>
-      <br />
-      <button className="add_repair_back_btn" onClick={() => history.push(`/projects/${currentProject.id}`)}>Back</button>
-      <button className="add_repair_btn" onClick={submitRepairLog}>Submit</button>
+      <Form>
+
+        <Form.Group>
+        <Form.Label>Repair Description:</Form.Label>
+        <Form.Control type="text" id="description" name="description" placeholder="Description" value={description} onChange={event => setDescription(event.target.value)}/>
+        </ Form.Group><Form.Group>
+        <Form.Label>Mileage:</Form.Label>
+        <Form.Control type="text" id="mileage" name="mileage" value={mileage} onChange={event => setMileage(event.target.value)}/>
+        </ Form.Group><Form.Group>
+        <Form.Label>Timestamp:</Form.Label>
+        <Form.Control type="text" id="timestamp" name="timestamp" value={timestamp} onChange={event => setTimestamp(event.target.value)}/>
+        </ Form.Group><Form.Group>
+        <Form.Label>Cost of repair: </Form.Label>
+        <Form.Control type="text" id="cost_of_repair" name="cost_of_repair" value={cost_of_repair} onChange={event => setCost_of_repair(event.target.value)}/>
+        </ Form.Group><Form.Group>
+        <Button variant="warning" className="add_repair_back_btn" onClick={() => history.push(`/projects/${currentProject.id}`)}>
+          Back
+        </Button>
+        <Button type="submit" variant="success" className="add_repair_btn" onClick={submitRepairLog}>
+          Submit
+        </Button>
+        </Form.Group>
+      </Form>
     </div>
   );
 }

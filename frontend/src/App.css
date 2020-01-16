@@ -159,8 +159,15 @@ width:auto;
   margin-left: 2.5%;
 }
 
-.btn-dark.list-group-item {
+.list_dark.list-group-item.active {
   margin: 1% 0%;
+  text-align: justify;
+  background: #343A41;
+  border-style: none;
+}
+
+.repair_delete.btn-danger {
+  margin: 0% 3% 3%;
 }
 
 .footer{

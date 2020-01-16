@@ -3,8 +3,12 @@ import axios from 'axios';
 import {
   Table,
   ListGroup,
-  Card
+  Card,
+  Button
 } from 'react-bootstrap';
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import moment from 'moment';
 
 function SelectedProject({ currentProject }) {
   const [loaded, setLoaded] = useState(false);
@@ -67,7 +71,7 @@ function SelectedProject({ currentProject }) {
           <h5 className="instructions_label">Repair Difficulty -> <strong>{currentProject.difficulty}</strong></h5>
           <ListGroup defaultActiveKey={instructions}>
             {instructions.map(instruction =>
-              <ListGroup.Item className="btn-dark" eventKey={instructions}>
+              <ListGroup.Item className="list_dark" eventKey={instructions}>
                 <span key={instruction.id}>{instruction.steps}</span>
               </ListGroup.Item>
             )}
@@ -75,10 +79,11 @@ function SelectedProject({ currentProject }) {
           <div className='project_repair_logs'>
             <h3 className="repair-log-label">Repair Logs:</h3>
               {repairLogs.map(log =>
-            <Card bg="secondary" text="white">
+            <Card className="repair_log" border="light" bg="dark" text="white">
                 <Card.Body>
-                  <span key={log.id}> {log.description} @ {log.mileage} | {log.cost_of_repair} on {log.timestamp} </span>
+                  <span key={log.id}> {log.description} <br/> Mileage: {log.mileage} miles <br/> Cost: {log.cost_of_repair} <br/> {moment(log.timestamp).format('LL')}; </span>
                 </Card.Body>
+                <Button className="repair_delete" variant="danger"><FontAwesomeIcon icon={faTrashAlt} /></Button>
             </Card>
               )}
           </div>
