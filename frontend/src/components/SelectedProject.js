@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import {
   Table,
   ListGroup,
@@ -11,6 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import moment from 'moment';
 
 function SelectedProject({ currentProject }) {
+  let history = useHistory();
+
   const [loaded, setLoaded] = useState(false);
   const [parts, setParts] = useState(null);
   const [instructions, setInstructions] = useState([]);
@@ -39,6 +42,16 @@ function SelectedProject({ currentProject }) {
         setLoaded(true);
       })
   }, [currentProject]);
+
+  const deleteRepairLog = (logId) => {
+
+    axios.delete(`/projects/${currentProject.id}/repair_logs/${logId}`)
+      .then((result) => {
+        const newLogs = repairLogs.filter(log => log.log_id !== logId);
+        setRepairLogs(newLogs);
+      })
+      .catch(err => console.log(err))
+  };
 
   return (
     <>
@@ -81,14 +94,14 @@ function SelectedProject({ currentProject }) {
               {repairLogs.map(log =>
             <Card className="repair_log" border="light" bg="dark" text="white">
                 <Card.Body>
-                  <span key={log.id}> {log.description} <br/> Mileage: {log.mileage} miles <br/> Cost: {log.cost_of_repair} <br/> {moment(log.timestamp).format('LL')}; </span>
+                  <span key={log.log_id}> {log.description} <br/> Mileage: {log.mileage} miles <br/> Cost: {log.cost_of_repair} <br/> {moment(log.timestamp).format('LL')}; </span>
                 </Card.Body>
-                <Button className="repair_delete" variant="danger"><FontAwesomeIcon icon={faTrashAlt} /></Button>
+                <Button className="repair_delete" variant="danger" onClick={(event) => deleteRepairLog(log.log_id)}><FontAwesomeIcon icon={faTrashAlt} /></Button>
             </Card>
               )}
           </div>
           <div className="add_log">
-            <Button variant="success">Log Repair</Button>
+            <Button variant="success" onClick={() => history.push('/repair_logs') }>Add Repair</Button>
           </div>
         </div >
       }
