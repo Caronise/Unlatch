@@ -15,6 +15,8 @@ Unlatch that allows a user to keep track of the maintenance done to their vehicl
 !["Screenshot of Garage Page"]()
 !["Screenshot of Selected Vehicle Page"]()
 !["Screenshot of Selected Project Page"]()
+!["Screenshot of Repair Logs Page"]()
+!["Screenshot of Add Repair Log Page"]()
 
 
 ## Getting Started
