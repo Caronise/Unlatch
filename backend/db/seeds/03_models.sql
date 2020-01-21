@@ -543,7 +543,7 @@ INSERT INTO models (make_id, model_name)
 VALUES ('13', 'Golf');
 
 INSERT INTO models (make_id, model_name)
-VALUES ('13', 'Golf GTI');
+VALUES ('13', 'GTI');
 
 INSERT INTO models (make_id, model_name)
 VALUES ('13', 'Golf R');
