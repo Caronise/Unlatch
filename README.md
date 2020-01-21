@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Unlatch - Mobile View (Iphone X)
+
+### Main Contributors: [Russell Cape](https://github.com/russellcape), [Slav Lalev](https://github.com/slav120), [Lucas Betancourt](https://github.com/Caronise)
+
+
+## Overview
+
+Unlatch that allows a user to keep track of the maintenance done to their vehicles. Each individual vehicle has a video, parts required, instructions and repair logs. User can add and delete repair logs. This application is better viewed as a mobile device since it was meant to be used primarily on a cellphone.
+
+
+## Final Product
+
+!["Screenshot of Landing Page"]()
+!["Screenshot of Login Page"]()
+!["Screenshot of Garage Page"]()
+!["Screenshot of Selected Vehicle Page"]()
+!["Screenshot of Selected Project Page"]()
+
+
+## Getting Started
+
+1. Fork this repository, then clone your fork of this repository.
+2. Install dependencies using the `npm install` command in both the "frontend" folder as well as the "backend" folder.
+3. Start the web server using the `npm run local` command while in the "backend" folder. You will also need to start the client by navigating to the "frontend" folder and running the `npm start` command there. The app will be served at <http://localhost:3002/>.
+4. Go to <http://localhost:3002/> in your browser.
+
+
+## Tech Stack
+
+- Axios
+- Express
+- Node
+- PostgreSQL
+- Bootstrap
+- React
+- React Router
+
+
+## Contact the Contributors
+
+Questions? Comments? Want to contribute to this? Feel free to contact any of the contributors of this repo. 
+
+
+*Last updated January 21, 2020*
+
+
+This project was created with: 
+[Create React App](https://github.com/facebook/create-react-app) and
+[Express-Generator](https://github.com/expressjs/generator)
+
 
 ## Available Scripts
 
-In the project directory, you can run:
+### Frontend folder: 
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3002](http://localhost:3002) to view it in the browser.
 
 The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+### Backend Folder:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `npm run local`
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Launches the api for the application.<br />
+Open [http://localhost:8000](http://localhost:8000) to view endpoints / make route queries.
