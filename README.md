@@ -5,7 +5,7 @@
 
 ## Overview
 
-Unlatch that allows a user to keep track of the maintenance done to their vehicles. Each individual vehicle has a video, parts required, instructions and repair logs. User can add and delete repair logs. This application is better viewed as a mobile device since it was meant to be used primarily on a cellphone.
+Unlatch is an app that allows a user to keep track of the maintenance done to their vehicles. Each individual vehicle has a video, parts required, instructions and repair logs. User can add and delete repair logs. This application is better viewed as a mobile device since it was meant to be used primarily on a cellphone.
 
 
 ## Final Product
